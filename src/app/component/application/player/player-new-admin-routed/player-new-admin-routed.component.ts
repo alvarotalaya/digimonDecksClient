@@ -7,11 +7,11 @@ import { PlayerService } from 'src/app/service/player.service';
 declare let bootstrap: any;
 
 @Component({
-  selector: 'app-player-edit-admin-routed',
-  templateUrl: './player-edit-admin-routed.component.html',
-  styleUrls: ['./player-edit-admin-routed.component.css']
+  selector: 'app-player-new-admin-routed',
+  templateUrl: './player-new-admin-routed.component.html',
+  styleUrls: ['./player-new-admin-routed.component.css']
 })
-export class PlayerEditAdminRoutedComponent implements OnInit {
+export class PlayerNewAdminRoutedComponent implements OnInit {
 
   id: number = 0;
   oPlayer: IPlayer = null;
@@ -25,29 +25,17 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
 
   constructor(
     private oRouter: Router,
-    private oActivatedRoute: ActivatedRoute,
     private oPlayerService: PlayerService,
     private oFormBuilder: FormBuilder
   ) {
-    this.id = oActivatedRoute.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.getOne();
-  }
-
-  getOne() {
-    this.oPlayerService.getOne(this.id).subscribe({
-      next: (data: IPlayer) => {
-        this.oPlayer = data;
-        console.log(data);
-        this.oForm = <FormGroup>this.oFormBuilder.group({
-          id: [data.id, [Validators.required]],
-          name: [data.name, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-          email: [data.email, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-        });
-      }
-    })
+    this.oForm = <FormGroup>this.oFormBuilder.group({
+      id: [''],
+      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+    });
   }
 
   onSubmit() {
@@ -57,30 +45,30 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
       name: new FormControl(this.oForm.value.name),
       email: new FormControl(this.oForm.value.email),
       usertype: new FormControl({
-        id: this.oPlayer.usertype.id
+        id: 1
       })
     }
     if (this.oForm.valid) {
-      this.oPlayerService.updateOne(this.oPlayer2Form).subscribe({
+      this.oPlayerService.newOne(this.oPlayer2Form).subscribe({
         next: (data: number) => {
           //open bootstrap modal here
-          this.modalTitle="DIGIMONDECKS";
-          this.modalContent="Player " + this.id + " updated";
-          this.showModal();
+          this.modalTitle = "DIGIMONDECKS";
+          this.modalContent = "Player " + data + " created";
+          this.showModal(data);
         }
       })
     }
+
   }
 
-  showModal = () => {
+  showModal = (data) => {
     this.myModal = new bootstrap.Modal(document.getElementById(this.mimodal), { //pasar el myModal como parametro
       keyboard: false
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/player/view', this.id])
+      this.oRouter.navigate(['/admin/player/view', data])
     })
     this.myModal.show()
   }
-
 }

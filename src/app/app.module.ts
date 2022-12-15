@@ -17,6 +17,7 @@ import { PlayerPlistAdminRoutedComponent } from './component/application/player/
 import { PlayerViewAdminRoutedComponent } from './component/application/player/player-view-admin-routed/player-view-admin-routed.component';
 import { PlayerRemoveAdminRoutedComponent } from './component/application/player/player-remove-admin-routed/player-remove-admin-routed.component';
 import { PlayerEditAdminRoutedComponent } from './component/application/player/player-edit-admin-routed/player-edit-admin-routed.component';
+import { PlayerNewAdminRoutedComponent } from './component/application/player/player-new-admin-routed/player-new-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PlayerEditAdminRoutedComponent } from './component/application/player/p
     PlayerPlistAdminRoutedComponent,
     PlayerViewAdminRoutedComponent,
     PlayerRemoveAdminRoutedComponent,
-    PlayerEditAdminRoutedComponent
+    PlayerEditAdminRoutedComponent,
+    PlayerNewAdminRoutedComponent
   ],
   imports: [
     BrowserModule,
