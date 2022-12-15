@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaginationUnroutedComponent } from './component/shared/unrouted/pagination-unrouted/pagination-unrouted.component';
 import { PaginationService } from './service/pagination.service';
 import { PlayerPlistAdminRoutedComponent } from './component/application/player/player-plist-admin-routed/player-plist-admin-routed.component';
+import { PlayerViewAdminRoutedComponent } from './component/application/player/player-view-admin-routed/player-view-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PlayerPlistAdminRoutedComponent } from './component/application/player/
     DropdownRegisterPageComponent,
     PaginationUnroutedComponent,
     PlayerPlistAdminRoutedComponent,
+    PlayerViewAdminRoutedComponent,
   ],
   imports: [
     BrowserModule,
