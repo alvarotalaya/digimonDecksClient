@@ -35,7 +35,12 @@ export class PlayerService {
       return this.oHttp.get<IPage<IPlayer>>(this.url, { params: params });
     }
     
-      getOne(id: number): Observable<IPlayer> {
-        return this.oHttp.get<IPlayer>(this.url + "/" + id);
-      }
+    getOne(id: number): Observable<IPlayer> {
+      return this.oHttp.get<IPlayer>(this.url + "/" + id);
+    }
+
+    removeOne(id: number): Observable<number> {
+      return this.oHttp.delete<number>(this.url + '/' + id);
+    }
+
 }
