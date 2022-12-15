@@ -17,6 +17,6 @@ export interface UsertypeResponse {
 export interface Usertype {
     id:         number;
     name:       string;
-    developers: number;
+    players:    number;
 }
 
