@@ -4,7 +4,7 @@
       <h1 class="text-center mb-5">Player's list</h1>      
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
         <a [routerLink]="['/admin/player/new']" class="btn btn-primary mx-3">Alta de player</a>
-        <app-search-unrouted [placeHolder]="'Buscar player'" (onSearch)="setFilter( $event )"></app-search-unrouted>
+        <app-search-unrouted [placeHolder]="'Player Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
           (eeRpp)="this.setRpp($event)">
         </app-dropdown-register-page>

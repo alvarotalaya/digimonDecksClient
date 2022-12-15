@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IPlayer } from '../model/player-interface';
 import { IPage } from '../model/generic-types-interface';
+import { IPlayer2Form, IPlayer2Send } from 'src/app/model/player-interface';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,16 @@ export class PlayerService {
 
     removeOne(id: number): Observable<number> {
       return this.oHttp.delete<number>(this.url + '/' + id);
+    }
+
+    updateOne(oPlayer2Form: IPlayer2Form): Observable<number> {
+      let oPlayer2Send: IPlayer2Send = {
+        id: oPlayer2Form.id.value,
+        name: oPlayer2Form.name.value,
+        email: oPlayer2Form.email.value,
+        usertype: oPlayer2Form.usertype.value
+      }
+      return this.oHttp.put<number>(this.url, oPlayer2Send);
     }
 
 }

@@ -16,6 +16,7 @@ import { PaginationService } from './service/pagination.service';
 import { PlayerPlistAdminRoutedComponent } from './component/application/player/player-plist-admin-routed/player-plist-admin-routed.component';
 import { PlayerViewAdminRoutedComponent } from './component/application/player/player-view-admin-routed/player-view-admin-routed.component';
 import { PlayerRemoveAdminRoutedComponent } from './component/application/player/player-remove-admin-routed/player-remove-admin-routed.component';
+import { PlayerEditAdminRoutedComponent } from './component/application/player/player-edit-admin-routed/player-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PlayerRemoveAdminRoutedComponent } from './component/application/player
     PaginationUnroutedComponent,
     PlayerPlistAdminRoutedComponent,
     PlayerViewAdminRoutedComponent,
-    PlayerRemoveAdminRoutedComponent
+    PlayerRemoveAdminRoutedComponent,
+    PlayerEditAdminRoutedComponent
   ],
   imports: [
     BrowserModule,
