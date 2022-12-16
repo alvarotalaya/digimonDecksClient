@@ -25,7 +25,7 @@ export class SessionService {
     ) { }
 
     login(strLogin: string, strPassword: string): Observable<any> {
-        const loginData = JSON.stringify({ username: strLogin, password: this.oCryptoService.getSHA256(strPassword) });
+        const loginData = JSON.stringify({ email: strLogin, password: this.oCryptoService.getSHA256(strPassword) });
         return this.oHttpClient.post<String>(this.sURL, loginData, this.httpOptions);
     }
 
