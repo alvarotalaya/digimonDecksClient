@@ -54,14 +54,14 @@ export class PlayerService {
       return this.oHttp.put<number>(this.url, oPlayer2Send);
     }
 
-    newOne(oPlayer2Form: IPlayer2Form): Observable<number> {
+    newOne(oPlayer2Form: IPlayer2Form): Observable<number> {    
       let oPlayer2Send: IPlayer2Send = {
-        id: oPlayer2Form.id.value,
+        id: 0,
         name: oPlayer2Form.name.value,
         email: oPlayer2Form.email.value,
         usertype: oPlayer2Form.usertype.value
       }
-      return this.oHttp.put<number>(this.url, oPlayer2Send);
+      return this.oHttp.post<number>(this.url, oPlayer2Send);
     }
 
 }

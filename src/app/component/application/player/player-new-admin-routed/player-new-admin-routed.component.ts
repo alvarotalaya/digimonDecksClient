@@ -33,7 +33,7 @@ export class PlayerNewAdminRoutedComponent implements OnInit {
   ngOnInit() {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [''],
-      name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     });
   }
