@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { API_URL, environment, httpOptions } from 'src/environments/environment';
 import { IPlayer } from '../model/player-interface';
 import { IPage } from '../model/generic-types-interface';
 import { IPlayer2Form, IPlayer2Send } from 'src/app/model/player-interface';
@@ -15,7 +15,7 @@ export class PlayerService {
      url: string = ""
 
     constructor(private oHttp: HttpClient) {
-        this.url = `${environment.baseURL}${this.entityURL}`;
+        this.url = `${API_URL}${this.entityURL}`;
     }
 
     getPlayersPlist(page: number, size: number, termino: string, id_usertype: number, strSortField: string, strOrderDirection: string): Observable<IPage<IPlayer>> {

@@ -45,7 +45,7 @@ export class PlayerNewAdminRoutedComponent implements OnInit {
       name: new FormControl(this.oForm.value.name),
       email: new FormControl(this.oForm.value.email),
       usertype: new FormControl({
-        id: 1
+        id: 2
       })
     }
     if (this.oForm.valid) {

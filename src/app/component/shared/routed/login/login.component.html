@@ -1,46 +1,53 @@
-<div class="container-fluid">
-  <div class="row d-flex justify-content-center align-items-center m-5">
-    <div class="col-md-9 col-lg-6 col-xl-5 text-center">
-      <div><i style="font-size: 20em;" class="fa-solid fa-user"></i></div>
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-5 text-center">
+            <div class="bg-light mt-5 p-5">
+                <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="row g-3">
+                    <h4><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>Login</h4>
+                    <div class="col-12 text-start">
+                        <label for="email" class="form-label">Player's email</label>
+                        <div class="input-group has-validation">
+                            <input type="text" formControlName="email" id="email" class="form-control"
+                                placeholder="Nombre de usuario"
+                                [class.is-invalid]="formularioLogin.get('email')!.dirty && formularioLogin.get('email')!.invalid">
+                            <div class="invalid-feedback"
+                                *ngIf="!formularioLogin.get('email').errors?.['minlength'] || formularioLogin.get('email').dirty">
+                                La longitud mínima es 5
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 text-start">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" formControlName="password" id="password" name="password"
+                            class="form-control" placeholder="Contraseña"
+                            [class.is-invalid]="formularioLogin.get('password')!.dirty && formularioLogin.get('password')!.invalid"
+                            required>
+                        <div class="invalid-feedback"
+                            *ngIf="!formularioLogin.get('password').errors?.['required'] || formularioLogin.get('password').dirty">
+                            Por favor introduce la contraseña</div>
+                        <div class="invalid-feedback"
+                            *ngIf="!formularioLogin.get('password').errors?.['minlength'] || formularioLogin.get('password').dirty">
+                            La longitud mínima es 5
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="control-group text-center mt-3">
+                            <button type="submit" class="btn btn-primary"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>
+                                Acceder</button>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="control-group text-center mt-3">
+                            <button class="btn btn-danger m-2" (click)="loginAdmin()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i> admin/DigimonDecks</button>
+                            <button class="btn btn-success m-2" (click)="loginUser()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i> user/DigimonDecks</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
     </div>
-    <div class="col-md-8 col-lg-6 col-xl-7">
-
-      <form style="width:fit-content" [formGroup]="oFormularioLogin">
-        
-        <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-          <p class="lead fw-normal mb-5 me-3">Sign in with:</p>
-        </div>
-
-        <!-- email input -->
-        <div class="form-outline mb-4">
-          <input type="text" id="email" class="form-control form-control-lg"
-            placeholder="Enter a email" name="email" formControlName="email" />
-          <label class="form-label" for="login">Email</label>
-        </div>
-
-        <!-- Password input -->
-        <div class="form-outline mb-3">
-          <input type="password" id="password" class="form-control form-control-lg" placeholder="Enter password" name="password" formControlName="email" />
-          <label class="form-label" for="password">Password</label>
-        </div>
-
-        <div class="text-center text-lg-start mt-4 pt-2">
-          <button type="button" class="btn btn-primary btn-lg"
-            style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="login()">Login</button>
-        </div>
-
-        <div class="text-center text-lg-start mt-4 pt-2">
-          <button type="button" class="btn btn-warning btn-lg"
-            style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="loginAsAdmin()">Login as admin</button>
-        </div>
-
-      </form>
-    </div>
-  </div>
-</div>
-<div
-  class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-  <div class="text-white mb-3 mb-md-0">
-    MIT licensed 2022.
-  </div>
 </div>
