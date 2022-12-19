@@ -50,7 +50,6 @@ export class LoginComponent implements OnInit {
     console.log("login:onSubmit: ", loginData);
     this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
       localStorage.setItem("player", JSON.stringify(data.toString()));
-      console.log(localStorage)
       if (data != null) {
         this.oRouter.navigate(['/','home']);
       } else {

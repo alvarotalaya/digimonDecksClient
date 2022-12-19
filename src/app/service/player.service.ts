@@ -33,15 +33,15 @@ export class PlayerService {
           params = params.set("sort", strSortField);
         }
       }
-      return this.oHttp.get<IPage<IPlayer>>(this.url, { params: params });
+      return this.oHttp.get<IPage<IPlayer>>(this.url, {withCredentials:true, params: params });
     }
     
     getOne(id: number): Observable<IPlayer> {
-      return this.oHttp.get<IPlayer>(this.url + "/" + id);
+      return this.oHttp.get<IPlayer>(this.url + "/" + id, {withCredentials:true});
     }
 
     removeOne(id: number): Observable<number> {
-      return this.oHttp.delete<number>(this.url + '/' + id);
+      return this.oHttp.delete<number>(this.url + '/' + id,  {withCredentials:true});
     }
 
     updateOne(oPlayer2Form: IPlayer2Form): Observable<number> {
@@ -51,7 +51,7 @@ export class PlayerService {
         email: oPlayer2Form.email.value,
         usertype: oPlayer2Form.usertype.value
       }
-      return this.oHttp.put<number>(this.url, oPlayer2Send);
+      return this.oHttp.put<number>(this.url, oPlayer2Send,  {withCredentials:true});
     }
 
     newOne(oPlayer2Form: IPlayer2Form): Observable<number> {    
@@ -61,7 +61,7 @@ export class PlayerService {
         email: oPlayer2Form.email.value,
         usertype: oPlayer2Form.usertype.value
       }
-      return this.oHttp.post<number>(this.url, oPlayer2Send);
+      return this.oHttp.post<number>(this.url, oPlayer2Send, {withCredentials:true});
     }
 
 }
