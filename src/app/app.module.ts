@@ -20,6 +20,7 @@ import { PlayerViewAdminRoutedComponent } from './component/application/player/r
 import { PlayerRemoveAdminRoutedComponent } from './component/application/player/routed/player-remove-admin-routed/player-remove-admin-routed.component';
 import { PlayerEditAdminRoutedComponent } from './component/application/player/routed/player-edit-admin-routed/player-edit-admin-routed.component';
 import { PlayerNewAdminRoutedComponent } from './component/application/player/routed/player-new-admin-routed/player-new-admin-routed.component';
+import { PlayerDetailAdminUnroutedComponent } from './component/application/player/unrouted/player-detail-admin-unrouted/player-detail-admin-unrouted.component';
 import { UsertypeFinderAdminUnroutedComponent } from './component/application/usertype/unrouted/usertype-finder-admin-unrouted/usertype-finder-admin-unrouted.component';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { UsertypeFinderAdminUnroutedComponent } from './component/application/us
     PlayerRemoveAdminRoutedComponent,
     PlayerEditAdminRoutedComponent,
     PlayerNewAdminRoutedComponent,
+    PlayerDetailAdminUnroutedComponent,
     UsertypeFinderAdminUnroutedComponent,
   ],
   imports: [

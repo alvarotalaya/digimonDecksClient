@@ -13,7 +13,7 @@ export interface IPlayer2Form {
     id:          FormControl<number>;
     name:        FormControl<string>;
     email:       FormControl<string>;
-    usertype:    FormControl<IEntity>;
+    idusertype:    FormControl<number>;
 }
 export interface IPlayer2Send {
     id:          number;

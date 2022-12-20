@@ -16,6 +16,7 @@ export class PlayerNewAdminRoutedComponent implements OnInit {
   id: number = 0;
   oPlayer: IPlayer = null;
   oPlayer2Form: IPlayer2Form = null;
+  oPlayer2Send: IPlayer2Send = null;
   oForm: FormGroup<IPlayer2Form>;
   // modal
   mimodal: string = "miModal";
@@ -35,6 +36,7 @@ export class PlayerNewAdminRoutedComponent implements OnInit {
       id: [''],
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      idusertype: [[Validators.required, Validators.pattern(/^\d{1,6}$/)]]
     });
   }
 
@@ -44,12 +46,10 @@ export class PlayerNewAdminRoutedComponent implements OnInit {
       id: new FormControl(this.oForm.value.id),
       name: new FormControl(this.oForm.value.name),
       email: new FormControl(this.oForm.value.email),
-      usertype: new FormControl({
-        id: 2
-      })
+      idusertype: new FormControl(this.oForm.value.idusertype)
     }
     if (this.oForm.valid) {
-      this.oPlayerService.newOne(this.oPlayer2Form).subscribe({
+      this.oPlayerService.newOne(this.oPlayer2Send).subscribe({
         next: (data: number) => {
           //open bootstrap modal here
           this.modalTitle = "DIGIMONDECKS";

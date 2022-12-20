@@ -44,23 +44,11 @@ export class PlayerService {
       return this.oHttp.delete<number>(this.url + '/' + id,  {withCredentials:true});
     }
 
-    updateOne(oPlayer2Form: IPlayer2Form): Observable<number> {
-      let oPlayer2Send: IPlayer2Send = {
-        id: oPlayer2Form.id.value,
-        name: oPlayer2Form.name.value,
-        email: oPlayer2Form.email.value,
-        usertype: oPlayer2Form.usertype.value
-      }
+    updateOne(oPlayer2Send: IPlayer2Send): Observable<number> {
       return this.oHttp.put<number>(this.url, oPlayer2Send,  {withCredentials:true});
     }
 
-    newOne(oPlayer2Form: IPlayer2Form): Observable<number> {    
-      let oPlayer2Send: IPlayer2Send = {
-        id: 0,
-        name: oPlayer2Form.name.value,
-        email: oPlayer2Form.email.value,
-        usertype: oPlayer2Form.usertype.value
-      }
+    newOne(oPlayer2Send: IPlayer2Send): Observable<number> {    
       return this.oHttp.post<number>(this.url, oPlayer2Send, {withCredentials:true});
     }
 

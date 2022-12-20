@@ -56,7 +56,37 @@
               El campo es obligatorio.
             </div>
           </div>
-        </div>`
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputUsertype" class="col-sm-2 col-form-label">Usertype</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">{{UsertypeDescription}}</span>
+              <input type="text" class="form-control" formControlName="idusertype"
+
+
+              (keyup)="updateUsertypeDescription(oForm.controls.idusertype.value)"
+
+              [ngClass]="{'is-valid' :
+              oForm.controls.idusertype.dirty && !oForm.controls.idusertype.errors?.['required'] &&
+               !oForm.controls.idusertype.errors?.['pattern'] && !oForm.controls.idusertype.errors?.['incorrect'],
+                'is-invalid' :  (oForm.controls.idusertype.dirty &&  oForm.controls.idusertype.errors?.['required'] )
+                ||
+                ( oForm.controls.idusertype.dirty &&  oForm.controls.idusertype.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindUsertype()">Search</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.idusertype.dirty &&  oForm.controls.idusertype.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.idusertype.dirty &&  oForm.controls.idusertype.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
         <button type="submit" class="btn btn-primary"
           [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
 
@@ -66,21 +96,21 @@
   </div>
 </div>
 
-<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              
-              {{modalContent}}
-              
-          </div>
-          <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
+<div class="modal fade" id="findusertype" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+
+        <app-usertype-finder-admin-unrouted (closeEvent)="closeUsertypeModal($event)"></app-usertype-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
   </div>
 </div>

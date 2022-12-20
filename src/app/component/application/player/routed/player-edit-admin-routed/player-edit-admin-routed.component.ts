@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { IPlayer } from 'src/app/model/player-interface';
 import { PlayerService } from 'src/app/service/player.service';
+import { UsertypeService } from 'src/app/service/usertype.service';
+import { IUsertype } from 'src/app/model/usertype-interface';
 declare let bootstrap: any;
 
 @Component({
@@ -16,18 +18,22 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
   id: number = 0;
   oPlayer: IPlayer = null;
   oPlayer2Form: IPlayer2Form = null;
+  oPlayer2Send: IPlayer2Send = null;
   oForm: FormGroup<IPlayer2Form>;
   // modal
   mimodal: string = "miModal";
   myModal: any;
   modalTitle: string = "";
   modalContent: string = "";
+  // foreigns
+  UsertypeDescription: string = "";
 
   constructor(
     private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
     private oPlayerService: PlayerService,
-    private oFormBuilder: FormBuilder
+    private oFormBuilder: FormBuilder,
+    private oUsertypeService: UsertypeService,
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
   }
@@ -45,8 +51,9 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
           id: [data.id, [Validators.required]],
           name: [data.name, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
           email: [data.email, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
-          usertype: [data.usertype, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]]
+          idusertype: [data.usertype.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
         });
+        this.updateUsertypeDescription(this.oPlayer.usertype.id);
       }
     })
   }
@@ -57,12 +64,10 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
       id: new FormControl(this.oForm.value.id),
       name: new FormControl(this.oForm.value.name),
       email: new FormControl(this.oForm.value.email),
-      usertype: new FormControl({
-        id: this.oPlayer.usertype.id
-      })
+      idusertype: new FormControl(this.oForm.value.idusertype)
     }
     if (this.oForm.valid) {
-      this.oPlayerService.updateOne(this.oPlayer2Form).subscribe({
+      this.oPlayerService.updateOne(this.oPlayer2Send).subscribe({
         next: (data: number) => {
           //open bootstrap modal here
           this.modalTitle="DIGIMONDECKS";
@@ -83,5 +88,32 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
     })
     this.myModal.show()
   }
+  openModalFindUsertype(): void {
+    this.myModal = new bootstrap.Modal(document.getElementById("findusertype"), { //pasar el myModal como parametro
+      keyboard: false
+    })
+    this.myModal.show()
+
+
+  }
+
+  closeUsertypeModal(id_usertype: number) {
+    this.oForm.controls['id_usertype'].setValue(id_usertype);
+    this.updateUsertypeDescription(id_usertype);
+    this.myModal.hide();
+  }
+
+  updateUsertypeDescription(id_usertype: number) {
+    this.oUsertypeService.getOne(id_usertype).subscribe({
+      next: (data: IUsertype) => {
+        this.UsertypeDescription = data.name;
+      },
+      error: (error: any) => {
+        this.UsertypeDescription = "Usertype not found";
+        this.oForm.controls['id_usertype'].setErrors({'incorrect': true});
+      }
+    })
+  }
 
 }
+
