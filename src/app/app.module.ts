@@ -15,11 +15,12 @@ import { DropdownRegisterPageComponent } from './component/shared/unrouted/dropd
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaginationUnroutedComponent } from './component/shared/unrouted/pagination-unrouted/pagination-unrouted.component';
 import { PaginationService } from './service/pagination.service';
-import { PlayerPlistAdminRoutedComponent } from './component/application/player/player-plist-admin-routed/player-plist-admin-routed.component';
-import { PlayerViewAdminRoutedComponent } from './component/application/player/player-view-admin-routed/player-view-admin-routed.component';
-import { PlayerRemoveAdminRoutedComponent } from './component/application/player/player-remove-admin-routed/player-remove-admin-routed.component';
-import { PlayerEditAdminRoutedComponent } from './component/application/player/player-edit-admin-routed/player-edit-admin-routed.component';
-import { PlayerNewAdminRoutedComponent } from './component/application/player/player-new-admin-routed/player-new-admin-routed.component';
+import { PlayerPlistAdminRoutedComponent } from './component/application/player/routed/player-plist-admin-routed/player-plist-admin-routed.component';
+import { PlayerViewAdminRoutedComponent } from './component/application/player/routed/player-view-admin-routed/player-view-admin-routed.component';
+import { PlayerRemoveAdminRoutedComponent } from './component/application/player/routed/player-remove-admin-routed/player-remove-admin-routed.component';
+import { PlayerEditAdminRoutedComponent } from './component/application/player/routed/player-edit-admin-routed/player-edit-admin-routed.component';
+import { PlayerNewAdminRoutedComponent } from './component/application/player/routed/player-new-admin-routed/player-new-admin-routed.component';
+import { UsertypeFinderAdminUnroutedComponent } from './component/application/usertype/unrouted/usertype-finder-admin-unrouted/usertype-finder-admin-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { PlayerNewAdminRoutedComponent } from './component/application/player/pl
     PlayerRemoveAdminRoutedComponent,
     PlayerEditAdminRoutedComponent,
     PlayerNewAdminRoutedComponent,
+    UsertypeFinderAdminUnroutedComponent,
   ],
   imports: [
     BrowserModule,

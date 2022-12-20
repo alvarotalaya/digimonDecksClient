@@ -1,7 +1,7 @@
 import { Pageable, Sort } from "./shared-interface";
 
 export interface UsertypeResponse {
-    content:          Usertype[];
+    content:          IUsertype[];
     pageable:         Pageable;
     last:             boolean;
     totalPages:       number;
@@ -14,7 +14,7 @@ export interface UsertypeResponse {
     empty:            boolean;
 }
 
-export interface Usertype {
+export interface IUsertype {
     id:         number;
     name:       string;
     players:    number;

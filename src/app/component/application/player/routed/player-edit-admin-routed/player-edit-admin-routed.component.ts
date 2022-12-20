@@ -45,6 +45,7 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
           id: [data.id, [Validators.required]],
           name: [data.name, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
           email: [data.email, [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+          usertype: [data.usertype, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]]
         });
       }
     })

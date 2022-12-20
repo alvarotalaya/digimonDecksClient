@@ -3,11 +3,11 @@ import { LoginComponent } from './component/shared/routed/login/login.component'
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlayerPlistAdminRoutedComponent } from './component/application/player/player-plist-admin-routed/player-plist-admin-routed.component';
-import { PlayerViewAdminRoutedComponent } from './component/application/player/player-view-admin-routed/player-view-admin-routed.component';
-import { PlayerRemoveAdminRoutedComponent } from './component/application/player/player-remove-admin-routed/player-remove-admin-routed.component';
-import { PlayerEditAdminRoutedComponent } from './component/application/player/player-edit-admin-routed/player-edit-admin-routed.component';
-import { PlayerNewAdminRoutedComponent } from './component/application/player/player-new-admin-routed/player-new-admin-routed.component';
+import { PlayerPlistAdminRoutedComponent } from './component/application/player/routed/player-plist-admin-routed/player-plist-admin-routed.component';
+import { PlayerViewAdminRoutedComponent } from './component/application/player/routed/player-view-admin-routed/player-view-admin-routed.component';
+import { PlayerRemoveAdminRoutedComponent } from './component/application/player/routed/player-remove-admin-routed/player-remove-admin-routed.component';
+import { PlayerEditAdminRoutedComponent } from './component/application/player/routed/player-edit-admin-routed/player-edit-admin-routed.component';
+import { PlayerNewAdminRoutedComponent } from './component/application/player/routed/player-new-admin-routed/player-new-admin-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

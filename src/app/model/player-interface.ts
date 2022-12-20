@@ -1,12 +1,12 @@
 import { FormControl } from "@angular/forms";
 import { IEntity } from "./generic-types-interface";
-import { Usertype } from "./usertype-response-interface";
+import { IUsertype } from "./usertype-interface";
 
 export interface IPlayer {
     id:          number;
     name:        string;
     email:       string;
-    usertype:    Usertype;
+    usertype:    IUsertype;
 }
 
 export interface IPlayer2Form {
