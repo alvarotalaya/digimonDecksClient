@@ -21,9 +21,9 @@ export class UsertypeService {
     .set("size", size);
 
     const url : string = `${API_URL}${this.entityURL}`;
-    return this.oHttp.get<IPage<IUsertype>>(url,{params: params});
+    return this.oHttp.get<IPage<IUsertype>>(url,{withCredentials:true, params: params});
   }
   getOne(id: number): Observable<IUsertype> {
-      return this.oHttp.get<IUsertype>(`${API_URL}${this.entityURL}` + "/" + id);
+      return this.oHttp.get<IUsertype>(`${API_URL}${this.entityURL}` + "/" + id, {withCredentials:true});
     }
 }

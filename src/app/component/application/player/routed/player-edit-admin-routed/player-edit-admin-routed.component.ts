@@ -60,11 +60,11 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
 
   onSubmit() {
     console.log("onSubmit");
-    this.oPlayer2Form = {
-      id: new FormControl(this.oForm.value.id),
-      name: new FormControl(this.oForm.value.name),
-      email: new FormControl(this.oForm.value.email),
-      idusertype: new FormControl(this.oForm.value.idusertype)
+    this.oPlayer2Send = {
+      id: this.oForm.value.id,
+      name: this.oForm.value.name,
+      email: this.oForm.value.email,
+      usertype: { id: this.oForm.value.idusertype }
     }
     if (this.oForm.valid) {
       this.oPlayerService.updateOne(this.oPlayer2Send).subscribe({
@@ -98,7 +98,7 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
   }
 
   closeUsertypeModal(id_usertype: number) {
-    this.oForm.controls['id_usertype'].setValue(id_usertype);
+    this.oForm.controls['idusertype'].setValue(id_usertype);
     this.updateUsertypeDescription(id_usertype);
     this.myModal.hide();
   }
@@ -106,7 +106,7 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
   updateUsertypeDescription(id_usertype: number) {
     this.oUsertypeService.getOne(id_usertype).subscribe({
       next: (data: IUsertype) => {
-        this.UsertypeDescription = data.name;
+        this.UsertypeDescription = data.type;
       },
       error: (error: any) => {
         this.UsertypeDescription = "Usertype not found";

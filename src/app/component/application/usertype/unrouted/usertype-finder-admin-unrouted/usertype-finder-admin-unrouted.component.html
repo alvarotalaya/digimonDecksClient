@@ -22,11 +22,11 @@
         <tbody>
           <tr *ngFor="let usertype of this.getPlistContent()">
             <td>{{usertype.id}}</td>
-            <td>{{usertype.name}}</td>
+            <td>{{usertype.type}}</td>
             <td>{{usertype.players}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
-                <button class="btn btn-sm btn-primary" (click)="selectionusertype(usertype.id)">
+                <button class="btn btn-sm btn-primary" (click)="selectionUsertype(usertype.id)">
                   Seleccionar
                 </button>
               </div>

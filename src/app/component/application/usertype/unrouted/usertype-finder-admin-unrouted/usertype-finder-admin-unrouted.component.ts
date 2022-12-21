@@ -87,7 +87,7 @@ export class UsertypeFinderAdminUnroutedComponent implements OnInit {
       this.getPage();
     }
 
-    selectionusertype(id: number): void {
+    selectionUsertype(id: number): void {
       this.closeEvent.emit(id);
     }
 

@@ -16,7 +16,7 @@ export interface UsertypeResponse {
 
 export interface IUsertype {
     id:         number;
-    name:       string;
+    type:       string;
     players:    number;
 }
 
