@@ -88,13 +88,12 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
     })
     this.myModal.show()
   }
+  
   openModalFindUsertype(): void {
     this.myModal = new bootstrap.Modal(document.getElementById("findusertype"), { //pasar el myModal como parametro
       keyboard: false
     })
     this.myModal.show()
-
-
   }
 
   closeUsertypeModal(id_usertype: number) {
