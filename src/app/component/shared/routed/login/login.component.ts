@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     const loginData = { email: this.formularioLogin.get('email')!.value, password: this.oCryptoService.getSHA256(this.formularioLogin.get('password')!.value) };
     console.log("login:onSubmit: ", loginData);
     this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
-      localStorage.setItem("player", JSON.stringify(data.toString()));
+      localStorage.setItem("player", JSON.stringify(data));
       if (data != null) {
         this.oRouter.navigate(['/','home']);
       } else {

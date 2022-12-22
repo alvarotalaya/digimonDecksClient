@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IPlayer } from 'src/app/model/player-interface';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  oPlayerSession: IPlayer;
+  
+
+  constructor() { 
+    this.oPlayerSession = JSON.parse(localStorage.getItem("player"));
+  }
 
   ngOnInit() {
   }
