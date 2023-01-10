@@ -25,6 +25,9 @@ import { UsertypeFinderAdminUnroutedComponent } from './component/application/us
 import { UsertypePlistAdminRoutedComponent } from './component/application/usertype/routed/usertype-plist-admin-routed/usertype-plist-admin-routed.component';
 import { UsertypeViewAdminRoutedComponent } from './component/application/usertype/routed/usertype-view-admin-routed/usertype-view-admin-routed.component';
 import { UsertypeDetailAdminUnroutedComponent } from './component/application/usertype/unrouted/usertype-detail-admin-unrouted/usertype-detail-admin-unrouted.component';
+import { UsertypeRemoveAdminRoutedComponent } from './component/application/usertype/routed/usertype-remove-admin-routed/usertype-remove-admin-routed.component';
+import { UsertypeEditAdminRoutedComponent } from './component/application/usertype/routed/usertype-edit-admin-routed/usertype-edit-admin-routed.component';
+import { UsertypeNewAdminRoutedComponent } from './component/application/usertype/routed/usertype-new-admin-routed/usertype-new-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,9 @@ import { UsertypeDetailAdminUnroutedComponent } from './component/application/us
     UsertypePlistAdminRoutedComponent,
     UsertypeViewAdminRoutedComponent,
     UsertypeDetailAdminUnroutedComponent,
+    UsertypeRemoveAdminRoutedComponent,
+    UsertypeEditAdminRoutedComponent,
+    UsertypeNewAdminRoutedComponent,
   ],
   imports: [
     BrowserModule,
