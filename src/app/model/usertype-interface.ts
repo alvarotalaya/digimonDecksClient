@@ -1,4 +1,5 @@
 import { Pageable, Sort } from "./shared-interface";
+import { FormControl } from "@angular/forms";
 
 export interface UsertypeResponse {
     content:          IUsertype[];
@@ -18,5 +19,14 @@ export interface IUsertype {
     id:         number;
     type:       string;
     players:    number;
+}
+
+export interface IUsertype2Form {
+    id:          FormControl<number>;
+    type:        FormControl<string>;
+}
+export interface IUsertype2Send {
+    id:          number;
+    type:        string;
 }
 

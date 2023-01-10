@@ -10,7 +10,7 @@ import { PlayerService } from 'src/app/service/player.service';
 export class PlayerDetailAdminUnroutedComponent implements OnInit {
 
   @Input() id: number;
-    oPlayer: IPlayer;
+  oPlayer: IPlayer;
 
     constructor(
       private oPlayerService: PlayerService

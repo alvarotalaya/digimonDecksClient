@@ -13,6 +13,9 @@
         <li class="nav-item" *ngIf="oPlayerSession?.usertype.id==1">
           <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="admin/player/plist">Players</a>
         </li>
+        <li class="nav-item" *ngIf="oPlayerSession?.usertype.id==1">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="admin/usertype/plist">Usertype</a>
+        </li>
         <li class="nav-item" *ngIf="!oPlayerSession">
           <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="login">Login</a>
         </li>

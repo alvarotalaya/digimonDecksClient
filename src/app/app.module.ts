@@ -22,6 +22,9 @@ import { PlayerEditAdminRoutedComponent } from './component/application/player/r
 import { PlayerNewAdminRoutedComponent } from './component/application/player/routed/player-new-admin-routed/player-new-admin-routed.component';
 import { PlayerDetailAdminUnroutedComponent } from './component/application/player/unrouted/player-detail-admin-unrouted/player-detail-admin-unrouted.component';
 import { UsertypeFinderAdminUnroutedComponent } from './component/application/usertype/unrouted/usertype-finder-admin-unrouted/usertype-finder-admin-unrouted.component';
+import { UsertypePlistAdminRoutedComponent } from './component/application/usertype/routed/usertype-plist-admin-routed/usertype-plist-admin-routed.component';
+import { UsertypeViewAdminRoutedComponent } from './component/application/usertype/routed/usertype-view-admin-routed/usertype-view-admin-routed.component';
+import { UsertypeDetailAdminUnroutedComponent } from './component/application/usertype/unrouted/usertype-detail-admin-unrouted/usertype-detail-admin-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,9 @@ import { UsertypeFinderAdminUnroutedComponent } from './component/application/us
     PlayerNewAdminRoutedComponent,
     PlayerDetailAdminUnroutedComponent,
     UsertypeFinderAdminUnroutedComponent,
+    UsertypePlistAdminRoutedComponent,
+    UsertypeViewAdminRoutedComponent,
+    UsertypeDetailAdminUnroutedComponent,
   ],
   imports: [
     BrowserModule,
