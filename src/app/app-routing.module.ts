@@ -13,6 +13,7 @@ import { UsertypeViewAdminRoutedComponent } from './component/application/userty
 import { UsertypeRemoveAdminRoutedComponent } from './component/application/usertype/routed/usertype-remove-admin-routed/usertype-remove-admin-routed.component';
 import { UsertypeEditAdminRoutedComponent } from './component/application/usertype/routed/usertype-edit-admin-routed/usertype-edit-admin-routed.component';
 import { UsertypeNewAdminRoutedComponent } from './component/application/usertype/routed/usertype-new-admin-routed/usertype-new-admin-routed.component';
+import { CardPlistAdminRoutedComponent } from './component/application/card/routed/card-plist-admin-routed/card-plist-admin-routed.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'admin/usertype/remove/:id', component:UsertypeRemoveAdminRoutedComponent},
   { path: 'admin/usertype/edit/:id', component:UsertypeEditAdminRoutedComponent},
   { path: 'admin/usertype/new', component: UsertypeNewAdminRoutedComponent},
+  { path: 'admin/card/plist', component: CardPlistAdminRoutedComponent}
 ];
 
 @NgModule({
