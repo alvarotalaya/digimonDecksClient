@@ -1,5 +1,5 @@
 import { FormControl } from "@angular/forms";
-import { IEntity } from "./generic-types-interface";
+
 
 export interface ICard {
     id:          number;
@@ -9,10 +9,10 @@ export interface ICard {
     stage:        string;
     digitype:        string;
     attribute:        string;
-    level:        string;
-    playcost:        string;
-    evolutioncost:        string;
-    dp:        string;
+    level:        number;
+    playcost:        number;
+    evolutioncost:        number;
+    dp:        number;
     cardnumber:        string;
     maineffect:        string;
     sourceeffect:        string;
@@ -27,10 +27,10 @@ export interface ICard2Form {
     stage:       FormControl<string>;
     digitype:       FormControl<string>;
     attribute:       FormControl<string>;
-    level:       FormControl<string>;
-    playcost:       FormControl<string>;
-    evolutioncost:       FormControl<string>;
-    dp:       FormControl<string>;
+    level:       FormControl<number>;
+    playcost:       FormControl<number>;
+    evolutioncost:       FormControl<number>;
+    dp:       FormControl<number>;
     cardnumber:       FormControl<string>;
     maineffect:       FormControl<string>;
     sourceeffect:       FormControl<string>;
@@ -44,10 +44,10 @@ export interface ICard2Send {
     stage:        string;
     digitype:        string;
     attribute:        string;
-    level:        string;
-    playcost:        string;
-    evolutioncost:        string;
-    dp:        string;
+    level:        number;
+    playcost:        number;
+    evolutioncost:        number;
+    dp:        number;
     cardnumber:        string;
     maineffect:        string;
     sourceeffect:        string;

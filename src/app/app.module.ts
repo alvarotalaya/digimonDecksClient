@@ -29,6 +29,8 @@ import { UsertypeRemoveAdminRoutedComponent } from './component/application/user
 import { UsertypeEditAdminRoutedComponent } from './component/application/usertype/routed/usertype-edit-admin-routed/usertype-edit-admin-routed.component';
 import { UsertypeNewAdminRoutedComponent } from './component/application/usertype/routed/usertype-new-admin-routed/usertype-new-admin-routed.component';
 import { CardPlistAdminRoutedComponent } from './component/application/card/routed/card-plist-admin-routed/card-plist-admin-routed.component';
+import { CardViewAdminRoutedComponent } from './component/application/card/routed/card-view-admin-routed/card-view-admin-routed.component';
+import { CardDetailAdminUnroutedComponent } from './component/application/card/unrouted/card-detail-admin-unrouted/card-detail-admin-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { CardPlistAdminRoutedComponent } from './component/application/card/rout
     UsertypeEditAdminRoutedComponent,
     UsertypeNewAdminRoutedComponent,
     CardPlistAdminRoutedComponent,
+    CardViewAdminRoutedComponent,
+    CardDetailAdminUnroutedComponent,
   ],
   imports: [
     BrowserModule,
