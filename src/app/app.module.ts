@@ -31,6 +31,9 @@ import { UsertypeNewAdminRoutedComponent } from './component/application/usertyp
 import { CardPlistAdminRoutedComponent } from './component/application/card/routed/card-plist-admin-routed/card-plist-admin-routed.component';
 import { CardViewAdminRoutedComponent } from './component/application/card/routed/card-view-admin-routed/card-view-admin-routed.component';
 import { CardDetailAdminUnroutedComponent } from './component/application/card/unrouted/card-detail-admin-unrouted/card-detail-admin-unrouted.component';
+import { CardRemoveAdminRoutedComponent } from './component/application/card/routed/card-remove-admin-routed/card-remove-admin-routed.component';
+import { CardNewAdminRoutedComponent } from './component/application/card/routed/card-new-admin-routed/card-new-admin-routed.component';
+import { CardEditAdminRoutedComponent } from './component/application/card/routed/card-edit-admin-routed/card-edit-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import { CardDetailAdminUnroutedComponent } from './component/application/card/u
     CardPlistAdminRoutedComponent,
     CardViewAdminRoutedComponent,
     CardDetailAdminUnroutedComponent,
+    CardRemoveAdminRoutedComponent,
+    CardNewAdminRoutedComponent,
+    CardEditAdminRoutedComponent,
   ],
   imports: [
     BrowserModule,

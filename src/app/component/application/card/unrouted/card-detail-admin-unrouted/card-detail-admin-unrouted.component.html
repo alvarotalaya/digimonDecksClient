@@ -22,31 +22,31 @@
                     <td>Color</td>
                     <td>{{oCard.color}}</td>
                   </tr>
-                  <tr>
+                  <tr *ngIf="oCard?.stage!=null">
                     <td>Stage</td>
                     <td>{{oCard.stage}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.digitype!=null">
                   <td>Digitype</td>
                   <td>{{oCard.digitype}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.attribute!=null">
                   <td>Attribute</td>
                   <td>{{oCard.attribute}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.level!=null">
                   <td>Level</td>
                   <td>{{oCard.level}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.playcost!=null">
                   <td>Play Cost</td>
                   <td>{{oCard.playcost}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.evolutioncost!=null">
                   <td>Evolution Cost</td>
                   <td>{{oCard.evolutioncost}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.dp!=null">
                   <td>DP</td>
                   <td>{{oCard.dp}}</td>
                 </tr>
@@ -54,11 +54,11 @@
                   <td>Card Number</td>
                   <td>{{oCard.cardnumber}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.maineffect!=null">
                   <td>Main Effect</td>
                   <td>{{oCard.maineffect}}</td>
                 </tr>
-                <tr>
+                <tr *ngIf="oCard?.sourceeffect!=null">
                   <td>Source Effect</td>
                   <td>{{oCard.sourceeffect}}</td>
                 </tr>
