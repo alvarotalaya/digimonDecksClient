@@ -51,5 +51,9 @@ export class PlayerService {
     newOne(oPlayer2Send: IPlayer2Send): Observable<number> {    
       return this.oHttp.post<number>(this.url, oPlayer2Send, {withCredentials:true});
     }
+    
+    generate(): Observable<IPlayer> {
+      return this.oHttp.post<IPlayer>(this.url + "/generate", null, { withCredentials: true });
+    }
 
 }

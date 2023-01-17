@@ -43,7 +43,7 @@ export class CardEditAdminRoutedComponent implements OnInit {
     this.oCardService.getOne(this.id).subscribe({
       next: (data: ICard) => {
         this.oCard = data;
-        console.log(data);
+        console.log(data.image);
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id],
           name: [data.name, [Validators.required, Validators.minLength(0), Validators.maxLength(50)]],
@@ -58,8 +58,8 @@ export class CardEditAdminRoutedComponent implements OnInit {
           dp: [data.dp, [Validators.required, Validators.minLength(0), Validators.maxLength(10)]],
           cardnumber: [data.cardnumber, [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
           maineffect: [data.maineffect, [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
-          sourceefect: [data.sourceeffect, [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
-          image: [data.image, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]]
+          sourceeffect: [data.sourceeffect, [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
+          image: [data.image, [Validators.required, Validators.minLength(5), Validators.maxLength(100)]]
         });
       }
     })
@@ -85,11 +85,11 @@ export class CardEditAdminRoutedComponent implements OnInit {
       image: this.oForm.value.image
     }
     if (this.oForm.valid) {
-      this.oCardService.newOne(this.oCard2Send).subscribe({
+      this.oCardService.updateOne(this.oCard2Send).subscribe({
         next: (data: number) => {
           //open bootstrap modal here
           this.modalTitle = "DIGIMONDECKS";
-          this.modalContent = "Card " + data + " created";
+          this.modalContent = "Card " + data + " updated";
           this.showModal(data);
         }
       })

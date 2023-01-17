@@ -48,8 +48,8 @@ export class CardNewAdminRoutedComponent implements OnInit {
       dp: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(10)]],
       cardnumber: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
       maineffect: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
-      sourceefect: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
-      image: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]]
+      sourceeffect: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
+      image: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]]
     });
   }
 
