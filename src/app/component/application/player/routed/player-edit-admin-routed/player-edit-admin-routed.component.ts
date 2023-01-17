@@ -99,6 +99,7 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
   closeUsertypeModal(id_usertype: number) {
     this.oForm.controls['idusertype'].setValue(id_usertype);
     this.updateUsertypeDescription(id_usertype);
+    this.oForm.markAsDirty();
     this.myModal.hide();
   }
 

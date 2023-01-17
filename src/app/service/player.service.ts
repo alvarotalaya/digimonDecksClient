@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { API_URL, environment, httpOptions } from 'src/environments/environment';
 import { IPlayer } from '../model/player-interface';
 import { IPage } from '../model/generic-types-interface';
-import { IPlayer2Form, IPlayer2Send } from 'src/app/model/player-interface';
+import { IPlayer2Send } from 'src/app/model/player-interface';
 
 @Injectable({
   providedIn: 'root'

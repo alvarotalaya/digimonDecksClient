@@ -1,21 +1,22 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IPlayer } from 'src/app/model/player-interface';
-import { PlayerService } from 'src/app/service/player.service';
+import { IDeck } from 'src/app/model/deck-interface';
+import { DeckService } from 'src/app/service/deck.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 
-@Component({
-  selector: 'app-player-plist-admin-routed',
-  templateUrl: './player-plist-admin-routed.component.html',
-  styleUrls: ['./player-plist-admin-routed.component.css']
-})
-export class PlayerPlistAdminRoutedComponent implements OnInit {
 
-  responseFromServer: IPage<IPlayer>;
+@Component({
+  selector: 'app-deck-plist-admin-routed',
+  templateUrl: './deck-plist-admin-routed.component.html',
+  styleUrls: ['./deck-plist-admin-routed.component.css']
+})
+export class DeckPlistAdminRoutedComponent implements OnInit {
+
+  responseFromServer: IPage<IDeck>;
   //
   strTermFilter: string = "";
-  id_usertypeFilter: number = 0;
+  id_playerFilter: number = 0;
   numberOfElements: number = 5;
   page: number = 0;
   sortField: string = "";
@@ -28,7 +29,7 @@ export class PlayerPlistAdminRoutedComponent implements OnInit {
   faArrowDown = faArrowDown;
 
   constructor(
-    private oPlayerService: PlayerService
+    private oDeckService: DeckService
   ) { }
 
   ngOnInit() {
@@ -36,10 +37,11 @@ export class PlayerPlistAdminRoutedComponent implements OnInit {
   }
 
   getPage() {
-    this.oPlayerService.getPlayersPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_usertypeFilter, this.sortField, this.sortDirection)
+    this.oDeckService.getDecksPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_playerFilter, this.sortField, this.sortDirection)
       .subscribe({
-        next: (resp: IPage<IPlayer>) => {
+        next: (resp: IPage<IDeck>) => {
           this.responseFromServer = resp;
+          console.log(resp)
           if (this.page > resp.totalPages - 1) {
             this.page = resp.totalPages - 1;
           }
@@ -58,7 +60,6 @@ export class PlayerPlistAdminRoutedComponent implements OnInit {
   setRpp(rpp: number) {
     this.numberOfElements = rpp;
     this.getPage();
-    this.setPage(1);
   }
 
   setFilter(term: string): void {
@@ -66,8 +67,8 @@ export class PlayerPlistAdminRoutedComponent implements OnInit {
     this.getPage();
   }
 
-  setFilterByUsertype(id: number): void {
-    this.id_usertypeFilter = id;
+  setFilterByPlayer(id: number): void {
+    this.id_playerFilter = id;
     this.getPage();
   }
 
@@ -81,10 +82,10 @@ export class PlayerPlistAdminRoutedComponent implements OnInit {
     this.getPage();
   }
 
-  generatePlayer(){
+  generateDeck(){
 
-    this.oPlayerService.generate().subscribe({
-      next: (resp: IPlayer) => {
+    this.oDeckService.generate().subscribe({
+      next: (resp: IDeck) => {
         this.setPage(this.responseFromServer.totalPages)
         this.getPage();
       }

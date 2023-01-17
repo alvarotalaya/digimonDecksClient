@@ -58,6 +58,7 @@ export class CardPlistAdminRoutedComponent implements OnInit {
   setRpp(rpp: number) {
     this.numberOfElements = rpp;
     this.getPage();
+    this.setPage(1);
   }
 
   setFilter(term: string): void {

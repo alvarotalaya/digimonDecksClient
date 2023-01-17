@@ -9,6 +9,7 @@ export class DropdownRegisterPageComponent implements OnInit {
 
   @Input() PageSize!: number;
 
+  Rpp:number = 5
   @Output() eeRpp = new EventEmitter<number>();
   constructor() { }
 
@@ -16,6 +17,7 @@ export class DropdownRegisterPageComponent implements OnInit {
   }
 
   onChangeRpp(nRpp:number){
+    this.Rpp = nRpp;
     this.eeRpp.emit(nRpp);
   }
 }
