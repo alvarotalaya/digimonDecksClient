@@ -37,6 +37,9 @@ import { CardEditAdminRoutedComponent } from './component/application/card/route
 import { DeckPlistAdminRoutedComponent } from './component/application/deck/routed/deck-plist-admin-routed/deck-plist-admin-routed.component';
 import { DeckViewAdminRoutedComponent } from './component/application/deck/routed/deck-view-admin-routed/deck-view-admin-routed.component';
 import { DeckDetailAdminUnroutedComponent } from './component/application/deck/unrouted/deck-detail-admin-unrouted/deck-detail-admin-unrouted.component';
+import { DeckRemoveAdminRoutedComponent } from './component/application/deck/routed/deck-remove-admin-routed/deck-remove-admin-routed.component';
+import { DeckEditAdminRoutedComponent } from './component/application/deck/routed/deck-edit-admin-routed/deck-edit-admin-routed.component';
+import { PlayerFinderAdminUnroutedComponent } from './component/application/player/unrouted/player-finder-admin-unrouted/player-finder-admin-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,7 @@ import { DeckDetailAdminUnroutedComponent } from './component/application/deck/u
     PlayerEditAdminRoutedComponent,
     PlayerNewAdminRoutedComponent,
     PlayerDetailAdminUnroutedComponent,
+    PlayerFinderAdminUnroutedComponent,
     UsertypeFinderAdminUnroutedComponent,
     UsertypePlistAdminRoutedComponent,
     UsertypeViewAdminRoutedComponent,
@@ -71,6 +75,8 @@ import { DeckDetailAdminUnroutedComponent } from './component/application/deck/u
     DeckPlistAdminRoutedComponent,
     DeckViewAdminRoutedComponent,
     DeckDetailAdminUnroutedComponent,
+    DeckRemoveAdminRoutedComponent,
+    DeckEditAdminRoutedComponent,
   ],
   imports: [
     BrowserModule,

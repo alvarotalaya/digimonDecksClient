@@ -2,26 +2,8 @@
   <div class="row">
       <div class="col">
           <h1 class="text-center mb-5">Player's view</h1>
-          <table class="table table-bordered table-striped">
-              <tbody>
-                  <tr>
-                      <th>Id</th>
-                      <td>{{oPlayer.id}}</td>
-                  </tr>
-                  <tr>
-                      <td>Name</td>
-                      <td>{{oPlayer.name}}</td>
-                  </tr>
-                  <tr>
-                      <td>Email</td>
-                      <td>{{oPlayer.email}}</td>
-                  </tr>
-                  <tr>
-                      <td>Usertype</td>
-                      <td>{{oPlayer.usertype.id}}{{oPlayer.usertype.type}}</td>
-                  </tr>
-              </tbody>
-          </table>
+          <app-player-detail-admin-unrouted [id]="id"></app-player-detail-admin-unrouted>
+          
           <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
             <div class="col-md-5 control-group text-center">
                 <div class="alert alert-danger my-3" role="alert">

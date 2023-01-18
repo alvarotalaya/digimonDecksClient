@@ -7,6 +7,7 @@ export interface IPlayer {
     name:        string;
     email:       string;
     usertype:    IUsertype;
+    decks: number;
 }
 
 export interface IPlayer2Form {
