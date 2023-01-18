@@ -40,6 +40,7 @@ import { DeckDetailAdminUnroutedComponent } from './component/application/deck/u
 import { DeckRemoveAdminRoutedComponent } from './component/application/deck/routed/deck-remove-admin-routed/deck-remove-admin-routed.component';
 import { DeckEditAdminRoutedComponent } from './component/application/deck/routed/deck-edit-admin-routed/deck-edit-admin-routed.component';
 import { PlayerFinderAdminUnroutedComponent } from './component/application/player/unrouted/player-finder-admin-unrouted/player-finder-admin-unrouted.component';
+import { DeckNewAdminRoutedComponent } from './component/application/deck/routed/deck-new-admin-routed/deck-new-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { PlayerFinderAdminUnroutedComponent } from './component/application/play
     DeckDetailAdminUnroutedComponent,
     DeckRemoveAdminRoutedComponent,
     DeckEditAdminRoutedComponent,
+    DeckNewAdminRoutedComponent,
   ],
   imports: [
     BrowserModule,

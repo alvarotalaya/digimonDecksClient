@@ -46,7 +46,7 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
     this.oPlayerService.getOne(this.id).subscribe({
       next: (data: IPlayer) => {
         this.oPlayer = data;
-        console.log(data);
+        ;
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
           name: [data.name, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
@@ -59,7 +59,6 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("onSubmit");
     this.oPlayer2Send = {
       id: this.oForm.value.id,
       name: this.oForm.value.name,

@@ -43,7 +43,6 @@ export class CardEditAdminRoutedComponent implements OnInit {
     this.oCardService.getOne(this.id).subscribe({
       next: (data: ICard) => {
         this.oCard = data;
-        console.log(data.image);
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id],
           name: [data.name, [Validators.required, Validators.minLength(0), Validators.maxLength(50)]],
@@ -66,7 +65,6 @@ export class CardEditAdminRoutedComponent implements OnInit {
   };
 
   onSubmit() {
-    console.log("onSubmit");
     this.oCard2Send = {
       id: this.oForm.value.id,
       name: this.oForm.value.name,

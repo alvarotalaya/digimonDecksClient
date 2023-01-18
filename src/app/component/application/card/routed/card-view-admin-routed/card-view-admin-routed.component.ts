@@ -27,7 +27,6 @@ export class CardViewAdminRoutedComponent implements OnInit {
     this.oCardService.getOne(this.id).subscribe({
       next: (data: ICard) => {
         this.oCard = data;
-        console.log(data);
       }
     })
   }

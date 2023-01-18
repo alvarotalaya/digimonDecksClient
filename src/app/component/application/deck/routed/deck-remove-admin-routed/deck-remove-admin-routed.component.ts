@@ -30,7 +30,6 @@ export class DeckRemoveAdminRoutedComponent implements OnInit {
     this.oDeckService.getOne(this.id).subscribe({
       next: (data: IDeck) => {
         this.oDeck = data;
-        console.log(data);
       }
     })
   }

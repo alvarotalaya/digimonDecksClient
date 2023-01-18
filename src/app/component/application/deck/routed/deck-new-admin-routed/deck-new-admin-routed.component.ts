@@ -9,11 +9,11 @@ import { IPlayer } from 'src/app/model/player-interface';
 declare let bootstrap: any;
 
 @Component({
-  selector: 'app-deck-edit-admin-routed',
-  templateUrl: './deck-edit-admin-routed.component.html',
-  styleUrls: ['./deck-edit-admin-routed.component.css']
+  selector: 'app-deck-new-admin-routed',
+  templateUrl: './deck-new-admin-routed.component.html',
+  styleUrls: ['./deck-new-admin-routed.component.css']
 })
-export class DeckEditAdminRoutedComponent implements OnInit {
+export class DeckNewAdminRoutedComponent implements OnInit {
 
   id: number = 0;
   oDeck: IDeck = null;
@@ -39,23 +39,14 @@ export class DeckEditAdminRoutedComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getOne();
-  }
-
-  getOne() {
-    this.oDeckService.getOne(this.id).subscribe({
-      next: (data: IDeck) => {
-        this.oDeck = data;
-        this.oForm = <FormGroup>this.oFormBuilder.group({
-          id: [data.id, [Validators.required]],
-          name: [data.name, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
-          description: [data.description, [Validators.required, Validators.minLength(0), Validators.maxLength(100)]],
-          lastupdate: [data.lastupdate, [Validators.required, Validators.minLength(0), Validators.maxLength(100)]],
-          idplayer: [data.player.id, [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
-        });
-        this.updatePlayerDescription(this.oDeck.player.id);
-      }
-    })
+    this.oForm = <FormGroup>this.oFormBuilder.group({
+      id: [ , [Validators.required]],
+      name: [ , [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+      description: [ , [Validators.required, Validators.minLength(0), Validators.maxLength(100)]],
+      lastupdate: [ , [Validators.required, Validators.minLength(0), Validators.maxLength(100)]],
+      idplayer: [ , [Validators.required, Validators.pattern(/^\d{1,6}$/)]]
+    });
+    this.updatePlayerDescription(this.oDeck.player.id);
   }
 
   onSubmit() {
@@ -116,4 +107,5 @@ export class DeckEditAdminRoutedComponent implements OnInit {
   }
 
 }
+
 

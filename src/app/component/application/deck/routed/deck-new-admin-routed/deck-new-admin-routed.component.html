@@ -1,0 +1,155 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Player's edit</h1>
+
+      <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3 row">
+          <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputID" formControlName="id" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control"
+              [ngClass]="{'is-valid' : oForm.controls.name.dirty && !oForm.controls.name.errors?.['required'] &&
+            oForm.controls.name.dirty && !oForm.controls.name.errors?.['minlength'] 
+              && oForm.controls.name.dirty && !oForm.controls.name.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.name.dirty &&  oForm.controls.name.errors?.['minlength'] 
+              ||  oForm.controls.name.dirty &&  oForm.controls.name.errors?.['maxlength'] ||  
+              oForm.controls.name.dirty &&  oForm.controls.name.errors?.['required']}"
+              id="inputName" formControlName="name">
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.name.dirty &&  oForm.controls.name.errors?.['minlength']">
+              La longitud mínima es de 5 caracteres.
+            </div>
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.name.dirty &&  oForm.controls.name.errors?.['maxlength']">
+              La longitud máxima es de 10 caracteres.
+            </div>
+            <div id="inputNameFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.name.dirty &&  oForm.controls.name.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>     
+
+        <div class="mb-3 row">
+          <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control"
+              [ngClass]="{'is-valid' : oForm.controls.description.dirty && !oForm.controls.description.errors?.['required'] &&
+            oForm.controls.description.dirty && !oForm.controls.description.errors?.['pattern'],
+              'is-invalid' :  oForm.controls.description.dirty &&  oForm.controls.description.errors?.['pattern'] ||
+              oForm.controls.description.dirty &&  oForm.controls.description.errors?.['required']}"
+              id="inputDescription" formControlName="description">              
+            <div id="inputDescriptionFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.description.dirty &&  oForm.controls.description.errors?.['pattern']">
+              El formato no es adecuado
+            </div>
+            <div id="inputDescriptionFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.description.dirty &&  oForm.controls.description.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputLastupdate" class="col-sm-2 col-form-label">Last update</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control"
+              [ngClass]="{'is-valid' : oForm.controls.lastupdate.dirty && !oForm.controls.lastupdate.errors?.['required'] &&
+            oForm.controls.lastupdate.dirty && !oForm.controls.lastupdate.errors?.['pattern'],
+              'is-invalid' :  oForm.controls.lastupdate.dirty &&  oForm.controls.lastupdate.errors?.['pattern'] ||
+              oForm.controls.lastupdate.dirty &&  oForm.controls.lastupdate.errors?.['required']}"
+              id="inputLastupdate" formControlName="lastupdate">              
+            <div id="inputLastupdateFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.lastupdate.dirty &&  oForm.controls.lastupdate.errors?.['pattern']">
+              El formato no es adecuado
+            </div>
+            <div id="inputLastupdateFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.lastupdate.dirty &&  oForm.controls.lastupdate.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputPlayer" class="col-sm-2 col-form-label">Player</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">{{PlayerDescription}}</span>
+              <input type="text" class="form-control" formControlName="idplayer"
+
+
+              (keyup)="updatePlayerDescription(oForm.controls.idplayer.value)"
+
+              [ngClass]="{'is-valid' :
+              oForm.controls.idplayer.dirty && !oForm.controls.idplayer.errors?.['required'] &&
+               !oForm.controls.idplayer.errors?.['pattern'] && !oForm.controls.idplayer.errors?.['incorrect'],
+                'is-invalid' :  (oForm.controls.idplayer.dirty &&  oForm.controls.idplayer.errors?.['required'] )
+                ||
+                ( oForm.controls.idplayer.dirty &&  oForm.controls.idplayer.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindPlayer()">Search</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.idplayer.dirty &&  oForm.controls.idplayer.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.idplayer.dirty &&  oForm.controls.idplayer.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary"
+          [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {{modalContent}}
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="findplayer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-player-finder-admin-unrouted (closeEvent)="closePlayerModal($event)"></app-player-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -43,7 +43,7 @@ export class UsertypeEditAdminRoutedComponent implements OnInit {
     this.oUsertypeService.getOne(this.id).subscribe({
       next: (data: IUsertype) => {
         this.oUsertype = data;
-        console.log(data);
+        ;
         this.oForm = <FormGroup>this.oFormBuilder.group({
           id: [data.id, [Validators.required]],
           type: [data.type, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]]  
@@ -54,7 +54,6 @@ export class UsertypeEditAdminRoutedComponent implements OnInit {
 
 
   onSubmit() {
-    console.log("onSubmit");
     this.oUsertype2Send = {
       id: this.oForm.value.id,
       type: this.oForm.value.type

@@ -24,18 +24,4 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openModal(e: any): void {
-    console.log(e);
-    alert("hola mundo");
-  }
-
-  openModal2(e: any): void {
-    console.log(e);
-    console.log(e.data);
-
-  }
-
-
-
-
 }

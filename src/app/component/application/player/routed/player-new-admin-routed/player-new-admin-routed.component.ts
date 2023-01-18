@@ -47,7 +47,6 @@ export class PlayerNewAdminRoutedComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("onSubmit");
     this.oPlayer2Send = {
       id: this.oForm.value.id,
       name: this.oForm.value.name,

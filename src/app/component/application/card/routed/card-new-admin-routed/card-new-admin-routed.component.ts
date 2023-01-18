@@ -54,7 +54,6 @@ export class CardNewAdminRoutedComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("onSubmit");
     this.oCard2Send = {
       id: this.oForm.value.id,
       name: this.oForm.value.name,

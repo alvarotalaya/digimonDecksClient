@@ -28,7 +28,7 @@ export class PlayerViewAdminRoutedComponent implements OnInit {
     this.oPlayerService.getOne(this.id).subscribe({
       next: (data: IPlayer) => {
         this.oPlayer = data;
-        console.log(data);
+        ;
       }
     })
   }

@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'digimondecksClient';
   constructor() {
-    console.log("app.component: token", localStorage.getItem("token"));
+    
   }
 }

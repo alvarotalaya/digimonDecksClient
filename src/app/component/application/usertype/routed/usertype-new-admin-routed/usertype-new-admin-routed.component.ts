@@ -41,7 +41,6 @@ export class UsertypeNewAdminRoutedComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("onSubmit");
     this.oUsertype2Send = {
       id: this.oForm.value.id,
       type: this.oForm.value.type

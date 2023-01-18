@@ -24,7 +24,7 @@ export class UsertypeDetailAdminUnroutedComponent implements OnInit {
       this.oUsertypeService.getOne(this.id).subscribe({
         next: (data: IUsertype) => {
           this.oUsertype = data;
-          console.log(data);
+          ;
         }
       })
     }
