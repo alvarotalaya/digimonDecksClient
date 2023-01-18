@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">Card's list</h1>  
+      <div class="col-md">
+        <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
+          (eePage)="setPage($event)"></app-pagination-unrouted>
+      </div>
+      <div class="col-md text-end">
+        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+      </div>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Card Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let card of responseFromServer.content">
+            <td>{{card.id}}</td>
+            <td>{{card.name}}</td>
+            <td>{{card.cardnumber}}</td>
+              <td>
+                <div class="btn-group" role="group" aria-label="Herramientas">
+                  <button class="btn btn-sm btn-primary" (click)="selectionCard(card.id)">
+                    Seleccionar
+                  </button>
+                </div>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
