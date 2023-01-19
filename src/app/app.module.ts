@@ -47,6 +47,8 @@ import { CarddeckViewAdminRoutedComponent } from './component/application/cardde
 import { CarddeckRemoveAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-remove-admin-routed/carddeck-remove-admin-routed.component';
 import { CardFinderAdminUnroutedComponent } from './component/application/card/unrouted/card-finder-admin-unrouted/card-finder-admin-unrouted.component';
 import { DeckFinderAdminUnroutedComponent } from './component/application/deck/unrouted/deck-finder-admin-unrouted/deck-finder-admin-unrouted.component';
+import { CarddeckEditAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-edit-admin-routed/carddeck-edit-admin-routed.component';
+import { CarddeckNewAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-new-admin-routed/carddeck-new-admin-routed.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +93,8 @@ import { DeckFinderAdminUnroutedComponent } from './component/application/deck/u
     CarddeckDetailAdminUnroutedComponent,
     CarddeckViewAdminRoutedComponent,
     CarddeckRemoveAdminRoutedComponent,
+    CarddeckEditAdminRoutedComponent,
+    CarddeckNewAdminRoutedComponent,
   ],
   imports: [
     BrowserModule,

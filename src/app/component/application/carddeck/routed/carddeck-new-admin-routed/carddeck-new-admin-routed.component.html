@@ -1,0 +1,165 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h1 class="text-center mb-5">CardDeck's edit</h1>
+
+      <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-3 row">
+          <label for="inputID" class="col-sm-2 col-form-label">ID</label>
+          <div class="col-sm-2">
+            <input copies="text" class="form-control" id="inputID" formControlName="id" readonly>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputCopies" class="col-sm-2 col-form-label">Copies</label>
+          <div class="col-sm-4 has-validation">
+            <input type="text" class="form-control"
+              [ngClass]="{'is-valid' : oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['required'] &&
+            oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['minlength'] 
+              && oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['maxlength'],
+              'is-invalid' :  oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['minlength'] 
+              ||  oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['maxlength'] ||  
+              oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['required']}"
+              id="inputCopies" formControlName="copies">
+            <div id="inputCopiesFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['minlength']">
+              La longitud mínima es de 5 caracteres.
+            </div>
+            <div id="inputCopiesFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['maxlength']">
+              La longitud máxima es de 10 caracteres.
+            </div>
+            <div id="inputCopiesFeedback" class="invalid-feedback"
+              *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+          </div>
+        </div>     
+        
+        <div class="mb-3 row">
+          <label for="inputDeck" class="col-sm-2 col-form-label">Deck</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">{{DeckDescription}}</span>
+              <input type="text" class="form-control" formControlName="iddeck"
+
+
+              (keyup)="updateDeckDescription(oForm.controls.iddeck.value)"
+
+              [ngClass]="{'is-valid' :
+              oForm.controls.iddeck.dirty && !oForm.controls.iddeck.errors?.['required'] &&
+               !oForm.controls.iddeck.errors?.['pattern'] && !oForm.controls.iddeck.errors?.['incorrect'],
+                'is-invalid' :  (oForm.controls.iddeck.dirty &&  oForm.controls.iddeck.errors?.['required'] )
+                ||
+                ( oForm.controls.iddeck.dirty &&  oForm.controls.iddeck.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindDeck()">Search</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.iddeck.dirty &&  oForm.controls.iddeck.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.iddeck.dirty &&  oForm.controls.iddeck.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="inputCard" class="col-sm-2 col-form-label">Card</label>
+          <div class="col-sm-6 has-validation">
+            <div class="input-group">
+              <span class="input-group-text">{{CardDescription}}</span>
+              <input type="text" class="form-control" formControlName="idcard"
+
+
+              (keyup)="updateCardDescription(oForm.controls.idcard.value)"
+
+              [ngClass]="{'is-valid' :
+              oForm.controls.idcard.dirty && !oForm.controls.idcard.errors?.['required'] &&
+               !oForm.controls.idcard.errors?.['pattern'] && !oForm.controls.idcard.errors?.['incorrect'],
+                'is-invalid' :  (oForm.controls.idcard.dirty &&  oForm.controls.idcard.errors?.['required'] )
+                ||
+                ( oForm.controls.idcard.dirty &&  oForm.controls.idcard.errors?.['incorrect'])
+              }">
+              <button type="button" class="btn btn-primary" (click)="openModalFindCard()">Search</button>
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.idcard.dirty &&  oForm.controls.idcard.errors?.['required']">
+              El campo es obligatorio.
+            </div>
+            <div class="text-danger"
+              *ngIf="oForm.controls.idcard.dirty &&  oForm.controls.idcard.errors?.['pattern']">
+              El campo ha de ser un entrero de máximo 6 dígitos.
+            </div>
+          </div>
+        </div>
+
+
+        <button copies="submit" class="btn btn-primary"
+          [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+              <button copies="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              
+              {{modalContent}}
+              
+          </div>
+          <div class="modal-footer">
+              <button copies="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="finddeck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-deck-finder-admin-unrouted (closeEvent)="closeDeckModal($event)"></app-deck-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="findcard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <app-card-finder-admin-unrouted (closeEvent)="closeCardModal($event)"></app-card-finder-admin-unrouted>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

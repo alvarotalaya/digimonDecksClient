@@ -26,6 +26,8 @@ import { DeckNewAdminRoutedComponent } from './component/application/deck/routed
 import { CarddeckPlistAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-plist-admin-routed/carddeck-plist-admin-routed.component';
 import { CarddeckViewAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-view-admin-routed/carddeck-view-admin-routed.component';
 import { CarddeckRemoveAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-remove-admin-routed/carddeck-remove-admin-routed.component';
+import { CarddeckEditAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-edit-admin-routed/carddeck-edit-admin-routed.component';
+import { CarddeckNewAdminRoutedComponent } from './component/application/carddeck/routed/carddeck-new-admin-routed/carddeck-new-admin-routed.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,6 +57,8 @@ const routes: Routes = [
   { path: 'admin/carddeck/plist', component: CarddeckPlistAdminRoutedComponent},
   { path: 'admin/carddeck/view/:id', component: CarddeckViewAdminRoutedComponent},
   { path: 'admin/carddeck/remove/:id', component: CarddeckRemoveAdminRoutedComponent},
+  { path: 'admin/carddeck/edit/:id', component: CarddeckEditAdminRoutedComponent},
+  { path: 'admin/carddeck/new', component: CarddeckNewAdminRoutedComponent},
 ];
 
 @NgModule({
