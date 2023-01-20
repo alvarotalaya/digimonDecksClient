@@ -37,7 +37,7 @@ export class CarddeckPlistAdminRoutedComponent implements OnInit {
   }
 
   getPage() {
-    this.oCarddeckService.getCarddecksPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_cardFilter,this.id_deckFilter, this.sortField, this.sortDirection)
+    this.oCarddeckService.getCarddecksPlist(this.page, this.numberOfElements, this.strTermFilter, this.id_deckFilter,this.id_cardFilter, this.sortField, this.sortDirection)
       .subscribe({
         next: (resp: IPage<ICarddeck>) => {
           this.responseFromServer = resp;
@@ -70,11 +70,13 @@ export class CarddeckPlistAdminRoutedComponent implements OnInit {
   setFilterByCard(id: number): void {
     this.id_cardFilter = id;
     this.getPage();
+    this.setPage(1);
   }
 
   setFilterByDeck(id: number): void {
     this.id_deckFilter = id;
     this.getPage();
+    this.setPage(1);
   }
 
   setOrder(order: string): void {

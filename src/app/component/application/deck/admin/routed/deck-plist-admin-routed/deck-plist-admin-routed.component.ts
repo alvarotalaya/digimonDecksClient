@@ -70,6 +70,7 @@ export class DeckPlistAdminRoutedComponent implements OnInit {
   setFilterByPlayer(id: number): void {
     this.id_playerFilter = id;
     this.getPage();
+    this.setPage(1);
   }
 
   setOrder(order: string): void {

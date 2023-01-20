@@ -55,9 +55,9 @@
           <tr *ngFor="let carddeck of responseFromServer.content">
             <td>{{carddeck.id}}</td>
             <td (click)="setFilterByCard(carddeck.card.id)">
-              {{carddeck.card.id}}</td>
+              {{carddeck.card.id}} - {{carddeck.card.cardnumber}}</td>
               <td (click)="setFilterByDeck(carddeck.deck.id)">
-                {{carddeck.deck.id}}</td>
+                {{carddeck.deck.id}} - {{carddeck.deck.name}}</td>
               <td>{{carddeck.copies}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">

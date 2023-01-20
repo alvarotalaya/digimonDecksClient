@@ -52,7 +52,7 @@
             <td>{{player.name}}</td>
             <td>{{player.email}}</td>
             <td (click)="setFilterByUsertype(player.usertype.id)">
-              {{player.usertype.id}}</td>
+              {{player.usertype.id}} - {{player.usertype.type}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
                 <button class="btn btn-sm btn-primary" [routerLink]="['/admin/player/view',player.id]">

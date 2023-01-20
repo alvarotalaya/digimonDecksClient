@@ -57,7 +57,7 @@
             <td>{{deck.description}}</td>
             <td>{{deck.lastupdate}}</td>
             <td (click)="setFilterByPlayer(deck.player.id)">
-              {{deck.player.id}}</td>
+              {{deck.player.id}} - {{deck.player.name}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
                 <button class="btn btn-sm btn-primary" [routerLink]="['/admin/deck/view',deck.id]">
