@@ -1,21 +1,21 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Card's edit</h1>
+      <h1 class="text-center mb-5">Card's new</h1>
 
       <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
 
         <div class="mb-3 row">
           <label for="inputID" class="col-sm-2 col-form-label">ID</label>
           <div class="col-sm-2">
-            <input type="text" class="form-control" id="inputID" formControltype="id" readonly>
+            <input type="text" class="form-control" id="inputID" formControlName="id" readonly>
           </div>
         </div>
 
         <div class="mb-3 row">
           <label for="inputnName" class="col-sm-2 col-form-label">Name</label>
           <div class="col-sm-4 has-validation">
-            <input name="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.name.dirty && !oForm.controls.name.errors?.['required'] &&
             oForm.controls.name.dirty && !oForm.controls.name.errors?.['minlength'] 
               && oForm.controls.name.dirty && !oForm.controls.name.errors?.['maxlength'],
@@ -44,7 +44,7 @@
               'is-invalid' :  oForm.controls.type.dirty &&  oForm.controls.type.errors?.['minlength'] 
               ||  oForm.controls.type.dirty &&  oForm.controls.type.errors?.['maxlength'] ||  
               oForm.controls.type.dirty &&  oForm.controls.type.errors?.['required']}"
-              id="inputType" formControltype="type">
+              id="inputType" formControlName="type">
             <div id="inputTypeFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.type.dirty &&  oForm.controls.type.errors?.['maxlength']">
               La longitud máxima es de 50 caracteres.
@@ -59,14 +59,14 @@
         <div class="mb-3 row">
           <label for="inputColor" class="col-sm-2 col-form-label">Color</label>
           <div class="col-sm-4 has-validation">
-            <input color="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.color.dirty && !oForm.controls.color.errors?.['required'] &&
             oForm.controls.color.dirty && !oForm.controls.color.errors?.['minlength'] 
               && oForm.controls.color.dirty && !oForm.controls.color.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.color.dirty &&  oForm.controls.color.errors?.['minlength'] 
               ||  oForm.controls.color.dirty &&  oForm.controls.color.errors?.['maxlength'] ||  
               oForm.controls.color.dirty &&  oForm.controls.color.errors?.['required']}"
-              id="inputColor" formControlcolor="color">
+              id="inputColor" formControlName="color">
             <div id="inputcolorFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.color.dirty &&  oForm.controls.color.errors?.['maxlength']">
               La longitud máxima es de 50 caracteres.
@@ -81,14 +81,14 @@
         <div class="mb-3 row">
           <label for="inputStage" class="col-sm-2 col-form-label">Stage</label>
           <div class="col-sm-4 has-validation">
-            <input stage="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.stage.dirty && !oForm.controls.stage.errors?.['required'] &&
             oForm.controls.stage.dirty && !oForm.controls.stage.errors?.['minlength'] 
               && oForm.controls.stage.dirty && !oForm.controls.stage.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.stage.dirty &&  oForm.controls.stage.errors?.['minlength'] 
               ||  oForm.controls.stage.dirty &&  oForm.controls.stage.errors?.['maxlength'] ||  
               oForm.controls.stage.dirty &&  oForm.controls.stage.errors?.['required']}"
-              id="inputStage" formControlstage="stage">
+              id="inputStage" formControlName="stage">
             <div id="inputStageFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.stage.dirty &&  oForm.controls.stage.errors?.['maxlength']">
               La longitud máxima es de 20 caracteres.
@@ -99,14 +99,14 @@
         <div class="mb-3 row">
           <label for="inputDigitype" class="col-sm-2 col-form-label">Digitype</label>
           <div class="col-sm-4 has-validation">
-            <input digitype="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.digitype.dirty && !oForm.controls.digitype.errors?.['required'] &&
             oForm.controls.digitype.dirty && !oForm.controls.digitype.errors?.['minlength'] 
               && oForm.controls.digitype.dirty && !oForm.controls.digitype.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.digitype.dirty &&  oForm.controls.digitype.errors?.['minlength'] 
               ||  oForm.controls.digitype.dirty &&  oForm.controls.digitype.errors?.['maxlength'] ||  
               oForm.controls.digitype.dirty &&  oForm.controls.digitype.errors?.['required']}"
-              id="inputDigitype" formControldigitype="digitype">
+              id="inputDigitype" formControlName="digitype">
             <div id="inputDigitypeFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.digitype.dirty &&  oForm.controls.digitype.errors?.['maxlength']">
               La longitud máxima es de 50 caracteres.
@@ -121,14 +121,14 @@
         <div class="mb-3 row">
           <label for="inputAttribute" class="col-sm-2 col-form-label">Attribute</label>
           <div class="col-sm-4 has-validation">
-            <input attribute="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.attribute.dirty && !oForm.controls.attribute.errors?.['required'] &&
             oForm.controls.attribute.dirty && !oForm.controls.attribute.errors?.['minlength'] 
               && oForm.controls.attribute.dirty && !oForm.controls.attribute.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.attribute.dirty &&  oForm.controls.attribute.errors?.['minlength'] 
               ||  oForm.controls.attribute.dirty &&  oForm.controls.attribute.errors?.['maxlength'] ||  
               oForm.controls.attribute.dirty &&  oForm.controls.attribute.errors?.['required']}"
-              id="inputAttribute" formControlattribute="attribute">
+              id="inputAttribute" formControlName="attribute">
             <div id="inputAttributeFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.attribute.dirty &&  oForm.controls.attribute.errors?.['maxlength']">
               La longitud máxima es de 50 caracteres.
@@ -143,14 +143,14 @@
         <div class="mb-3 row">
           <label for="inputLevel" class="col-sm-2 col-form-label">Level</label>
           <div class="col-sm-4 has-validation">
-            <input level="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.level.dirty && !oForm.controls.level.errors?.['required'] &&
             oForm.controls.level.dirty && !oForm.controls.level.errors?.['minlength'] 
               && oForm.controls.level.dirty && !oForm.controls.level.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.level.dirty &&  oForm.controls.level.errors?.['minlength'] 
               ||  oForm.controls.level.dirty &&  oForm.controls.level.errors?.['maxlength'] ||  
               oForm.controls.level.dirty &&  oForm.controls.level.errors?.['required']}"
-              id="inputLevel" formControllevel="level">
+              id="inputLevel" formControlName="level">
             <div id="inputLevelFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.level.dirty &&  oForm.controls.level.errors?.['maxlength']">
               La longitud máxima es de 1 caracteres.
@@ -165,14 +165,14 @@
         <div class="mb-3 row">
           <label for="inputPlaycost" class="col-sm-2 col-form-label">Play cost</label>
           <div class="col-sm-4 has-validation">
-            <input playcost="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.playcost.dirty && !oForm.controls.playcost.errors?.['required'] &&
             oForm.controls.playcost.dirty && !oForm.controls.playcost.errors?.['minlength'] 
               && oForm.controls.playcost.dirty && !oForm.controls.playcost.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.playcost.dirty &&  oForm.controls.playcost.errors?.['minlength'] 
               ||  oForm.controls.playcost.dirty &&  oForm.controls.playcost.errors?.['maxlength'] ||  
               oForm.controls.playcost.dirty &&  oForm.controls.playcost.errors?.['required']}"
-              id="inputPlaycost" formControlplaycost="playcost">
+              id="inputPlaycost" formControlName="playcost">
             <div id="inputPlaycostFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.playcost.dirty &&  oForm.controls.playcost.errors?.['minlength']">
               La longitud mínima es de 1 caracteres.
@@ -191,14 +191,14 @@
         <div class="mb-3 row">
           <label for="inputEvolutioncost" class="col-sm-2 col-form-label">Evolution cost</label>
           <div class="col-sm-4 has-validation">
-            <input evolutioncost="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.evolutioncost.dirty && !oForm.controls.evolutioncost.errors?.['required'] &&
             oForm.controls.evolutioncost.dirty && !oForm.controls.evolutioncost.errors?.['minlength'] 
               && oForm.controls.evolutioncost.dirty && !oForm.controls.evolutioncost.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.evolutioncost.dirty &&  oForm.controls.evolutioncost.errors?.['minlength'] 
               ||  oForm.controls.evolutioncost.dirty &&  oForm.controls.evolutioncost.errors?.['maxlength'] ||  
               oForm.controls.evolutioncost.dirty &&  oForm.controls.evolutioncost.errors?.['required']}"
-              id="inputEvolutioncost" formControlevolutioncost="evolutioncost">
+              id="inputEvolutioncost" formControlName="evolutioncost">
             <div id="inputEvolutioncostFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.evolutioncost.dirty &&  oForm.controls.evolutioncost.errors?.['minlength']">
               La longitud mínima es de 1 caracteres.
@@ -217,14 +217,14 @@
         <div class="mb-3 row">
           <label for="inputDp" class="col-sm-2 col-form-label">DP</label>
           <div class="col-sm-4 has-validation">
-            <input dp="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.dp.dirty && !oForm.controls.dp.errors?.['required'] &&
             oForm.controls.dp.dirty && !oForm.controls.dp.errors?.['minlength'] 
               && oForm.controls.dp.dirty && !oForm.controls.dp.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.dp.dirty &&  oForm.controls.dp.errors?.['minlength'] 
               ||  oForm.controls.dp.dirty &&  oForm.controls.dp.errors?.['maxlength'] ||  
               oForm.controls.dp.dirty &&  oForm.controls.dp.errors?.['required']}"
-              id="inputdp" formControldp="dp">
+              id="inputdp" formControlName="dp">
             <div id="inputDpFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.dp.dirty &&  oForm.controls.dp.errors?.['maxlength']">
               La longitud máxima es de 10 caracteres.
@@ -234,19 +234,19 @@
               El campo es obligatorio.
             </div>
           </div>
-        </div>  
+        </div> 
 
         <div class="mb-3 row">
           <label for="inputCardnumber" class="col-sm-2 col-form-label">Card Number</label>
           <div class="col-sm-4 has-validation">
-            <input cardnumber="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.cardnumber.dirty && !oForm.controls.cardnumber.errors?.['required'] &&
             oForm.controls.cardnumber.dirty && !oForm.controls.cardnumber.errors?.['minlength'] 
               && oForm.controls.cardnumber.dirty && !oForm.controls.cardnumber.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.cardnumber.dirty &&  oForm.controls.cardnumber.errors?.['minlength'] 
               ||  oForm.controls.cardnumber.dirty &&  oForm.controls.cardnumber.errors?.['maxlength'] ||  
               oForm.controls.cardnumber.dirty &&  oForm.controls.cardnumber.errors?.['required']}"
-              id="inputCardnumber" formControlcardnumber="cardnumber">
+              id="inputCardnumber" formControlName="cardnumber">
             <div id="inputCardnumberFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.cardnumber.dirty &&  oForm.controls.cardnumber.errors?.['minlength']">
               La longitud mínima es de 5 caracteres.
@@ -265,14 +265,14 @@
         <div class="mb-3 row">
           <label for="inputMaineffect" class="col-sm-2 col-form-label">Main effect</label>
           <div class="col-sm-4 has-validation">
-            <input maineffect="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.maineffect.dirty && !oForm.controls.maineffect.errors?.['required'] &&
             oForm.controls.maineffect.dirty && !oForm.controls.maineffect.errors?.['minlength'] 
               && oForm.controls.maineffect.dirty && !oForm.controls.maineffect.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.maineffect.dirty &&  oForm.controls.maineffect.errors?.['minlength'] 
               ||  oForm.controls.maineffect.dirty &&  oForm.controls.maineffect.errors?.['maxlength'] ||  
               oForm.controls.maineffect.dirty &&  oForm.controls.maineffect.errors?.['required']}"
-              id="inputmaineffect" formControlmaineffect="maineffect">
+              id="inputmaineffect" formControlName="maineffect">
             <div id="inputMaineffectFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.maineffect.dirty &&  oForm.controls.maineffect.errors?.['maxlength']">
               La longitud máxima es de 1000 caracteres.
@@ -287,43 +287,39 @@
         <div class="mb-3 row">
           <label for="inputSourceeffect" class="col-sm-2 col-form-label">Source effect</label>
           <div class="col-sm-4 has-validation">
-            <input sourceeffect="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.sourceeffect.dirty && !oForm.controls.sourceeffect.errors?.['required'] &&
             oForm.controls.sourceeffect.dirty && !oForm.controls.sourceeffect.errors?.['minlength'] 
               && oForm.controls.sourceeffect.dirty && !oForm.controls.sourceeffect.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.sourceeffect.dirty &&  oForm.controls.sourceeffect.errors?.['minlength'] 
               ||  oForm.controls.sourceeffect.dirty &&  oForm.controls.sourceeffect.errors?.['maxlength'] ||  
               oForm.controls.sourceeffect.dirty &&  oForm.controls.sourceeffect.errors?.['required']}"
-              id="inputSourceeffect" formControlsourceeffect="sourceeffect">
+              id="inputSourceeffect" formControlName="sourceeffect">
             <div id="inputSourceeffectFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.sourceeffect.dirty &&  oForm.controls.sourceeffect.errors?.['maxlength']">
-              La longitud máxima es de 1000 caracteres.
+              La longitud máxima es de 10 caracteres.
             </div>
             <div id="inputSourceeffectFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.sourceeffect.dirty &&  oForm.controls.sourceeffect.errors?.['required']">
               El campo es obligatorio.
             </div>
           </div>
-        </div>  
+        </div> 
 
         <div class="mb-3 row">
           <label for="inputImage" class="col-sm-2 col-form-label">Image</label>
           <div class="col-sm-4 has-validation">
-            <input image="text" class="form-control"
+            <input type="text" class="form-control"
               [ngClass]="{'is-valid' : oForm.controls.image.dirty && !oForm.controls.image.errors?.['required'] &&
             oForm.controls.image.dirty && !oForm.controls.image.errors?.['minlength'] 
               && oForm.controls.image.dirty && !oForm.controls.image.errors?.['maxlength'],
               'is-invalid' :  oForm.controls.image.dirty &&  oForm.controls.image.errors?.['minlength'] 
               ||  oForm.controls.image.dirty &&  oForm.controls.image.errors?.['maxlength'] ||  
               oForm.controls.image.dirty &&  oForm.controls.image.errors?.['required']}"
-              id="inputImage" formControlimage="image">
-            <div id="inputImageFeedback" class="invalid-feedback"
-              *ngIf="oForm.controls.image.dirty &&  oForm.controls.image.errors?.['minlength']">
-              La longitud mínima es de 5 caracteres.
-            </div>
+              id="inputImage" formControlName="image">
             <div id="inputImageFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.image.dirty &&  oForm.controls.image.errors?.['maxlength']">
-              La longitud máxima es de 50 caracteres.
+              La longitud máxima es de 1000 caracteres.
             </div>
             <div id="inputImageFeedback" class="invalid-feedback"
               *ngIf="oForm.controls.image.dirty &&  oForm.controls.image.errors?.['required']">

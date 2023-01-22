@@ -37,18 +37,18 @@ export class CardNewAdminRoutedComponent implements OnInit {
     this.oForm = <FormGroup>this.oFormBuilder.group({
       id: [''],
       name: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(50)]],
-      type: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(50)]],
+      type: ['', [Validators.minLength(0), Validators.maxLength(50)]],
       color: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      stage: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(20)]],
-      digitype: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(50)]],
-      attribute: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(50)]],
-      level: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(1)]],
-      playcost: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(2)]],
-      evolutioncost: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(2)]],
-      dp: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(10)]],
+      stage: ['', [Validators.minLength(0), Validators.maxLength(20)]],
+      digitype: ['', [Validators.minLength(0), Validators.maxLength(50)]],
+      attribute: ['', [Validators.minLength(0), Validators.maxLength(50)]],
+      level: ['', [Validators.minLength(0), Validators.maxLength(1)]],
+      playcost: ['', [Validators.minLength(1), Validators.maxLength(2)]],
+      evolutioncost: ['', [Validators.minLength(0), Validators.maxLength(2)]],
+      dp: ['', [Validators.minLength(0), Validators.maxLength(10)]],
       cardnumber: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
-      maineffect: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
-      sourceeffect: ['', [Validators.required, Validators.minLength(0), Validators.maxLength(1000)]],
+      maineffect: ['', [Validators.minLength(0), Validators.maxLength(1000)]],
+      sourceeffect: ['', [Validators.minLength(0), Validators.maxLength(1000)]],
       image: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]]
     });
   }
