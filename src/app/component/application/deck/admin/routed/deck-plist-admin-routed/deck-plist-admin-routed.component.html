@@ -3,9 +3,6 @@
     <div class="col">
       <h1 class="text-center mb-5">Decks's list</h1>  
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
-        <button class="btn btn-primary mx-3" (click)="generateDeck()">Generate Deck</button>   
-      </div> 
-      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
         <a [routerLink]="['/admin/deck/new']" class="btn btn-primary mx-3">Alta de deck</a>
         <app-search-unrouted [placeHolder]="'Deck Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"

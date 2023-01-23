@@ -34,7 +34,6 @@ export class DeckFinderAdminUnroutedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      localStorage.getItem;
     this.getPage();
   }
 

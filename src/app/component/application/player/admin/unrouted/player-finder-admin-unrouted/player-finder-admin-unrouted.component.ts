@@ -33,7 +33,6 @@ export class PlayerFinderAdminUnroutedComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-      localStorage.getItem;
     this.getPage();
   }
 

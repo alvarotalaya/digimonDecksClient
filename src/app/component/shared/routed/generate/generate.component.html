@@ -1,0 +1,109 @@
+
+<div class="container my-3">>
+  <div class="row justify-content-center">
+
+
+    <div class="card text-center" *ngIf="bLoading">
+      <div class="card-body">
+        <h3 class="text-danger">Procesando... espere por favor.</h3>
+        <div class="spinner-border my-5" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped"  *ngIf="!bLoading">
+      <tbody>
+        <tr class="align-middle">
+          <th class="text-start py-3">Entidad </th>
+          <th class="text-center py-3">Número de registros </th>
+          <th class="text-center py-3">Generación aleatoria </th>
+        </tr>
+        <tr>
+          <th><i [ngClass]="oMetadataService.getIcon('usuario')"></i> Players</th>
+          <td class="text-center">{{nPlayers}}</td>
+          <td class="text-center">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Tools">
+              <button type="button" class="btn btn-success mx-2" (click)="generatePlayers(10)"><i
+                  [ngClass]="oMetadataService.getIcon('random')"></i>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="bLoading"></span>
+                10</button>
+              <button type="button" class="btn btn-success mx-2" (click)="generatePlayers(100)"><i
+                  [ngClass]="oMetadataService.getIcon('random')"></i>
+                100</button>
+              <button type="button" class="btn btn-success mx-2" (click)="generatePlayers(1000)"><i
+                  [ngClass]="oMetadataService.getIcon('random')"></i>
+                1000</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><i [ngClass]="oMetadataService.getIcon('usuario')"></i> Usertypes </th>
+          <td class="text-center">{{nUsertypes}}</td>
+          <td class="text-center">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Tools">
+              <button type="button" class="btn btn-success mx-2" (click)="generateUsertypes()"><i
+                  [ngClass]="oMetadataService.getIcon('random')"></i>
+                1</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><i [ngClass]="oMetadataService.getIcon('producto')"></i> Decks</th>
+          <td class="text-center">{{nDecks}}</td>
+          <td class="text-center">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Tools">
+              <button type="button" class="btn btn-success mx-2" (click)="generateDecks(10)"><i
+                  [ngClass]="oMetadataService.getIcon('random')" ng-disabled="nTiposProducto<=0"></i>
+                10</button>
+              <button type="button" class="btn btn-success mx-2" (click)="generateDecks(100)"><i
+                  [ngClass]="oMetadataService.getIcon('random')" ng-disabled="nTiposProducto<=0"></i>
+                100</button>
+              <button type="button" class="btn btn-success mx-2" (click)="generateDecks(1000)"><i
+                  [ngClass]="oMetadataService.getIcon('random')" ng-disabled="nTiposProducto<=0"></i>
+                1000</button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th><i [ngClass]="oMetadataService.getIcon('factura')"></i> Carddecks</th>
+          <td class="text-center">{{nCarddecks}}</td>
+          <td class="text-center">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Tools">
+              <button type="button" class="btn btn-success mx-2" (click)="generateCarddecks(10)"><i
+                  [ngClass]="oMetadataService.getIcon('random')" ng-disabled="nPlayers<=0"></i>
+                10</button>
+              <button type="button" class="btn btn-success mx-2" (click)="generateCarddecks(100)"><i
+                  [ngClass]="oMetadataService.getIcon('random')" ng-disabled="nPlayers<=0"></i>
+                100</button>
+              <button type="button" class="btn btn-success mx-2" (click)="generateCarddecks(1000)"><i
+                  [ngClass]="oMetadataService.getIcon('random')" ng-disabled="nPlayers<=0"></i>
+                1000</button>
+            </div>
+          </td>
+        </tr>  
+        <tr>
+          <th><i [ngClass]="oMetadataService.getIcon('producto')"></i> Cards</th>
+          <td class="text-center">{{nCards}}</td>
+          <td class="text-center">
+            <div class="btn-group btn-group-sm" role="group" aria-label="Tools">
+              <button type="button" class="btn btn-success mx-2" (click)="getAllCards(1)"><i
+                  [ngClass]="oMetadataService.getIcon('random')" ng-disabled="nTiposProducto<=0"></i>
+                Get All Cards</button>
+            </div>
+          </td>
+        </tr>      
+      </tbody>
+    </table>
+    <div class="row justify-content-center">
+      <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+        <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oMetadataService.getIcon('home')"></i> Página
+          principal</a>
+        <a class="btn btn-primary mx-2" (click)="oLocation.back()"><i [ngClass]="oMetadataService.getIcon('return')"></i> Volver
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-popup [show]="eventsModalSubject.asObservable()" [body]="strResult" (close)="onCloseModal()"> </app-popup>

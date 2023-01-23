@@ -51,9 +51,6 @@ export class DeckService {
  newOne(oDeck2Send: IDeck2Send): Observable<number> {    
    return this.oHttp.post<number>(this.url, oDeck2Send, {withCredentials:true});
  }
- 
- generate(): Observable<IDeck> {
-   return this.oHttp.post<IDeck>(this.url + "/generate", null, { withCredentials: true });
- }
+
 
 }

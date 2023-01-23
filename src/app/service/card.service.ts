@@ -51,5 +51,4 @@ newOne(oCard2Send: ICard2Send): Observable<number> {
   return this.oHttp.post<number>(this.url, oCard2Send, {withCredentials:true});
 }
 
-
 }

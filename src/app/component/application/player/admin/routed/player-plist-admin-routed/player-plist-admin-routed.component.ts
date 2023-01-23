@@ -81,14 +81,4 @@ export class PlayerPlistAdminRoutedComponent implements OnInit {
     this.getPage();
   }
 
-  generatePlayer(){
-
-    this.oPlayerService.generate().subscribe({
-      next: (resp: IPlayer) => {
-        this.setPage(this.responseFromServer.totalPages)
-        this.getPage();
-      }
-    });
-  }
-
 }

@@ -1,6 +1,7 @@
 import { HomeComponent } from './component/shared/routed/home/home.component';
 import { LoginComponent } from './component/shared/routed/login/login.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
+import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PlayerPlistAdminRoutedComponent } from './component/application/player/admin/routed/player-plist-admin-routed/player-plist-admin-routed.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent},
   { path: 'logout', component: LogoutComponent},
+  { path: 'generate', component: GenerateComponent},
   { path: 'admin/player/plist', component: PlayerPlistAdminRoutedComponent},
   { path: 'admin/player/view/:id', component: PlayerViewAdminRoutedComponent},
   { path: 'admin/player/remove/:id', component: PlayerRemoveAdminRoutedComponent},

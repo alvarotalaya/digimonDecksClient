@@ -49,6 +49,8 @@ import { CardFinderAdminUnroutedComponent } from './component/application/card/a
 import { DeckFinderAdminUnroutedComponent } from './component/application/deck/admin/unrouted/deck-finder-admin-unrouted/deck-finder-admin-unrouted.component';
 import { CarddeckEditAdminRoutedComponent } from './component/application/carddeck/admin/routed/carddeck-edit-admin-routed/carddeck-edit-admin-routed.component';
 import { CarddeckNewAdminRoutedComponent } from './component/application/carddeck/admin/routed/carddeck-new-admin-routed/carddeck-new-admin-routed.component';
+import { PopupComponent } from './component/shared/unrouted/popup/popup.component';
+import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { CarddeckNewAdminRoutedComponent } from './component/application/carddec
     SearchUnroutedComponent,
     DropdownRegisterPageComponent,
     PaginationUnroutedComponent,
+    PopupComponent,
+    GenerateComponent,
     PlayerPlistAdminRoutedComponent,
     PlayerViewAdminRoutedComponent,
     PlayerRemoveAdminRoutedComponent,

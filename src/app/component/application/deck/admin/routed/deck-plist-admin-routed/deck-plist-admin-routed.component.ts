@@ -83,14 +83,4 @@ export class DeckPlistAdminRoutedComponent implements OnInit {
     this.getPage();
   }
 
-  generateDeck(){
-
-    this.oDeckService.generate().subscribe({
-      next: (resp: IDeck) => {
-        this.setPage(this.responseFromServer.totalPages)
-        this.getPage();
-      }
-    });
-  }
-
 }

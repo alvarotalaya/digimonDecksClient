@@ -88,14 +88,4 @@ export class CarddeckPlistAdminRoutedComponent implements OnInit {
     }
     this.getPage();
   }
-
-  generateCarddeck(){
-    this.oCarddeckService.generate().subscribe({
-      next: (resp: ICarddeck) => {
-        this.setPage(this.responseFromServer.totalPages)
-        this.getPage();
-      }
-    });
-  }
-
 }

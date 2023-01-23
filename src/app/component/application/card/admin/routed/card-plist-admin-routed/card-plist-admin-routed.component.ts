@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ICard } from 'src/app/model/card-interface';
 import { CardService } from 'src/app/service/card.service';
+import { CountService } from 'src/app/service/count.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 
@@ -27,8 +28,12 @@ export class CardPlistAdminRoutedComponent implements OnInit {
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
 
+  bLoading:boolean=false;
+  strResult: string;
+
   constructor(
-    private oCardService: CardService
+    private oCardService: CardService,
+    private oCountService: CountService
   ) { }
 
   ngOnInit() {

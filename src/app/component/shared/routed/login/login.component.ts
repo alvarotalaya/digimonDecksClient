@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
     if (oRoute.snapshot.data['message']) {
       this.oUserSession = this.oRoute.snapshot.data['message'];
-      localStorage.setItem("user", JSON.stringify(oRoute.snapshot.data['message']));
+      localStorage.setItem("player", JSON.stringify(oRoute.snapshot.data['message']));
       oRouter.navigate(['/home']);
     } else {
       localStorage.clear();

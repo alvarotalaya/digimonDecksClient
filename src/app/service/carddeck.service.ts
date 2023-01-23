@@ -54,7 +54,4 @@ export class CarddeckService {
    return this.oHttp.post<number>(this.url, oCarddeck2Send, {withCredentials:true});
  }
  
- generate(): Observable<ICarddeck> {
-   return this.oHttp.post<ICarddeck>(this.url + "/generate", null, { withCredentials: true });
- }
 }

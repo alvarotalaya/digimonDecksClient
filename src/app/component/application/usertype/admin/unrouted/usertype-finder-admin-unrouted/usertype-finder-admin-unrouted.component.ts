@@ -32,7 +32,6 @@ export class UsertypeFinderAdminUnroutedComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        localStorage.getItem;
       this.getPage();
     }
 
