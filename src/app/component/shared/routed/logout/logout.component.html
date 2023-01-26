@@ -6,7 +6,7 @@
                 <h3 class="">Are you sure to logout?</h3>
 
                 <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-                    <button class="btn btn-warning mx-1" (click)="closeSession()"><i
+                    <button class="btn btn-warning mx-1" (click)="logout()"><i
                             [ngClass]="oMetadataService.getIcon('logout')"></i> Close session</button>
                     <a class="btn btn-primary mx-1" [routerLink]="['/home']"><i
                             [ngClass]="oMetadataService.getIcon('home')"></i> Go to home</a>

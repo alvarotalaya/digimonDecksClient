@@ -4,16 +4,16 @@
 
         <div class="col-md-5 text-center">
             <div class="bg-light mt-5 p-5">
-                <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()" novalidate class="row g-3">
+                <form [formGroup]="oFormularioLogin" novalidate class="row g-3">
                     <h4><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>Login</h4>
                     <div class="col-12 text-start">
                         <label for="email" class="form-label">Player's email</label>
                         <div class="input-group has-validation">
                             <input type="text" formControlName="email" id="email" class="form-control"
                                 placeholder="Nombre de usuario"
-                                [class.is-invalid]="formularioLogin.get('email')!.dirty && formularioLogin.get('email')!.invalid">
+                                [class.is-invalid]="oFormularioLogin.get('email')!.dirty && oFormularioLogin.get('email')!.invalid">
                             <div class="invalid-feedback"
-                                *ngIf="!formularioLogin.get('email').errors?.['minlength'] || formularioLogin.get('email').dirty">
+                                *ngIf="!oFormularioLogin.get('email').errors?.['minlength'] || oFormularioLogin.get('email').dirty">
                                 La longitud mínima es 5
                             </div>
 
@@ -23,26 +23,25 @@
                         <label for="password" class="form-label">Password</label>
                         <input type="password" formControlName="password" id="password" name="password"
                             class="form-control" placeholder="Contraseña"
-                            [class.is-invalid]="formularioLogin.get('password')!.dirty && formularioLogin.get('password')!.invalid"
+                            [class.is-invalid]="oFormularioLogin.get('password')!.dirty && oFormularioLogin.get('password')!.invalid"
                             required>
                         <div class="invalid-feedback"
-                            *ngIf="!formularioLogin.get('password').errors?.['required'] || formularioLogin.get('password').dirty">
+                            *ngIf="!oFormularioLogin.get('password').errors?.['required'] || oFormularioLogin.get('password').dirty">
                             Por favor introduce la contraseña</div>
                         <div class="invalid-feedback"
-                            *ngIf="!formularioLogin.get('password').errors?.['minlength'] || formularioLogin.get('password').dirty">
+                            *ngIf="!oFormularioLogin.get('password').errors?.['minlength'] || oFormularioLogin.get('password').dirty">
                             La longitud mínima es 5
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="control-group text-center mt-3">
-                            <button type="submit" class="btn btn-primary"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>
+                            <button type="submit" class="btn btn-primary" (click)="login()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i>
                                 Acceder</button>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="control-group text-center mt-3">
-                            <button class="btn btn-danger m-2" (click)="loginAdmin()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i> admin/DigimonDecks</button>
-                            <button class="btn btn-success m-2" (click)="loginUser()"><i [ngClass]="oMetadataService.getIcon(this.strOperation)"></i> user/DigimonDecks</button>
+                            <button class="btn btn-danger m-2" (click)="loginAsAdmin()">admin/DigimonDecks</button>
                         </div>
                     </div>
                 </form>

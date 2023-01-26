@@ -1,12 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { IUser } from 'src/app/model/user-interface';
-import { SessionService } from 'src/app/service/session.service';
-import { UntypedFormGroup, UntypedFormBuilder} from '@angular/forms';
-import { CryptoService } from 'src/app/service/crypto.service';
+import { DecodeService } from 'src/app/service/decode.service';
 import { MetadataService } from 'src/app/service/metadata.service';
+import { EmitEvent, Events, SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-login',
@@ -15,62 +14,50 @@ import { MetadataService } from 'src/app/service/metadata.service';
 })
 export class LoginComponent implements OnInit {
 
+  oFormularioLogin: FormGroup<IUser>;
   strOperation: string = "login"
-  formularioLogin: UntypedFormGroup;
-  oUserSession: IUser;
 
   constructor(
-    private FormBuilder: UntypedFormBuilder,
-    private oRoute: ActivatedRoute,
-    private oRouter: Router,
+    protected oRouter: Router,
+    private oFormBuilder: FormBuilder,
     private oSessionService: SessionService,
-    private oCryptoService: CryptoService, 
-    public oMetadataService: MetadataService 
+    private oDecodeService: DecodeService,
+    public oMetadataService: MetadataService
   ) {
 
-    if (oRoute.snapshot.data['message']) {
-      this.oUserSession = this.oRoute.snapshot.data['message'];
-      localStorage.setItem("player", JSON.stringify(oRoute.snapshot.data['message']));
-      oRouter.navigate(['/home']);
-    } else {
-      localStorage.clear();
-    }
+    if (this.oSessionService.isSessionActive()) {
+      this.oRouter.navigate(['/home']);      
+    } 
 
-    this.formularioLogin = <UntypedFormGroup>this.FormBuilder.group({
-      email: ['', [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+    this.oFormularioLogin = <FormGroup>this.oFormBuilder.group({
+      email: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(5)]]
     });
 
   }
 
-  ngOnInit(): void { }
-
-  onSubmit() {
-    const loginData = { email: this.formularioLogin.get('email')!.value, password: this.oCryptoService.getSHA256(this.formularioLogin.get('password')!.value) };
-    console.log("login:onSubmit: ", loginData);
-    this.oSessionService.login(JSON.stringify(loginData)).subscribe(data => {
-      localStorage.setItem("player", JSON.stringify(data));
-      if (data != null) {
-        this.oRouter.navigate(['/','home']);
-      } else {
-        localStorage.clear();
-      }
-    });
-    return false;
+  ngOnInit() {
   }
 
-  loginAdmin() {
-    this.formularioLogin.setValue({
-      email: "altaro2002@gmail.com",
-      password: "DIGIMON_DECKS"
-    })
+  login() {
+    this.oSessionService.login(this.oFormularioLogin.get('email')!.value, this.oFormularioLogin.get('password')!.value)
+      .subscribe({
+        next: (data: string) => {
+          localStorage.setItem("token", data);
+          this.oSessionService.emit(new EmitEvent(Events.login, data));
+          this.oRouter.navigate(['/home']);
+        },
+        error: (error: HttpErrorResponse) => {
+          console.log(error.status, error.statusText);
+        }
+      })
   }
 
-  loginUser() {
-    this.formularioLogin.setValue({
-      email: "user",
-      password: "wildcart"
-    })
+  loginAsAdmin() {
+    console.log("loginAsAdmin");
+    this.oFormularioLogin.controls.email.setValue("altaro2002@gmail.com");
+    this.oFormularioLogin.controls.password.setValue("DIGIMON_DECKS");
   }
 
 }
+

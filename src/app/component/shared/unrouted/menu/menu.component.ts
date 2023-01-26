@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPlayer } from 'src/app/model/player-interface';
+import { Events, SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,14 +8,24 @@ import { IPlayer } from 'src/app/model/player-interface';
 })
 export class MenuComponent implements OnInit {
 
-  oPlayerSession: IPlayer;
-  
+  strEmail: string = "";
 
-  constructor() { 
-    this.oPlayerSession = JSON.parse(localStorage.getItem("player"));
+  constructor(
+    private oSessionService: SessionService,
+  ) {
+    this.strEmail = oSessionService.getEmail();
   }
 
   ngOnInit() {
+    this.oSessionService.on(Events.login).subscribe(
+      (data: string) => {
+        this.strEmail = this.oSessionService.getEmail();
+      });
+    this.oSessionService.on(Events.logout).subscribe(
+      (data: string) => {
+        this.strEmail = '';
+      });
+
   }
 
 }

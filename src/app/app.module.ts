@@ -7,7 +7,8 @@ import { HomeComponent } from './component/shared/routed/home/home.component';
 import { LoginComponent } from './component/shared/routed/login/login.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
-import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AjaxService } from './service/ajax.service.service';
 import { PaginationComponent } from './component/shared/unrouted/pagination/pagination.component';
 import { SearchUnroutedComponent } from './component/shared/unrouted/search-unrouted/search-unrouted.component';
@@ -110,7 +111,8 @@ import { GenerateComponent } from './component/shared/routed/generate/generate.c
   ],
   providers: [
     AjaxService,
-    PaginationService
+    PaginationService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
