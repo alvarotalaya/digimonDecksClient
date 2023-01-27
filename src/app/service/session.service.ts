@@ -32,19 +32,28 @@ export class SessionService {
       private oDecodeService: DecodeService
   ) { }
 
-  login(strEmail: string, strPassword: string): Observable<string> {
-      const loginData = JSON.stringify({ email: strEmail, password: this.oCryptoService.getSHA256(strPassword) });
+  login(stremail: string, strPassword: string): Observable<string> {
+      const loginData = JSON.stringify({ email: stremail, password: this.oCryptoService.getSHA256(strPassword) });
       return this.oHttpClient.post<string>(this.sURL, loginData, httpOptions);
   }
 
-  getEmail(): string {
+  getPlayer(): string {
       if (!this.isSessionActive()) {
           return "";
       } else {
           let token: string = localStorage.getItem("token");
-          return this.oDecodeService.parseJwt(token).email;
+          return this.oDecodeService.parseJwt(token).player;
       }
   }
+
+  getUsertype(): string {
+    if (!this.isSessionActive()) {
+        return "";
+    } else {
+        let token: string = localStorage.getItem("token");
+        return this.oDecodeService.parseJwt(token).usertype;
+    }
+}
 
   getToken(): string {
       return localStorage.getItem("token");

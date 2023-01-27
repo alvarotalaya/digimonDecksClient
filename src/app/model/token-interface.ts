@@ -3,5 +3,6 @@ export interface IToken {
     iss: string;
     iat: number;
     exp: number;
-    email: string;
+    player: string;
+    usertype: string;
 }

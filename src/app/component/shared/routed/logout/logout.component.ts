@@ -24,7 +24,7 @@ export class LogoutComponent implements OnInit {
   ) {
 
   if (this.oSessionService.isSessionActive()) {
-    this.strEmail = this.oSessionService.getEmail();
+    this.strEmail = this.oSessionService.getPlayer();
   } else {
     this.oRouter.navigate(['/home']);
   }
