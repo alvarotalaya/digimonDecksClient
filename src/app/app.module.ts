@@ -52,6 +52,8 @@ import { CarddeckEditAdminRoutedComponent } from './component/application/cardde
 import { CarddeckNewAdminRoutedComponent } from './component/application/carddeck/admin/routed/carddeck-new-admin-routed/carddeck-new-admin-routed.component';
 import { PopupComponent } from './component/shared/unrouted/popup/popup.component';
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
+import { CardPlistUserRoutedComponent } from './component/application/card/user/routed/card-plist-user-routed/card-plist-user-routed.component';
+import { CardDetailUserUnroutedComponent } from './component/application/card/user/unrouted/card-detail-user-unrouted/card-detail-user-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,8 @@ import { GenerateComponent } from './component/shared/routed/generate/generate.c
     CarddeckRemoveAdminRoutedComponent,
     CarddeckEditAdminRoutedComponent,
     CarddeckNewAdminRoutedComponent,
+    CardPlistUserRoutedComponent,
+    CardDetailUserUnroutedComponent
   ],
   imports: [
     BrowserModule,
