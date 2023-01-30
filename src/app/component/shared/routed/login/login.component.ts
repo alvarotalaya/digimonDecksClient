@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginAsAdmin() {
-    console.log("loginAsAdmin");
     this.oFormularioLogin.controls.email.setValue("altaro2002@gmail.com");
     this.oFormularioLogin.controls.password.setValue("DIGIMON_DECKS");
   }

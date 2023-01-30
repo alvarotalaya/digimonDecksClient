@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IPlayer } from 'src/app/model/player-interface';
 import { PlayerService } from 'src/app/service/player.service';
+import { SessionService } from 'src/app/service/session.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 
@@ -26,10 +28,19 @@ export class PlayerPlistAdminRoutedComponent implements OnInit {
   faTrash = faTrash;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
+  //
+  strUsertype: string = "";
 
   constructor(
-    private oPlayerService: PlayerService
-  ) { }
+    private oPlayerService: PlayerService,
+    protected oRouter: Router,
+    private oSessionService: SessionService
+  ) { 
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
+  }
 
   ngOnInit() {
     this.getPage();

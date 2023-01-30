@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CardService } from 'src/app/service/card.service';
+import { SessionService } from 'src/app/service/session.service';
 import { ICard } from 'src/app/model/card-interface';
 declare let bootstrap: any;
 
@@ -25,12 +26,18 @@ export class CardNewAdminRoutedComponent implements OnInit {
   modalContent: string = "";
   //foreign
   CardDescription: string = "";
+  strUsertype: string = "";
 
   constructor(
     private oRouter: Router,
     private oCardService: CardService,
-    private oFormBuilder: FormBuilder
+    private oFormBuilder: FormBuilder,
+    private oSessionService: SessionService
   ) {
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit() {

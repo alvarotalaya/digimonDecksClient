@@ -31,7 +31,6 @@ export class CardService {
       params = params.set("sort", strSortField);
     }
   }
-  console.log(this.url, {withCredentials:true, params: params })
   return this.oHttp.get<IPage<ICard>>(this.url, {withCredentials:true, params: params });
 }
 

@@ -1,8 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ICard } from 'src/app/model/card-interface';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CardService } from 'src/app/service/card.service';
-import { CountService } from 'src/app/service/count.service';
+import { SessionService } from 'src/app/service/session.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 
@@ -30,11 +31,18 @@ export class CardPlistAdminRoutedComponent implements OnInit {
 
   bLoading:boolean=false;
   strResult: string;
+  strUsertype: string = "";
 
   constructor(
     private oCardService: CardService,
-    private oCountService: CountService
-  ) { }
+    private oRouter: Router,
+    private oSessionService: SessionService
+  ) { 
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
+  }
 
   ngOnInit() {
     this.getPage();

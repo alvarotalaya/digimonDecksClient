@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUsertype } from 'src/app/model/usertype-interface';
 import { UsertypeService } from 'src/app/service/usertype.service';
+import { SessionService } from 'src/app/service/session.service';
 declare let bootstrap: any;
 
 @Component({
@@ -25,14 +26,20 @@ export class UsertypeEditAdminRoutedComponent implements OnInit {
   modalContent: string = "";
   // foreigns
   UsertypeDescription: string = "";
+  strUsertype: string = "";
 
   constructor(
     private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
     private oUsertypeService: UsertypeService,
     private oFormBuilder: FormBuilder,
+    private oSessionService: SessionService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit() {

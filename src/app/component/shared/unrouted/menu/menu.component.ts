@@ -22,7 +22,6 @@ export class MenuComponent implements OnInit {
       (data: string) => {
         this.strEmail = this.oSessionService.getPlayer();
         this.strUsertype = this.oSessionService.getUsertype();
-        console.log(this.strUsertype)
       });
     this.oSessionService.on(Events.logout).subscribe(
       (data: string) => {

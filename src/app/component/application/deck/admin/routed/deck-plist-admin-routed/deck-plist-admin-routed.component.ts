@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IDeck } from 'src/app/model/deck-interface';
 import { DeckService } from 'src/app/service/deck.service';
+import { SessionService } from 'src/app/service/session.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 
@@ -27,10 +29,20 @@ export class DeckPlistAdminRoutedComponent implements OnInit {
   faTrash = faTrash;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
+  //
+  strUsertype: string = "";
 
   constructor(
-    private oDeckService: DeckService
-  ) { }
+    private oDeckService: DeckService,
+    private oSessionService: SessionService,
+    private oRouter: Router,
+    private oActivatedRoute: ActivatedRoute,
+  ) { 
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
+  }
 
   ngOnInit() {
     this.getPage();

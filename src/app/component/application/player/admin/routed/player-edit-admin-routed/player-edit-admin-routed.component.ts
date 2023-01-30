@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IPlayer } from 'src/app/model/player-interface';
+import { SessionService } from 'src/app/service/session.service';
 import { PlayerService } from 'src/app/service/player.service';
 import { UsertypeService } from 'src/app/service/usertype.service';
 import { IUsertype } from 'src/app/model/usertype-interface';
@@ -27,15 +28,21 @@ export class PlayerEditAdminRoutedComponent implements OnInit {
   modalContent: string = "";
   // foreigns
   UsertypeDescription: string = "";
+  strUsertype: string = "";
 
   constructor(
-    private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
     private oPlayerService: PlayerService,
     private oFormBuilder: FormBuilder,
     private oUsertypeService: UsertypeService,
+    protected oRouter: Router,
+    private oSessionService: SessionService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit() {

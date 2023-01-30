@@ -2,6 +2,7 @@ import { ICard2Form, ICard2Send } from 'src/app/model/card-interface';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SessionService } from 'src/app/service/session.service';
 import { CardService } from 'src/app/service/card.service';
 import { ICard } from 'src/app/model/card-interface';
 declare let bootstrap: any;
@@ -25,14 +26,20 @@ export class CardEditAdminRoutedComponent implements OnInit {
   modalContent: string = "";
   //foreign
   CardDescription: string = "";
+  strUsertype: string = "";
 
   constructor(
     private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
     private oCardService: CardService,
-    private oFormBuilder: FormBuilder
+    private oFormBuilder: FormBuilder,
+    private oSessionService: SessionService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    }
   }
 
   ngOnInit() {

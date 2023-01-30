@@ -1,8 +1,9 @@
 import { IPlayer } from 'src/app/model/player-interface';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PlayerService } from 'src/app/service/player.service';
+import { SessionService } from 'src/app/service/session.service';
 
 @Component({
   selector: 'app-player-remove-admin-routed',
@@ -14,13 +15,20 @@ export class PlayerRemoveAdminRoutedComponent implements OnInit {
   id: number = 0;
   oPlayer: IPlayer = null;
   msg: string = "";
+  strUsertype: string = "";
 
   constructor(
+    private oRouter: Router,
     protected oLocation: Location,
     private oActivatedRoute: ActivatedRoute,
     private oPlayerService: PlayerService,
+    private oSessionService: SessionService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit(): void {

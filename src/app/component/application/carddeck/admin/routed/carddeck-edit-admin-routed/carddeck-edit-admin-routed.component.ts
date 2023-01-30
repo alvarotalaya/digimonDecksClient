@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ICarddeck } from 'src/app/model/carddeck-interface';
 import { IDeck } from 'src/app/model/deck-interface';
 import { ICard } from 'src/app/model/card-interface';
+import { SessionService } from 'src/app/service/session.service';
 import { CarddeckService } from 'src/app/service/carddeck.service';
 import { DeckService } from 'src/app/service/deck.service';
 import { CardService } from 'src/app/service/card.service';
@@ -30,6 +31,7 @@ export class CarddeckEditAdminRoutedComponent implements OnInit {
   CarddeckDescription: string = "";
   DeckDescription: string = "";
   CardDescription: string = "";
+  strUsertype: string = "";
 
   constructor(
     private oRouter: Router,
@@ -38,8 +40,13 @@ export class CarddeckEditAdminRoutedComponent implements OnInit {
     private oDeckService: DeckService,
     private oCardService: CardService,
     private oFormBuilder: FormBuilder,
+    private oSessionService: SessionService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit() {

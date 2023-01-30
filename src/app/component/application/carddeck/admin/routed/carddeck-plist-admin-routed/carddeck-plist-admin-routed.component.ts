@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICarddeck } from 'src/app/model/carddeck-interface';
+import { SessionService } from 'src/app/service/session.service';
 import { CarddeckService } from 'src/app/service/carddeck.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
@@ -27,10 +29,19 @@ export class CarddeckPlistAdminRoutedComponent implements OnInit {
   faTrash = faTrash;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
+  //
+  strUsertype: string = "";
 
   constructor(
-    private oCarddeckService: CarddeckService
-  ) { }
+    private oCarddeckService: CarddeckService,
+    private oRouter: Router,
+    private oSessionService: SessionService
+  ) { 
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
+  }
 
   ngOnInit() {
     this.getPage();

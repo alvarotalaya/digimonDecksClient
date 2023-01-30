@@ -38,6 +38,7 @@ logout() {
   this.oSessionService.logout();
   this.oSessionService.emit(new EmitEvent(Events.logout, ""));
   this.oRouter.navigate(['/home']);
+  window.location.reload();
 }
 
 }

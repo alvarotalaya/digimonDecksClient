@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IPlayer } from 'src/app/model/player-interface';
 import { MetadataService } from 'src/app/service/metadata.service';
 import { GenerateService } from 'src/app/service/generate.service';
+import { SessionService } from 'src/app/service/session.service';
 import { Location } from '@angular/common';
 import { Subject } from 'rxjs';
 import { CountService } from 'src/app/service/count.service';
@@ -22,6 +23,7 @@ export class GenerateComponent implements OnInit {
   nCards: number = 0;
   strResult: string = "";
   bLoading:boolean=false;
+  strUsertype: string = "";
 
   constructor(
     public oGenerateService: GenerateService,
@@ -30,9 +32,14 @@ export class GenerateComponent implements OnInit {
     private oRoute: ActivatedRoute,
     private oRouter: Router,
     protected oLocation: Location,
-    public oMetadataService: MetadataService
+    public oMetadataService: MetadataService,
+    private oSessionService: SessionService
   ) {
     this.getCount();
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit(): void { }

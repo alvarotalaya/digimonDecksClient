@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IDeck } from 'src/app/model/deck-interface';
 import { DeckService } from 'src/app/service/deck.service';
 import { PlayerService } from 'src/app/service/player.service';
+import { SessionService } from 'src/app/service/session.service';
 import { IPlayer } from 'src/app/model/player-interface';
 declare let bootstrap: any;
 
@@ -27,6 +28,7 @@ export class DeckNewAdminRoutedComponent implements OnInit {
   modalContent: string = "";
   // foreigns
   PlayerDescription: string = "";
+  strUsertype: string = "";
 
   constructor(
     private oRouter: Router,
@@ -34,8 +36,13 @@ export class DeckNewAdminRoutedComponent implements OnInit {
     private oDeckService: DeckService,
     private oFormBuilder: FormBuilder,
     private oPlayerService: PlayerService,
+    private oSessionService: SessionService
   ) {
     this.id = oActivatedRoute.snapshot.params['id'];
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    }
   }
 
   ngOnInit() {

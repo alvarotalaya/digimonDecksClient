@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { IPlayer } from 'src/app/model/player-interface';
 import { UsertypeService } from 'src/app/service/usertype.service';
+import { SessionService } from 'src/app/service/session.service';
 import { PlayerService } from 'src/app/service/player.service';
 import { IUsertype } from 'src/app/model/usertype-interface';
 declare let bootstrap: any;
@@ -27,13 +28,19 @@ export class PlayerNewAdminRoutedComponent implements OnInit {
   modalContent: string = "";
   //foreign
   UsertypeDescription: string = "";
+  strUsertype: string = "";
 
   constructor(
     private oRouter: Router,
     private oPlayerService: PlayerService,
     private oUsertypeService: UsertypeService,
-    private oFormBuilder: FormBuilder
+    private oFormBuilder: FormBuilder,
+    private oSessionService: SessionService
   ) {
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit() {

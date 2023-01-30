@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IUsertype } from 'src/app/model/usertype-interface';
 import { UsertypeService } from 'src/app/service/usertype.service';
+import { SessionService } from 'src/app/service/session.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 @Component({
@@ -25,13 +27,22 @@ export class UsertypePlistAdminRoutedComponent implements OnInit {
   faTrash = faTrash;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
+  //
+  strUsertype: string = "";
 
   constructor(
-    private oUsertypeService: UsertypeService
+    private oUsertypeService: UsertypeService,
+    private oActivatedRoute: ActivatedRoute,
+    private oRouter: Router,
+    private oSessionService: SessionService
   ) { }
 
   ngOnInit() {
     this.getPage();
+    this.strUsertype = this.oSessionService.getUsertype();
+    if (this.strUsertype != "1") {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   getPage() {
