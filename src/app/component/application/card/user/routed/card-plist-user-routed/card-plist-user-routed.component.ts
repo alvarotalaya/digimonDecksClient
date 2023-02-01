@@ -41,12 +41,7 @@ export class CardPlistUserRoutedComponent implements OnInit {
     private oCardService: CardService,
     private oRouter: Router,
     private oSessionService: SessionService
-  ) { 
-    this.strUsertype = this.oSessionService.getUsertype();
-    if (this.strUsertype != "1") {
-      this.oRouter.navigate(['/home']);
-    } 
-  }
+  ) { }
 
   ngOnInit() {
     this.getPage();
@@ -97,7 +92,6 @@ export class CardPlistUserRoutedComponent implements OnInit {
     this.myModal = new bootstrap.Modal(document.getElementById("carddetail"), { //pasar el myModal como parametro
       keyboard: false
     })
-    console.log("padre",idCard)
     this.idCard = idCard;
     this.myModal.show()
   }

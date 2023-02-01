@@ -42,8 +42,8 @@
       </ul>
 
       <span class="navbar-text mx-1" *ngIf="strEmail">
-        <small>
-            Player: {{strEmail}}
+        <small [routerLink]="['/user','player','view', strId]">
+            {{strEmail}}
         </small>
     </span>
     </div>

@@ -36,7 +36,6 @@ export class CardDetailUserUnroutedComponent implements OnInit {
   }
 
   getOne() {
-    console.log("hijo",this.id);
     if(this.id){
       this.oCardService.getOne(this.id).subscribe({
         next: (data: ICard) => {

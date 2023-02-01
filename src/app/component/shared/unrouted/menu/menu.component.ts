@@ -8,6 +8,7 @@ import { Events, SessionService } from 'src/app/service/session.service';
 })
 export class MenuComponent implements OnInit {
 
+  strId: number = 0;
   strEmail: string = "";
   strUsertype: string = "";
 
@@ -22,11 +23,16 @@ export class MenuComponent implements OnInit {
       (data: string) => {
         this.strEmail = this.oSessionService.getPlayer();
         this.strUsertype = this.oSessionService.getUsertype();
+        this.oSessionService.getUserId().subscribe((n: number) => this.strId = n);
       });
     this.oSessionService.on(Events.logout).subscribe(
       (data: string) => {
         this.strEmail = '';
+        this.strId = 0;
       });
+
+      
+      console.log(this.strId)
   }
 
 }

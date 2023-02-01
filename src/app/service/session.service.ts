@@ -29,7 +29,8 @@ export class SessionService {
   constructor(
       private oCryptoService: CryptoService,
       private oHttpClient: HttpClient,
-      private oDecodeService: DecodeService
+      private oDecodeService: DecodeService,
+      private oHttp: HttpClient
   ) { }
 
   login(stremail: string, strPassword: string): Observable<string> {
@@ -54,6 +55,10 @@ export class SessionService {
         return this.oDecodeService.parseJwt(token).usertype;
     }
 }
+
+getUserId(): Observable<number> {
+    return this.oHttp.get<number>(API_URL + "/session/getId", {withCredentials:true});
+  }
 
   getToken(): string {
       return localStorage.getItem("token");

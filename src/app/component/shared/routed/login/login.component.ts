@@ -58,5 +58,10 @@ export class LoginComponent implements OnInit {
     this.oFormularioLogin.controls.password.setValue("DIGIMON_DECKS");
   }
 
+  loginAsUser() {
+    this.oFormularioLogin.controls.email.setValue("221131@test.com");
+    this.oFormularioLogin.controls.password.setValue("DIGIMON_DECKS");
+  }
+
 }
 

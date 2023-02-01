@@ -54,6 +54,8 @@ import { PopupComponent } from './component/shared/unrouted/popup/popup.componen
 import { GenerateComponent } from './component/shared/routed/generate/generate.component';
 import { CardPlistUserRoutedComponent } from './component/application/card/user/routed/card-plist-user-routed/card-plist-user-routed.component';
 import { CardDetailUserUnroutedComponent } from './component/application/card/user/unrouted/card-detail-user-unrouted/card-detail-user-unrouted.component';
+import { PlayerInfoUserRoutedComponent } from './component/application/player/user/routed/player-info-user-routed/player-info-user-routed.component';
+import { DeckPlistUserUnroutedComponent } from './component/application/deck/user/unrouted/deck-plist-user-unrouted/deck-plist-user-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -103,7 +105,9 @@ import { CardDetailUserUnroutedComponent } from './component/application/card/us
     CarddeckEditAdminRoutedComponent,
     CarddeckNewAdminRoutedComponent,
     CardPlistUserRoutedComponent,
-    CardDetailUserUnroutedComponent
+    CardDetailUserUnroutedComponent,
+    PlayerInfoUserRoutedComponent,
+    DeckPlistUserUnroutedComponent,
   ],
   imports: [
     BrowserModule,
