@@ -30,7 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
                   }
             });
         } else {
-            this.oRouter.navigateByUrl('login');
+            
         }
         
         return next.handle(request);

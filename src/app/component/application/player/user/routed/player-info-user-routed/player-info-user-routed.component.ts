@@ -10,6 +10,7 @@ import { SessionService } from 'src/app/service/session.service';
 })
 export class PlayerInfoUserRoutedComponent implements OnInit {
 
+  strId: number = 0;
   id: number = 0;
   oPlayer: IPlayer = null;
   strEmail: string = "";
@@ -25,6 +26,7 @@ export class PlayerInfoUserRoutedComponent implements OnInit {
     if (this.strEmail == null) {
       this.oRouter.navigate(['/home']);
     } 
+    this.oSessionService.getUserId().subscribe((n: number) => this.strId = n);
   }
 
   ngOnInit(): void {

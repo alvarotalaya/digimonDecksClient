@@ -50,7 +50,6 @@ export class DeckPlistUserUnroutedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.getPage();
   }
 
