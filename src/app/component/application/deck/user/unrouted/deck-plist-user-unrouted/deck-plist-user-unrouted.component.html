@@ -30,7 +30,7 @@
             <td>{{deck.lastupdate}}</td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
-                <button class="btn btn-sm btn-primary" [routerLink]="['/admin/deck/view',deck.id]">
+                <button class="btn btn-sm btn-primary" [routerLink]="['/user/carddeck/plist', deck.id]">
                   <fa-icon [icon]="faEye"></fa-icon>
                 </button>
                 <button class="btn btn-sm btn-warning" [routerLink]="['/admin/deck/edit',deck.id]">

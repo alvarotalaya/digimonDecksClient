@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Card's list</h1> 
+      <h1 class="text-center mb-5">Deck's list</h1> 
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
         <a [routerLink]="['/admin/card/new']" class="btn btn-primary mx-3">Alta de card</a>
         <app-search-unrouted [placeHolder]="'card Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
@@ -16,9 +16,20 @@
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
-        <div class="col-md">
-          <img *ngFor="let card of responseFromServer.content" src={{card.image}} 
-            alt={{card.name}} (click)="openModalCard(card.id)">
+        <div class="row-md">
+          <div class="row">
+            <div class="col" *ngFor="let carddeck of responseFromServer.content">
+              <div class="col">
+                <button (click)="changeCopies(carddeck.id, carddeck.copies, carddeck.card.id, carddeck.deck.id, plus)">+</button>
+                <p>{{carddeck.copies}}</p>
+                <button (click)="changeCopies(carddeck.id, carddeck.copies, carddeck.card.id, carddeck.deck.id, minus)">-</button>
+              </div>
+              <div class="col">
+                <img src={{carddeck.card.image}} 
+                alt={{carddeck.card.name}} (click)="openModalCard(carddeck.card.id)">
+              </div>
+            </div>
+          </div>
         </div>
     </div>
   </div>
@@ -39,3 +50,4 @@
     </div>
   </div>
 </div>
+

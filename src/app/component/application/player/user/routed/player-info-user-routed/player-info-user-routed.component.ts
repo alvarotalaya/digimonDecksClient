@@ -31,7 +31,6 @@ export class PlayerInfoUserRoutedComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOne();
-    console.log(this.id)
   }
 
   getOne() {
