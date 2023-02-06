@@ -9,6 +9,7 @@ import { Events, SessionService } from 'src/app/service/session.service';
 export class MenuComponent implements OnInit {
 
   strId: number = 0;
+  strName: string = "";
   strEmail: string = "";
   strUsertype: string = "";
 
@@ -19,6 +20,7 @@ export class MenuComponent implements OnInit {
     this.strUsertype = this.oSessionService.getUsertype();
     if(this.strEmail){
       this.oSessionService.getUserId().subscribe((n: number) => this.strId = n);
+      this.oSessionService.getUserName().subscribe((n: string) => this.strName = n);
     }
   }
 

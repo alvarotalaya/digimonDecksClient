@@ -56,8 +56,12 @@ export class SessionService {
     }
 }
 
-getUserId(): Observable<number> {
-    return this.oHttp.get<number>(API_URL + "/session/getId", {withCredentials:true});
+    getUserId(): Observable<number> {
+        return this.oHttp.get<number>(API_URL + "/session/getId", {withCredentials:true});
+    }
+
+  getUserName(): Observable<String> {
+    return this.oHttp.get<String>(API_URL + "/session/getName", {withCredentials:true});
   }
 
   getToken(): string {
