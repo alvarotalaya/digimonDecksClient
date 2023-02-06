@@ -7,6 +7,7 @@ import { HomeComponent } from './component/shared/routed/home/home.component';
 import { LoginComponent } from './component/shared/routed/login/login.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
+import { FooterComponent } from './component/shared/unrouted/footer/footer.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AjaxService } from './service/ajax.service.service';
@@ -58,6 +59,7 @@ import { PlayerInfoUserRoutedComponent } from './component/application/player/us
 import { DeckPlistUserUnroutedComponent } from './component/application/deck/user/unrouted/deck-plist-user-unrouted/deck-plist-user-unrouted.component';
 import { CarddeckPlistUserRoutedComponent } from './component/application/carddeck/user/routed/carddeck-plist-user-routed/carddeck-plist-user-routed.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +67,7 @@ import { CarddeckPlistUserRoutedComponent } from './component/application/cardde
     LoginComponent,
     LogoutComponent,
     MenuComponent,
+    FooterComponent,
     PaginationComponent,
     SearchUnroutedComponent,
     DropdownRegisterPageComponent,
