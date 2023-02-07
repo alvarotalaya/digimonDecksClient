@@ -58,7 +58,6 @@ i{
 }
 .bounce_button:hover {
   animation-name: bounce;
-  -moz-animation-name: bounce;
 }
 
 @keyframes goright {
@@ -81,5 +80,4 @@ i{
 }
 .goright:hover {
   animation-name: goright;
-  -moz-animation-name: goright;
 }

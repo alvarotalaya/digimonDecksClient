@@ -1,6 +1,45 @@
-<div class="container mt-5">
+<div class="container mt-1">
   <div class="row">
       <div class="col">
+        <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="strEmail">
+          <div class="mb-3 row">
+            <label for="inputDeck" class="col-sm-2 col-form-label">Deck</label>
+            <div class="col-sm-4 has-validation">
+              <select id="inputDeck" formControlName="iddeck" >
+                <option *ngFor="let deck of responseFromServer.content" 
+                value={{deck.id}}>{{deck.name}}</option>
+              </select>
+            </div>
+          </div> 
+
+          <div class="mb-3 row">
+            <label for="inputCopies" class="col-sm-2 col-form-label">Copies</label>
+            <div class="col-sm-4 has-validation">
+              <input type="text" class="form-control"
+                [ngClass]="{'is-valid' : oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['required'] &&
+              oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['minlength'] 
+                && oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['maxlength'],
+                'is-invalid' :  oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['minlength'] 
+                ||  oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['maxlength'] ||  
+                oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['required']}"
+                id="inputCopies" formControlName="copies">
+              <div id="inputCopiesFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['minlength']">
+                La longitud mínima es de 5 caracteres.
+              </div>
+              <div id="inputCopiesFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['maxlength']">
+                La longitud máxima es de 10 caracteres.
+              </div>
+              <div id="inputCopiesFeedback" class="invalid-feedback"
+                *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['required']">
+                El campo es obligatorio.
+              </div>
+            </div>
+          </div>   
+          
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
           <table class="table table-bordered table-striped">
               <tbody>
                   <tr>
@@ -60,6 +99,25 @@
                 </tr>
               </tbody>
           </table>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+              <button copies="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              
+              {{modalContent}}
+              
+          </div>
+          <div class="modal-footer">
+              <button copies="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
       </div>
   </div>
 </div>
