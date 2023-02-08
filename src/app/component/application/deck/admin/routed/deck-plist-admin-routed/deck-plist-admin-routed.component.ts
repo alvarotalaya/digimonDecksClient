@@ -42,7 +42,14 @@ export class DeckPlistAdminRoutedComponent implements OnInit {
     if (this.strUsertype != "1") {
       this.oRouter.navigate(['/home']);
     } 
-  }
+
+    const id_player =  this.oActivatedRoute.snapshot.params['id'];
+      if(id_player == null){
+          this.id_playerFilter = 0;
+      }else{
+          this.id_playerFilter = id_player;
+      }
+    }
 
   ngOnInit() {
     this.getPage();

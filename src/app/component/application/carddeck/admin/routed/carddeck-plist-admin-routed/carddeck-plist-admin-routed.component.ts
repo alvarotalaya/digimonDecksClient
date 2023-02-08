@@ -35,12 +35,27 @@ export class CarddeckPlistAdminRoutedComponent implements OnInit {
   constructor(
     private oCarddeckService: CarddeckService,
     private oRouter: Router,
-    private oSessionService: SessionService
+    private oActivatedRoute: ActivatedRoute,
+    private oSessionService: SessionService,
   ) { 
     this.strUsertype = this.oSessionService.getUsertype();
     if (this.strUsertype != "1") {
       this.oRouter.navigate(['/home']);
     } 
+
+    const id_deck =  this.oActivatedRoute.snapshot.params['idDeck'];
+      if(id_deck == null){
+          this.id_deckFilter = 0;
+      }else{
+          this.id_deckFilter = id_deck;
+      }
+
+      const id_card =  this.oActivatedRoute.snapshot.params['idCard'];
+      if(id_card == null){
+          this.id_cardFilter = 0;
+      }else{
+          this.id_cardFilter = id_card;
+      }
   }
 
   ngOnInit() {

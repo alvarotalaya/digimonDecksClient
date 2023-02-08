@@ -36,7 +36,7 @@
                 <button class="btn btn-sm btn-warning" [routerLink]="['/admin/deck/edit',deck.id]">
                   <fa-icon [icon]="faUserPen"></fa-icon>
                 </button>
-                <button class="btn btn-sm btn-danger" [routerLink]="['/admin','deck','remove',deck.id]">
+                <button class="btn btn-sm btn-danger" (click)="openModalRemove(deck.id)">
                   <fa-icon [icon]="faTrash"></fa-icon>
                 </button>
               </div>
@@ -44,6 +44,28 @@
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="removeDeck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
+          <div class="col-md-5 control-group text-center">
+              <div class="alert alert-danger my-3" role="alert">
+                  <h3>Are you sure to remove this deck?</h3>
+                  <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center my-4">
+                      <a class="btn btn-danger mx-2" (click)="removeOne()">
+                          SI</a>
+                      <a class="btn btn-success mx-2" (click)="closeRemove()">
+                          NO </a>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

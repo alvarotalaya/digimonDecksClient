@@ -58,8 +58,6 @@ import { CardDetailUserUnroutedComponent } from './component/application/card/us
 import { PlayerInfoUserRoutedComponent } from './component/application/player/user/routed/player-info-user-routed/player-info-user-routed.component';
 import { DeckPlistUserUnroutedComponent } from './component/application/deck/user/unrouted/deck-plist-user-unrouted/deck-plist-user-unrouted.component';
 import { CarddeckPlistUserRoutedComponent } from './component/application/carddeck/user/routed/carddeck-plist-user-routed/carddeck-plist-user-routed.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -32,7 +32,6 @@ import { CarddeckNewAdminRoutedComponent } from './component/application/carddec
 import { CardPlistUserRoutedComponent } from './component/application/card/user/routed/card-plist-user-routed/card-plist-user-routed.component';
 import { PlayerInfoUserRoutedComponent } from './component/application/player/user/routed/player-info-user-routed/player-info-user-routed.component';
 import { CarddeckPlistUserRoutedComponent } from './component/application/carddeck/user/routed/carddeck-plist-user-routed/carddeck-plist-user-routed.component';
-
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
@@ -54,12 +53,12 @@ const routes: Routes = [
   { path: 'admin/card/remove/:id', component: CardRemoveAdminRoutedComponent},
   { path: 'admin/card/new', component: CardNewAdminRoutedComponent},
   { path: 'admin/card/edit/:id', component: CardEditAdminRoutedComponent},
-  { path: 'admin/deck/plist', component: DeckPlistAdminRoutedComponent},
+  { path: 'admin/deck/plist/player/:id', component: DeckPlistAdminRoutedComponent},
   { path: 'admin/deck/view/:id', component:DeckViewAdminRoutedComponent},
   { path: 'admin/deck/remove/:id', component:DeckRemoveAdminRoutedComponent},
   { path: 'admin/deck/edit/:id', component: DeckEditAdminRoutedComponent},
   { path: 'admin/deck/new', component: DeckNewAdminRoutedComponent},
-  { path: 'admin/carddeck/plist', component: CarddeckPlistAdminRoutedComponent},
+  { path: 'admin/carddeck/plist/:idCard/:idDeck', component: CarddeckPlistAdminRoutedComponent},
   { path: 'admin/carddeck/view/:id', component: CarddeckViewAdminRoutedComponent},
   { path: 'admin/carddeck/remove/:id', component: CarddeckRemoveAdminRoutedComponent},
   { path: 'admin/carddeck/edit/:id', component: CarddeckEditAdminRoutedComponent},

@@ -40,6 +40,7 @@
               <fa-icon *ngIf="sortField=='usertype'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
               <fa-icon *ngIf="sortField=='usertype'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
+            <th>Decks</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -50,6 +51,8 @@
             <td>{{player.email}}</td>
             <td (click)="setFilterByUsertype(player.usertype.id)">
               {{player.usertype.id}} - {{player.usertype.type}}</td>
+              <td><button class="btn btn-outline-secondary btn-sm" [routerLink]="['/admin','deck','plist','player',player.id]"
+                [disabled]="player.decks<=0">{{player.decks}}</button></td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
                 <button class="btn btn-sm btn-primary" [routerLink]="['/admin/player/view',player.id]">

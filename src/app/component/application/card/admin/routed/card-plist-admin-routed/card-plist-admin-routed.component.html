@@ -67,6 +67,7 @@
               <fa-icon *ngIf="sortField=='cardnumber'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
               <fa-icon *ngIf="sortField=='cardnumber'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
+            <th>Carddecks</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -84,6 +85,8 @@
             <td>{{card.evolutioncost}}</td>
             <td>{{card.dp}}</td>
             <td>{{card.cardnumber}}</td>
+            <td><button class="btn btn-outline-secondary btn-sm" [routerLink]="['/admin','carddeck','plist',card.id, '0' ]"
+              [disabled]="card.carddecks<=0">{{card.carddecks}}</button></td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
                 <button class="btn btn-sm btn-primary" [routerLink]="['/admin/card/view',card.id]">

@@ -17,6 +17,7 @@ export interface ICard {
     maineffect:        string;
     sourceeffect:        string;
     image:        string;
+    carddecks: number;
 }
 
 export interface ICard2Form {

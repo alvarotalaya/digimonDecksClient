@@ -27,6 +27,10 @@ export class PlayerInfoUserRoutedComponent implements OnInit {
       this.oRouter.navigate(['/home']);
     } 
     this.oSessionService.getUserId().subscribe((n: number) => this.strId = n);
+    console.log(this.id, this.strId)
+    if (this.strId == this.id) {
+      this.oRouter.navigate(['/home']);
+    } 
   }
 
   ngOnInit(): void {

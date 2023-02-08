@@ -8,6 +8,7 @@ export interface IDeck {
     description:       string;
     lastupdate: Date;
     player:    IPlayer;
+    carddecks: number;
 }
 
 export interface IDeck2Form {

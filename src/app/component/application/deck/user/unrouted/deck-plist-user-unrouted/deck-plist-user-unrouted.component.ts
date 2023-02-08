@@ -6,7 +6,7 @@ import { DeckService } from 'src/app/service/deck.service';
 import { SessionService } from 'src/app/service/session.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
-
+declare let bootstrap: any;
 
 @Component({
   selector: 'app-deck-plist-user-unrouted',
@@ -40,7 +40,14 @@ export class DeckPlistUserUnroutedComponent implements OnInit {
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   //
+  mimodal: string = "miModal";
+  myModal: any;
+  modalTitle: string = "";
+  modalContent: string = "";
+  //
   strUsertype: string = "";
+  msg: string = "";
+  idRemove: number = null;
 
   constructor(
     private oDeckService: DeckService,
@@ -82,5 +89,30 @@ export class DeckPlistUserUnroutedComponent implements OnInit {
     }
     this.getPage();
   }
+
+  removeOne() {
+    this.oDeckService.removeOne(this.idRemove).subscribe({
+      next: (data: number) => {
+        this.msg = "Deck removed";        
+        //open bootstrap modal here
+        alert(this.msg);
+        this.closeRemove();
+        window.location.reload();
+      }
+    })
+  }
+
+  openModalRemove(remove: number): void {
+    this.myModal = new bootstrap.Modal(document.getElementById("removeDeck"), { //pasar el myModal como parametro
+      keyboard: false
+    })
+    this.idRemove = remove;
+    this.myModal.show()
+  }
+
+  closeRemove() {
+    this.myModal.hide();
+  }
+
 
 }

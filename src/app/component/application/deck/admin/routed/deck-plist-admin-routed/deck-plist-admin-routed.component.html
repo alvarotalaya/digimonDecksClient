@@ -44,6 +44,7 @@
               <fa-icon *ngIf="sortField=='player'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
               <fa-icon *ngIf="sortField=='player'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
+            <th>Carddecks</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -55,6 +56,8 @@
             <td>{{deck.lastupdate}}</td>
             <td (click)="setFilterByPlayer(deck.player.id)">
               {{deck.player.id}} - {{deck.player.name}}</td>
+            <td><button class="btn btn-outline-secondary btn-sm" [routerLink]="['/admin','carddeck','plist','0', deck.id ]"
+              [disabled]="deck.carddecks<=0">{{deck.carddecks}}</button></td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
                 <button class="btn btn-sm btn-primary" [routerLink]="['/admin/deck/view',deck.id]">
