@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: 'admin/carddeck/remove/:id', component: CarddeckRemoveAdminRoutedComponent},
   { path: 'admin/carddeck/edit/:id', component: CarddeckEditAdminRoutedComponent},
   { path: 'admin/carddeck/new', component: CarddeckNewAdminRoutedComponent},
-  { path: 'user/card/plist', component: CardPlistUserRoutedComponent},
+  { path: 'user/card/plist/:expansion', component: CardPlistUserRoutedComponent},
   { path: 'user/player/view/:id', component: PlayerInfoUserRoutedComponent},
   { path: 'user/carddeck/plist/:id', component: CarddeckPlistUserRoutedComponent},
 ];

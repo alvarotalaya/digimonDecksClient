@@ -40,8 +40,18 @@ export class CardPlistUserRoutedComponent implements OnInit {
   constructor(
     private oCardService: CardService,
     private oRouter: Router,
+    private oActivatedRoute: ActivatedRoute,
     private oSessionService: SessionService
-  ) { }
+  ) { 
+    const expansion =  this.oActivatedRoute.snapshot.params['expansion'];
+    if(expansion == "cards"){
+        this.strTermFilter = "";
+    }else{
+        this.strTermFilter = expansion;
+        this.sortDirection = "asc"
+        this.sortField = "cardnumber"
+    }
+  }
 
   ngOnInit() {
     this.getPage();
