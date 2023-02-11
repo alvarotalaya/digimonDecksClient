@@ -30,6 +30,8 @@ export class DeckNewUserUnroutedComponent implements OnInit {
   strUsertype: string = "";
   PlayerId: number = null;
 
+  buttonNew = 0;
+
   constructor(
     private oRouter: Router,
     private oActivatedRoute: ActivatedRoute,
@@ -41,9 +43,6 @@ export class DeckNewUserUnroutedComponent implements OnInit {
     this.id = oActivatedRoute.snapshot.params['id'];
     this.strUsertype = this.oSessionService.getUsertype();
     this.oSessionService.getUserId().subscribe((n: number) => this.PlayerId = n);
-    if (this.strUsertype != "1") {
-      this.oRouter.navigate(['/home']);
-    }
   }
 
   ngOnInit() {
@@ -51,6 +50,10 @@ export class DeckNewUserUnroutedComponent implements OnInit {
       name: [ , [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       description: [ , [Validators.required, Validators.minLength(0), Validators.maxLength(100)]],
     });
+  }
+
+  buttonShow(){
+    this.buttonNew = 1;
   }
 
   onSubmit() {
@@ -79,6 +82,7 @@ export class DeckNewUserUnroutedComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
+      this.buttonNew = 0;
       window.location.reload();
     })
     this.myModal.show()

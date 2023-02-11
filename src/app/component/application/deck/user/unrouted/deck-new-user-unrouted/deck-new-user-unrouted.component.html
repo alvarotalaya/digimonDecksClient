@@ -1,4 +1,8 @@
-<div class="container mt-5">
+<div class="container mt-5" *ngIf="buttonNew == 0">
+  <button class="btn btn-primary" (click)="buttonShow()">Create a deck</button>
+</div>
+
+<div class="container mt-5" *ngIf="buttonNew == 1">
   <div class="row">
     <div class="col">
       <h1 class="text-center mb-5">New Deck</h1>

@@ -17,7 +17,7 @@ export class PlayerInfoUserRoutedComponent implements OnInit {
   oPlayer2Send: IPlayer2Send = null;
   oForm: FormGroup<IPlayer2Form>;
    // modal
-   mimodal: string = "miModal";
+   mimodal: string = "mimodal";
    myModal: any;
    modalTitle: string = "";
    modalContent: string = "";
@@ -25,7 +25,7 @@ export class PlayerInfoUserRoutedComponent implements OnInit {
   strId: number = 0;
   id: number = 0;
   strEmail: string = "";
-  edit: number = 1;
+  edit: number = 0;
 
   constructor(
     private oRouter: Router,
@@ -93,7 +93,7 @@ export class PlayerInfoUserRoutedComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.edit = 0;
+      this.edit = 0
       window.location.reload();
     })
     this.myModal.show()
