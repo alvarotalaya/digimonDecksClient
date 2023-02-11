@@ -3,6 +3,27 @@
     <div class="col">
       <h1 class="text-center mb-5">Card's list</h1> 
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
+        <button class=" btn nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Direction</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="setDirection('asc')">Asc</a></li>
+            <li><a class="dropdown-item" (click)="setDirection('desc')">Des</a></li>
+          </ul>
+        </button>
+        <button class=" btn nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Order by</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="setOrder('name')">Name</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('type')">Type</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('color')">Color</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('stage')">Stage</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('attribute')">Attribute</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('level')">Level</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('playcost')">Play Cost</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('evolutioncost')">Evolution Cost</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('dp')">DP</a></li>
+          </ul>
+        </button>
         <app-search-unrouted [placeHolder]="'Card Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
           (eeRpp)="this.setRpp($event)">

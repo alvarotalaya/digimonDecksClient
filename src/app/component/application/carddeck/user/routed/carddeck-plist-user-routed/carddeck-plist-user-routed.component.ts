@@ -127,7 +127,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     }
     this.oCarddeckService.updateOne(this.oCarddeck2Send).subscribe({
       next: (data: number) => {
-        console.log("se hiso")
+        this.getPage;
       }
     })
   }

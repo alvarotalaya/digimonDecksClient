@@ -83,6 +83,15 @@ export class CardPlistUserRoutedComponent implements OnInit {
     this.setPage(1);
   }
 
+  setDirection(direction: string): void{
+    if (direction == "asc") {
+      this.sortDirection = "asc";
+    } else {
+      this.sortDirection = "desc";
+    }
+    this.getPage();
+  }
+
   setFilter(term: string): void {
     this.strTermFilter = term;
     this.getPage();

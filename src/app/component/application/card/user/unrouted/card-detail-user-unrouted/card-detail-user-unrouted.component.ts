@@ -88,7 +88,6 @@ export class CardDetailUserUnroutedComponent implements OnInit {
       .subscribe({
         next: (resp: IPage<IDeck>) => {
           this.responseFromServer = resp;
-          console.log(resp)
           if (this.page > resp.totalPages - 1) {
             this.page = resp.totalPages - 1;
           }

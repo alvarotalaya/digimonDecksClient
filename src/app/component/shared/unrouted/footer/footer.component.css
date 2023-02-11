@@ -1,3 +1,8 @@
 i{
     margin: 2px;
 }
+
+footer{
+    position: sticky;
+    top: 100%;
+}
