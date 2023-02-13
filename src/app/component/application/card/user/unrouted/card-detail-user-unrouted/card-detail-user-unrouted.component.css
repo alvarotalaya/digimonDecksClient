@@ -1,3 +1,7 @@
 img{
     border-radius: 16px;
 }
+
+label{
+    margin-left: 5px;
+}

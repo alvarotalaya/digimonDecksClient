@@ -23,7 +23,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   strTermFilter: string = "";
   id_cardFilter: number = 0;
   id_deckFilter: number = 0;
-  numberOfElements: number = 10;
+  numberOfElements: number = 5;
   page: number = 0;
   sortField: string = "";
   sortDirection: string = "";
@@ -113,7 +113,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     this.myModal.hide();
   }
 
-  changeCopies(idCarddeck:number, copiesSend:number, idCard:number, idDeck, signe:string){
+  changeCopies(idCarddeck:number, copiesSend:number, idCard:number, idDeck:number, signe:string){
     if(signe == "plus"){
       copiesSend++;
     } else if (signe == "minus"){

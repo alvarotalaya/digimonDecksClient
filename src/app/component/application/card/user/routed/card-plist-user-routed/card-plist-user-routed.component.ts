@@ -19,7 +19,7 @@ export class CardPlistUserRoutedComponent implements OnInit {
   //
   strTermFilter: string = "";
   id_CardFilter: number = 0;
-  numberOfElements: number = 20;
+  numberOfElements: number = 5;
   page: number = 0;
   sortField: string = "";
   sortDirection: string = "";

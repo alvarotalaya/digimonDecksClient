@@ -14,15 +14,14 @@
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
-        <div class="row-md">
           <div class="row">
             <div class="col" *ngFor="let carddeck of responseFromServer.content">
-              <div class="col">
-                <button (click)="changeCopies(carddeck.id, carddeck.copies, carddeck.card.id, carddeck.deck.id, plus)">+</button>
+              <div class="buttons">
+                <button class="btn btn-secondary btn-sm" (click)="changeCopies(carddeck.id, carddeck.copies, carddeck.card.id, carddeck.deck.id, plus)">+</button>
                 <p>{{carddeck.copies}}</p>
-                <button (click)="changeCopies(carddeck.id, carddeck.copies, carddeck.card.id, carddeck.deck.id, minus)">-</button>
+                <button class="btn btn-secondary btn-sm" (click)="changeCopies(carddeck.id, carddeck.copies, carddeck.card.id, carddeck.deck.id, minus)">-</button>
               </div>
-              <div class="col">
+              <div>
                 <img src={{carddeck.card.image}} 
                 alt={{carddeck.card.name}} (click)="openModalCard(carddeck.card.id)">
               </div>
@@ -31,7 +30,6 @@
         </div>
     </div>
   </div>
-</div>
 
 <div class="modal fade" id="carddetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">

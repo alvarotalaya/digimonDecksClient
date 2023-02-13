@@ -1,9 +1,22 @@
 img{
     width: 250px;
     margin: 10px;
+    margin-bottom: 10px;
     border-radius: 13px;
     transition: transform .2s;
+    border: 1px solid black;
 }
 img:hover{
-    transform: scale(1.25);
+    transform: scale(1.15);
+}
+
+.buttons{
+    margin-top: 7em;
+    margin-right: 5px;
+    float: left;
+}
+
+p{
+    margin: 5px;
+    text-align: center;
 }

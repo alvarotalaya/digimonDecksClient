@@ -3,6 +3,7 @@ img{
     margin: 10px;
     border-radius: 13px;
     transition: transform .2s;
+    border: 1px solid black;
 }
 img:hover{
     transform: scale(1.25);

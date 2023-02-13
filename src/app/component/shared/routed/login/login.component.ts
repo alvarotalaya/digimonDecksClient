@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("token", data);
           this.oSessionService.emit(new EmitEvent(Events.login, data));
           this.oRouter.navigate(['/home']);
-          window.location.reload();
         },
         error: (error: HttpErrorResponse) => {
           console.log(error.status, error.statusText);
