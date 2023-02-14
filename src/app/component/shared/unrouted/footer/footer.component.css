@@ -6,3 +6,7 @@ footer{
     position: sticky;
     top: 100%;
 }
+
+p{
+    margin: 0 auto;
+}

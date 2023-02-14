@@ -23,7 +23,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   strTermFilter: string = "";
   id_cardFilter: number = 0;
   id_deckFilter: number = 0;
-  numberOfElements: number = 5;
+  numberOfElements: number = 50;
   page: number = 0;
   sortField: string = "";
   sortDirection: string = "";
@@ -43,6 +43,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   strUsertype: string = "";
   id: number = 0;
   //
+  datos: string = "";
   plus: string = "plus";
   minus: string = "minus"
 
@@ -101,6 +102,16 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     this.getPage();
   }
 
+  setDirection(direction: string): void{
+    if (direction == "asc") {
+      this.sortDirection = "asc";
+    } else {
+      this.sortDirection = "desc";
+    }
+    this.getPage();
+  }
+
+
   openModalCard(idCard: number): void {
     this.myModal = new bootstrap.Modal(document.getElementById("carddetail"), { //pasar el myModal como parametro
       keyboard: false
@@ -127,7 +138,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     }
     this.oCarddeckService.updateOne(this.oCarddeck2Send).subscribe({
       next: (data: number) => {
-        this.getPage;
+        window.location.reload();
       }
     })
   }

@@ -2,16 +2,28 @@
   <div class="row">
     <div class="col">
       <h1 class="text-center mb-5">Deck's list</h1> 
-      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
-        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
-          (eeRpp)="this.setRpp($event)">
-        </app-dropdown-register-page>
-      </div>
-      <div class="col-md">
-        <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
-          (eePage)="setPage($event)"></app-pagination-unrouted>
-      </div>
       <div class="col-md text-end">
+        <button class=" btn nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Direction</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="setDirection('asc')">Asc</a></li>
+            <li><a class="dropdown-item" (click)="setDirection('desc')">Des</a></li>
+          </ul>
+        </button>
+        <button class=" btn nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Order by</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" (click)="setOrder('card.name')">Name</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.type')">Type</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.color')">Color</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.stage')">Stage</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.attribute')">Attribute</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.level')">Level</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.playcost')">Play Cost</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.evolutioncost')">Evolution Cost</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('card.dp')">DP</a></li>
+          </ul>
+        </button>
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
           <div class="row">
