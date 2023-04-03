@@ -46,6 +46,18 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   datos: string = "";
   plus: string = "plus";
   minus: string = "minus"
+  //
+  level2: number = 0;
+  level3: number = 0;
+  level4: number = 0;
+  level5: number = 0;
+  level6: number = 0;
+  level7: number = 0;
+  tamers: number = 0;
+  digitama: number = 0;
+  digimon: number = 0;
+  tamer: number = 0;
+  option: number = 0;
 
   constructor(
     private oActivatedRoute: ActivatedRoute,
@@ -111,7 +123,6 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     this.getPage();
   }
 
-
   openModalCard(idCard: number): void {
     this.myModal = new bootstrap.Modal(document.getElementById("carddetail"), { //pasar el myModal como parametro
       keyboard: false
@@ -141,5 +152,61 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         window.location.reload();
       }
     })
+  }
+
+  stats(){
+    for(let i = 0; i <= this.responseFromServer.totalElements; i++){
+      switch(this.responseFromServer.content[i].card.level){
+        case 2:{
+          this.level2++;
+          break;
+        }
+        case 3:{
+          this.level3++;
+          break;
+        }
+        case 4:{
+          this.level4++;
+          break;
+        }
+        case 5:{
+          this.level5++;
+          break;
+        }
+        case 6:{
+          this.level6++;
+          break;
+        }
+        case 7:{
+          this.level7++;
+          break
+        }
+        default:{
+          break;
+        }
+      }
+
+      switch(this.responseFromServer.content[i].card.type){
+        case "Digi-Egg":{
+          this.digitama++
+          break;
+        }
+        case "Digimon":{
+          this.digimon++
+          break;
+        }
+        case "Option":{
+          this.option++
+          break;
+        }
+        case "Tamer":{
+          this.tamer++
+          break;
+        }
+        default:{
+          break;
+        }
+      }
+    }
   }
 }
