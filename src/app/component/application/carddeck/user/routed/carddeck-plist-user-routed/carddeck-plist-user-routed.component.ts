@@ -9,6 +9,9 @@ import { CarddeckService } from 'src/app/service/carddeck.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 declare let bootstrap: any;
+import * as pdfMake from "pdfmake/build/pdfmake";
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+(<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-carddeck-plist-user-routed',
@@ -58,6 +61,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   digimon: number = 0;
   tamer: number = 0;
   option: number = 0;
+  listCards: string = "";
 
   constructor(
     private oActivatedRoute: ActivatedRoute,
@@ -208,5 +212,51 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         }
       }
     }
+  }
+
+  textPdf(){
+    for(let i = 0; i <= this.responseFromServer.totalElements - 1; i++){
+      this.listCards += this.responseFromServer.content[i].copies + "x " +
+      this.responseFromServer.content[i].card.name + " " + this.responseFromServer.content[i].card.cardnumber + "\n"
+    }
+  }
+
+  pruebaPdf(){
+    this.textPdf();
+    const pdfDefinition: any = {
+      content:[
+        {
+          text: this.responseFromServer.content[1].deck.name,
+          style: 'header',
+          alignment: 'center'
+        },
+        {
+          text: 'by ' + this.responseFromServer.content[1].deck.player.name,
+          style: 'subheader',
+          alignment: 'center'
+        },
+        this.listCards
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true
+        },
+        subheader: {
+          fontSize: 15,
+          bold: true
+        },
+        quote: {
+          italics: true
+        },
+        small: {
+          fontSize: 8
+        }
+      }
+    }
+
+    const pdf  = pdfMake.createPdf(pdfDefinition);
+    pdf.open();
+    this.listCards = "";
   }
 }

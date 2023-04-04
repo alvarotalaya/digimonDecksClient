@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { HomeComponent } from './component/shared/routed/home/home.component';
 import { LoginComponent } from './component/shared/routed/login/login.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
