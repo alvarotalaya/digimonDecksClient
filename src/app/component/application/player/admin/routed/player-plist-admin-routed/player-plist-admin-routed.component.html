@@ -21,7 +21,7 @@
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr>
             <th (click)="setOrder('id')">ID
@@ -51,7 +51,7 @@
             <td>{{player.email}}</td>
             <td (click)="setFilterByUsertype(player.usertype.id)">
               {{player.usertype.id}} - {{player.usertype.type}}</td>
-              <td><button class="btn btn-outline-secondary btn-sm" [routerLink]="['/admin','deck','plist','player',player.id]"
+              <td><button class="btn btn-outline-secondary btn-sm" id="clave" [routerLink]="['/admin','deck','plist','player',player.id]"
                 [disabled]="player.decks<=0">{{player.decks}}</button></td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
