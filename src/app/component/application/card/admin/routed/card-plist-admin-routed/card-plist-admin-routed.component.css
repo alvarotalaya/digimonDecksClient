@@ -1,0 +1,28 @@
+table {
+    color: #fff;
+    border-collapse: collapse;
+}
+.table thead th {
+    background-color: #1f2937;
+    border-color: #1f2937;
+}
+.table tbody tr:nth-of-type(odd) {
+	background-color: #374151;
+	transition: background-color 0.3s ease;
+}
+.table tbody tr:nth-of-type(even) {
+	background-color: #1f2937;
+	transition: background-color 0.3s ease;
+}
+.table tbody tr:hover {
+	background-color: #6b51ea
+}
+
+.table tbody tr:hover td {
+	color: #fff;
+}
+
+#clave{
+    color: white;
+    border-color: white;
+}

@@ -16,7 +16,7 @@
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr>
             <th (click)="setOrder('id')">ID
@@ -85,7 +85,7 @@
             <td>{{card.evolutioncost}}</td>
             <td>{{card.dp}}</td>
             <td>{{card.cardnumber}}</td>
-            <td><button class="btn btn-outline-secondary btn-sm" [routerLink]="['/admin','carddeck','plist',card.id, '0' ]"
+            <td><button class="btn btn-outline-secondary btn-sm" id="clave" [routerLink]="['/admin','carddeck','plist',card.id, '0' ]"
               [disabled]="card.carddecks<=0">{{card.carddecks}}</button></td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">

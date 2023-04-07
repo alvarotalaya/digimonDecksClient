@@ -21,7 +21,7 @@
       <div class="col-md text-end">
         <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
-      <table class="table table-bordered table-striped">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr>
             <th (click)="setOrder('id')">ID
@@ -56,7 +56,7 @@
             <td>{{deck.lastupdate}}</td>
             <td (click)="setFilterByPlayer(deck.player.id)">
               {{deck.player.id}} - {{deck.player.name}}</td>
-            <td><button class="btn btn-outline-secondary btn-sm" [routerLink]="['/admin','carddeck','plist','0', deck.id ]"
+            <td><button class="btn btn-outline-secondary btn-sm" id="clave" [routerLink]="['/admin','carddeck','plist','0', deck.id ]"
               [disabled]="deck.carddecks<=0">{{deck.carddecks}}</button></td>
             <td>
               <div class="btn-group" role="group" aria-label="Herramientas">
