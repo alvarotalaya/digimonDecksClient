@@ -4,6 +4,6 @@
 }
 
 body{
-    background-color:#EFF8F0 !important;
+    background: linear-gradient(to bottom, #090C14, #1c2740) !important;
     min-height: 100vh;
 }

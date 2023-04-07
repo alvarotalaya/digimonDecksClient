@@ -1,3 +1,17 @@
+*{
+  color: #CCCCCC;
+}
+
+nav{
+  background-color: #111827;
+}
+
+img{
+  width: 12%;
+  margin-right: 5px;
+
+}
+
 i{
     margin-top: 2px;
     cursor: pointer;
