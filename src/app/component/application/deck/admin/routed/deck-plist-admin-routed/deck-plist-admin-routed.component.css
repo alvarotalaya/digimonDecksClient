@@ -4,7 +4,10 @@ table {
 }
 .table thead th {
     background-color: #1f2937;
-    border-color: #1f2937;
+	border-color: #1f2937;
+}
+.table thead tr{
+	border-color: #111827;
 }
 .table tbody tr:nth-of-type(odd) {
 	background-color: #374151;
@@ -20,4 +23,9 @@ table {
 
 .table tbody tr:hover td {
 	color: #fff;
+}
+
+#clave{
+	color: white;
+	border-color: white;
 }

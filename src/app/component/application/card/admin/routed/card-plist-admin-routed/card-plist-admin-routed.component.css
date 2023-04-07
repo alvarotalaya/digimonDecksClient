@@ -6,6 +6,9 @@ table {
     background-color: #1f2937;
     border-color: #1f2937;
 }
+.table thead tr{
+	border-color: #111827;
+}
 .table tbody tr:nth-of-type(odd) {
 	background-color: #374151;
 	transition: background-color 0.3s ease;
