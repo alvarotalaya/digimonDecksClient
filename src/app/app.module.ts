@@ -62,6 +62,7 @@ import { PlayerInfoUserRoutedComponent } from './component/application/player/us
 import { DeckPlistUserUnroutedComponent } from './component/application/deck/user/unrouted/deck-plist-user-unrouted/deck-plist-user-unrouted.component';
 import { CarddeckPlistUserRoutedComponent } from './component/application/carddeck/user/routed/carddeck-plist-user-routed/carddeck-plist-user-routed.component';
 import { DeckNewUserUnroutedComponent } from './component/application/deck/user/unrouted/deck-new-user-unrouted/deck-new-user-unrouted.component';
+import { CarddeckStatsUserUnroutedComponent } from './component/application/carddeck/user/unrouted/carddeck-stats-user-unrouted/carddeck-stats-user-unrouted.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -116,6 +117,7 @@ import { DeckNewUserUnroutedComponent } from './component/application/deck/user/
     DeckPlistUserUnroutedComponent,
     CarddeckPlistUserRoutedComponent,
     DeckNewUserUnroutedComponent,
+    CarddeckStatsUserUnroutedComponent,
   ],
   imports: [
     BrowserModule,
