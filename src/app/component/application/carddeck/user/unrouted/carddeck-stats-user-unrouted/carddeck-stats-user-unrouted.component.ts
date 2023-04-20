@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
+import { StatsService } from 'src/app/service/stats.service';
 @Component({
   selector: 'app-carddeck-stats-user-unrouted',
   templateUrl: './carddeck-stats-user-unrouted.component.html',
@@ -8,11 +9,21 @@ import { Chart } from 'angular-highcharts';
 export class CarddeckStatsUserUnroutedComponent implements OnInit {
 
   columnChart
+  level2: number;
+  level3: number;
+  level4: number;
+  
 
-  constructor() { }
+  constructor(
+    private oStatsService: StatsService
+  ) { }
 
   ngOnInit() {
     this.grafico();
+    this.oStatsService.level2 = this.level2;
+    this.oStatsService.level3 = this.level3;
+    this.oStatsService.level4 = this.level4;
+    console.log("no enrutado " + this.level2)
   }
 
   grafico(){

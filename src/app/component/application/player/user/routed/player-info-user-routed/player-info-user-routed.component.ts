@@ -63,9 +63,7 @@ export class PlayerInfoUserRoutedComponent implements OnInit {
   }
 
   changeEdit(){
-    console.log(this.edit)
     this.edit = 1;
-    console.log(this.edit)
   }
 
   onSubmit() {

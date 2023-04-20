@@ -2,39 +2,17 @@
   <div class="row">
     <div class="col">
       <h1 class="text-center mb-5">Deck's list</h1> 
-      <button lass="btn btn-secondary btn-sm" (click)="pruebaPdf()">PdfPrueba</button>
-      <app-carddeck-stats-user-unrouted></app-carddeck-stats-user-unrouted>
+
+      <!--<app-carddeck-stats-user-unrouted></app-carddeck-stats-user-unrouted>-->
+      <div class="chart" [chart]="columnChart" *ngIf="edit != 0"></div>
+
       <div class="menu">
         <ul class="menu-lista">
           <li><i class="fa-solid fa-dice-six"></i></li>
           <li><i class="fa-solid fa-bars-filter"></i></li>
-          <li><i class="fa-solid fa-chart-simple"></i></li>
-          <li><i class="fa-solid fa-file-import"></i></li>
+          <li><i class="fa-solid fa-chart-simple" (click)="changeEdit()"></i></li>
+          <li><i class="fa-solid fa-file-import" (click)="pruebaPdf()"></i></li>
         </ul>
-      </div>      
-      <div class="col-md text-end">
-        <button class=" btn nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Direction</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="setDirection('asc')">Asc</a></li>
-            <li><a class="dropdown-item" (click)="setDirection('desc')">Des</a></li>
-          </ul>
-        </button>
-        <button class=" btn nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Order by</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="setOrder('card.name')">Name</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.type')">Type</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.color')">Color</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.stage')">Stage</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.attribute')">Attribute</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.level')">Level</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.playcost')">Play Cost</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.evolutioncost')">Evolution Cost</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('card.dp')">DP</a></li>
-          </ul>
-        </button>
-        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
       </div>
           <div class="row">
             <div class="col" *ngFor="let carddeck of responseFromServer.content">

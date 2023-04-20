@@ -4,12 +4,15 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ICarddeck, ICarddeck2Send } from 'src/app/model/carddeck-interface';
 import { SessionService } from 'src/app/service/session.service';
 import { CarddeckService } from 'src/app/service/carddeck.service';
+import { StatsService } from 'src/app/service/stats.service';
 import { faEye, faUserPen, faTrash, faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
 declare let bootstrap: any;
 import * as pdfMake from "pdfmake/build/pdfmake";
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
+
+import { Chart } from 'angular-highcharts';
 
 @Component({
   selector: 'app-carddeck-plist-user-routed',
@@ -55,18 +58,21 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   level5: number = 0;
   level6: number = 0;
   level7: number = 0;
-  tamers: number = 0;
   digitama: number = 0;
   digimon: number = 0;
   tamer: number = 0;
   option: number = 0;
   listCards: string = "";
 
+  columnChart
+  edit: number = 0;
+
   constructor(
     private oActivatedRoute: ActivatedRoute,
     private oCarddeckService: CarddeckService,
     private oRouter: Router,
-    private oSessionService: SessionService
+    private oSessionService: SessionService,
+    private oStatsService: StatsService
   ) { 
     this.id = oActivatedRoute.snapshot.params['id'];
     this.id_deckFilter = this.id;
@@ -74,6 +80,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
 
   ngOnInit() {
     this.getPage();
+    this.grafico();
   }
 
   getPage() {
@@ -154,34 +161,36 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
       next: (data: number) => {
         window.location.reload();
       }
-    })
+    });
   }
 
   stats(){
-    for(let i = 0; i <= this.responseFromServer.totalElements; i++){
+    console.log("stats started")
+    for(let i = 0; i <= this.responseFromServer.totalElements - 1; i++){
       switch(this.responseFromServer.content[i].card.level){
+        
         case 2:{
-          this.level2++;
+          this.level2 += this.responseFromServer.content[i].copies;
           break;
         }
         case 3:{
-          this.level3++;
+          this.level3 += this.responseFromServer.content[i].copies;;
           break;
         }
         case 4:{
-          this.level4++;
+          this.level4 += this.responseFromServer.content[i].copies;;
           break;
         }
         case 5:{
-          this.level5++;
+          this.level5 += this.responseFromServer.content[i].copies;;
           break;
         }
         case 6:{
-          this.level6++;
+          this.level6 += this.responseFromServer.content[i].copies;;
           break;
         }
         case 7:{
-          this.level7++;
+          this.level7 += this.responseFromServer.content[i].copies;;
           break
         }
         default:{
@@ -191,19 +200,19 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
 
       switch(this.responseFromServer.content[i].card.type){
         case "Digi-Egg":{
-          this.digitama++
+          this.digitama += this.responseFromServer.content[i].copies;
           break;
         }
         case "Digimon":{
-          this.digimon++
+          this.digimon += this.responseFromServer.content[i].copies;
           break;
         }
         case "Option":{
-          this.option++
+          this.option += this.responseFromServer.content[i].copies;
           break;
         }
         case "Tamer":{
-          this.tamer++
+          this.tamer += this.responseFromServer.content[i].copies;
           break;
         }
         default:{
@@ -211,6 +220,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         }
       }
     }
+    console.log("stats finished")
   }
 
   textPdf(){
@@ -257,5 +267,70 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     const pdf  = pdfMake.createPdf(pdfDefinition);
     pdf.open();
     this.listCards = "";
+  }
+
+  changeEdit(){
+    if(this.edit == 0){
+      this.edit = 1
+    } else {
+      this.edit = 0;
+    }
+  }
+
+
+  grafico(){
+    console.log(this.edit)
+    this.columnChart = new Chart({
+      chart: {
+        type: 'column'
+      },
+      title: {
+        text: null
+      },
+      legend: {
+        enabled:false
+      },
+      tooltip:{
+        enabled: false
+      },
+      xAxis: {
+        categories: [
+          'Level 2',
+          'Level 3',
+          'Level 4',
+          'Level 5',
+          'Level 6',
+          'Level 7',
+        ],
+        crosshair: true,
+      },
+      yAxis: {
+        title: null,
+        gridLineWidth: 0,
+        labels:{
+          enabled: false
+        }
+      },
+      plotOptions: {
+        column: {
+          pointPadding: 0.2,
+          borderWidth: 0
+        }
+      },
+      credits:{
+        enabled: false
+      },
+      series: [{
+        type: "column",
+        data: [5, 6, 6, 8, 10, 3],
+        dataLabels:[{
+          enabled: true,
+          inside: true,
+          style: {
+            fontSize: '16px'
+          }
+        }]
+      }]
+    });
   }
 }
