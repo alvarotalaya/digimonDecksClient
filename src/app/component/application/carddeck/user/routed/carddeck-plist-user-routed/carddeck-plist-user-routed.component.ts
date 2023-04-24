@@ -64,7 +64,8 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   option: number = 0;
   listCards: string = "";
 
-  columnChart
+  columnChart1
+  columnChart2
   edit: number = 0;
 
   constructor(
@@ -279,13 +280,18 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
 
   grafico(){
     console.log(this.edit)
-    this.columnChart = new Chart({
+    this.columnChart1 = new Chart({
       chart: {
         type: 'column',
         backgroundColor: '#0B0F19',
       },
       title: {
-        text: null
+        text: "Digimon's level",
+        style:{
+          fontWeight: 'bold',
+          color: 'white',
+          fontSize: '16px'
+        }
       },
       legend: {
         enabled:false
@@ -330,10 +336,76 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
       },
       series: [{
         type: "column",
-        data: [5, 6, 6, 8, 10, 3],
+        data: [4, 12, 12, 8, 5, 1],
         dataLabels:[{
           enabled: true,
-          inside: true,
+          inside: false,
+          style: {
+            fontSize: '16px',
+            textOutline: '0px',
+          }
+        }]
+      }]
+    });
+
+    this.columnChart2 = new Chart({
+      chart: {
+        type: 'column',
+        backgroundColor: '#0B0F19',
+      },
+      title: {
+        text: "Type of cards",
+        style:{
+          fontWeight: 'bold',
+          color: 'white',
+          fontSize: '16px'
+        }
+      },
+      legend: {
+        enabled:false
+      },
+      tooltip:{
+        enabled: false
+      },
+      xAxis: {
+        categories: [
+          'Digitama',
+          'Digimon',
+          'Tamer',
+          'Option'
+        ],
+        crosshair: true,
+        labels:{
+          style:{
+            fontWeight: 'bold',
+            color: 'white',
+            fontSize: '13px'
+          }
+        }
+      },
+      yAxis: {
+        title: null,
+        gridLineWidth: 0,
+        labels:{
+          enabled: false
+        }
+      },
+      plotOptions: {
+        column: {
+          pointPadding: 0.2,
+          borderWidth: 0,
+          pointWidth: 55
+        }
+      },
+      credits:{
+        enabled: false
+      },
+      series: [{
+        type: "column",
+        data: [4, 38, 5, 7],
+        dataLabels:[{
+          enabled: true,
+          inside: false,
           style: {
             fontSize: '16px',
             textOutline: '0px',

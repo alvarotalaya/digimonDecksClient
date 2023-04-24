@@ -4,7 +4,15 @@
       <h1 class="text-center mb-5">Deck's list</h1> 
       <div class="chartContainer" *ngIf="edit != 0">
         <!--<app-carddeck-stats-user-unrouted></app-carddeck-stats-user-unrouted>-->
-        <div class="chart" [chart]="columnChart"></div>
+        <div class="row">
+          <div class="col">
+            <div class="chart" [chart]="columnChart1"></div>
+          </div>
+          <div class="col"> 
+            <div class="chart" [chart]="columnChart2"></div>
+          </div>
+
+        </div>
       </div>
       <div class="menu">
         <ul class="menu-lista">
