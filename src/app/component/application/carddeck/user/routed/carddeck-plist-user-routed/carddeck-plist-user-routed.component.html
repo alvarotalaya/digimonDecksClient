@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col">
       <h1 class="text-center mb-5">Deck's list</h1> 
-
-      <!--<app-carddeck-stats-user-unrouted></app-carddeck-stats-user-unrouted>-->
-      <div class="chart" [chart]="columnChart" *ngIf="edit != 0"></div>
-
+      <div class="chartContainer" *ngIf="edit != 0">
+        <!--<app-carddeck-stats-user-unrouted></app-carddeck-stats-user-unrouted>-->
+        <div class="chart" [chart]="columnChart"></div>
+      </div>
       <div class="menu">
         <ul class="menu-lista">
           <li><i class="fa-solid fa-dice-six"></i></li>
-          <li><i class="fa-solid fa-bars-filter"></i></li>
+          <li><i class="fa-solid fa-bars-filter" (click)="setOrder('card.level')"></i></li>
           <li><i class="fa-solid fa-chart-simple" (click)="changeEdit()"></i></li>
           <li><i class="fa-solid fa-file-import" (click)="pruebaPdf()"></i></li>
         </ul>

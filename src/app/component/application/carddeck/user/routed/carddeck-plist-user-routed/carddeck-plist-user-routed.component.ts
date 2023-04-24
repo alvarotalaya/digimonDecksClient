@@ -277,12 +277,12 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     }
   }
 
-
   grafico(){
     console.log(this.edit)
     this.columnChart = new Chart({
       chart: {
-        type: 'column'
+        type: 'column',
+        backgroundColor: '#0B0F19',
       },
       title: {
         text: null
@@ -303,6 +303,13 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
           'Level 7',
         ],
         crosshair: true,
+        labels:{
+          style:{
+            fontWeight: 'bold',
+            color: 'white',
+            fontSize: '13px'
+          }
+        }
       },
       yAxis: {
         title: null,
@@ -314,7 +321,8 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
       plotOptions: {
         column: {
           pointPadding: 0.2,
-          borderWidth: 0
+          borderWidth: 0,
+          pointWidth: 55
         }
       },
       credits:{
@@ -327,7 +335,8 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
           enabled: true,
           inside: true,
           style: {
-            fontSize: '16px'
+            fontSize: '16px',
+            textOutline: '0px',
           }
         }]
       }]
