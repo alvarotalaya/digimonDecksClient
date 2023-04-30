@@ -70,3 +70,8 @@ p{
 .white-color{
 	background-color: white;
 }
+
+.rollImg{
+	width: 120px;
+	margin: 5px;
+}

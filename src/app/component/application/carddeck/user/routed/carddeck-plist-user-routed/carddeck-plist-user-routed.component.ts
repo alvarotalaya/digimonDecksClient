@@ -429,18 +429,18 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
 
   closeModalRoll() {
     this.myModal.hide();
-    this.listRoll = [];
-    this.listHand = [];
-    this.listSecurity = [];
   }
 
   roll(){
+    this.listRoll = [];
+    this.listHand = [];
+    this.listSecurity = [];
     for(let i = 0; i <= this.responseFromServer.totalElements - 1; i++){
       if(this.responseFromServer.content[i].card.level == 2){
         continue;
       }
 
-      for(let j = 0; j <= this.responseFromServer.content[i].copies; j ++){
+      for(let j = 1; j <= this.responseFromServer.content[i].copies; j ++){
         this.listRoll.push(this.responseFromServer.content[i].card.image)
       }
     }
