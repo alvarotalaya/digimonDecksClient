@@ -10,25 +10,11 @@ table {
     color: #fff;
     border-collapse: collapse;
 }
-.table thead th {
-    background-color: #1f2937;
-    border-color: #1f2937;
-}
-.table thead tr{
-	border-color: #111827;
-}
-.table tbody tr:nth-of-type(odd) {
-	background-color: #374151;
-	transition: background-color 0.3s ease;
-}
-.table tbody tr:nth-of-type(even) {
-	background-color: #1f2937;
-	transition: background-color 0.3s ease;
-}
-.table tbody tr:hover {
-	background-color: #6b51ea
+
+.table50{
+	width: 50%;
 }
 
-.table tbody tr:hover td {
-	color: #fff;
+.left{
+	text-align: left;
 }

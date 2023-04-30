@@ -43,66 +43,39 @@
 </div>
 
 <div class="container mt-4">
-  <div>
-    <table class="table table-bordered table-striped">
-      <tbody>
+  <div class="row">
+    <div class="col">
+      <img src={{oCard.image}} alt={{oCard.name}}>
+    </div>
+    <div class="col">
+      <table class="table table-bordered">
+        <tbody>
           <tr>
-            <td rowspan="28"><img src={{oCard.image}} alt=""></td>
+            <td class="table50" *ngIf="oCard?.playcost!=null">{{oCard.playcost}}</td>
+            <td class="table50 left" *ngIf="oCard?.dp!=null">{{oCard.dp}}</td>
           </tr>
           <tr>
-            <td>Name</td>
-            <td>{{oCard.name}}</td>
+            <td colspan="2" *ngIf="oCard?.evolutioncost!=null">{{oCard.evolutioncost}}</td>
           </tr>
           <tr>
-            <td>Type</td>
-            <td>{{oCard.type}}</td>
+            <td colspan="2">{{oCard.name}}</td>
           </tr>
           <tr>
-            <td>Color</td>
-            <td>{{oCard.color}}</td>
+            <td class="table50" *ngIf="oCard?.digitype!=null">{{oCard.digitype}}</td>
+            <td class="table50 left" *ngIf="oCard?.attribute!=null">{{oCard.attribute}}</td>
           </tr>
-          <tr *ngIf="oCard?.stage!=null">
-            <td>Stage</td>
-            <td>{{oCard.stage}}</td>
-        </tr>
-        <tr *ngIf="oCard?.digitype!=null">
-          <td>Digitype</td>
-          <td>{{oCard.digitype}}</td>
-        </tr>
-        <tr *ngIf="oCard?.attribute!=null">
-          <td>Attribute</td>
-          <td>{{oCard.attribute}}</td>
-        </tr>
-        <tr *ngIf="oCard?.level!=null">
-          <td>Level</td>
-          <td>{{oCard.level}}</td>
-        </tr>
-        <tr *ngIf="oCard?.playcost!=null">
-          <td>Play Cost</td>
-          <td>{{oCard.playcost}}</td>
-        </tr>
-        <tr *ngIf="oCard?.evolutioncost!=null">
-          <td>Evolution Cost</td>
-          <td>{{oCard.evolutioncost}}</td>
-        </tr>
-        <tr *ngIf="oCard?.dp!=null">
-          <td>DP</td>
-          <td>{{oCard.dp}}</td>
-        </tr>
-        <tr>
-          <td>Card Number</td>
-          <td>{{oCard.cardnumber}}</td>
-        </tr>
-        <tr *ngIf="oCard?.maineffect!=null">
-          <td>Main Effect</td>
-          <td>{{oCard.maineffect}}</td>
-        </tr>
-        <tr *ngIf="oCard?.sourceeffect!=null">
-          <td>Source Effect</td>
-          <td>{{oCard.sourceeffect}}</td>
-        </tr>
-      </tbody>
-  </table>
+          <tr>
+            <td colspan="2" *ngIf="oCard?.maineffect!=null">{{oCard.maineffect}}</td>
+          </tr>
+          <tr>
+            <td colspan="2" *ngIf="oCard?.sourceeffect!=null">{{oCard.sourceeffect}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">{{oCard.cardnumber}}</td>
+          </tr>
+        </tbody>
+    </table>
+    </div>
   </div>
 
 </div>
