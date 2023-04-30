@@ -16,8 +16,8 @@
       </div>
       <div class="menu">
         <ul class="menu-lista">
-          <li><i class="fa-solid fa-dice-six"></i></li>
-          <li><i class="fa-solid fa-bars-filter" (click)="setOrder('card.level')"></i></li>
+          <li><i class="fa-solid fa-dice-six" (click)="openModalRoll()"></i></li>
+          <li><i class="fa-solid fa-sort" (click)="setOrder('card.level')"></i></li>
           <li><i class="fa-solid fa-chart-simple" (click)="changeEdit()"></i></li>
           <li><i class="fa-solid fa-file-import" (click)="pruebaPdf()"></i></li>
         </ul>
@@ -42,12 +42,8 @@
 <div class="modal fade" id="carddetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
       <div class="modal-body">
-
+        <button type="button" class="btn-close white-color" data-bs-dismiss="modal" aria-label="Close"></button>
         <app-card-detail-user-unrouted [id]="idCard" (closeEvent)="closeCardModal()"></app-card-detail-user-unrouted>
 
       </div>
@@ -55,3 +51,22 @@
   </div>
 </div>
 
+<div class="modal fade" id="roll" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="btn-close white-color" data-bs-dismiss="modal" aria-label="Close"></button>
+        
+        <p>Security</p>
+        <div *ngFor="let security of listSecurity">
+          <img src={{security}} alt="">
+        </div>
+
+        <p>Hand</p>
+        <div *ngFor="let hand of listHand">
+          <img src={{hand}} alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

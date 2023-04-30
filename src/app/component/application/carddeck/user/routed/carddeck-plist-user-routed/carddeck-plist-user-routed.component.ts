@@ -68,6 +68,11 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   columnChart2
   edit: number = 0;
 
+  listRoll: string[] = [];
+  listHand: string[] = [];
+  listSecurity: string[] = [];
+  numberRandom: number;
+
   constructor(
     private oActivatedRoute: ActivatedRoute,
     private oCarddeckService: CarddeckService,
@@ -160,9 +165,9 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     }
     this.oCarddeckService.updateOne(this.oCarddeck2Send).subscribe({
       next: (data: number) => {
-        window.location.reload();
       }
     });
+    this.getPage();
   }
 
   stats(){
@@ -279,7 +284,6 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
   }
 
   grafico(){
-    console.log(this.edit)
     this.columnChart1 = new Chart({
       chart: {
         type: 'column',
@@ -413,5 +417,44 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         }]
       }]
     });
+  }
+
+  openModalRoll(): void {
+    this.roll();
+    this.myModal = new bootstrap.Modal(document.getElementById("roll"), { //pasar el myModal como parametro
+      keyboard: false
+    })
+    this.myModal.show()
+  }
+
+  closeModalRoll() {
+    this.myModal.hide();
+    this.listRoll = [];
+    this.listHand = [];
+    this.listSecurity = [];
+  }
+
+  roll(){
+    for(let i = 0; i <= this.responseFromServer.totalElements - 1; i++){
+      if(this.responseFromServer.content[i].card.level == 2){
+        continue;
+      }
+
+      for(let j = 0; j <= this.responseFromServer.content[i].copies; j ++){
+        this.listRoll.push(this.responseFromServer.content[i].card.image)
+      }
+    }
+
+    for(let h = 0; h <= 4; h++){
+      this.numberRandom = Math.floor(Math.random() * this.listRoll.length)
+      this.listHand[h] = this.listRoll[this.numberRandom]
+      this.listRoll.splice(this.numberRandom, 1)
+    }
+
+    for(let h = 0; h <= 4; h++){
+      this.numberRandom = Math.floor(Math.random() * this.listRoll.length)
+      this.listSecurity[h] = this.listRoll[this.numberRandom]
+      this.listRoll.splice(this.numberRandom, 1)
+    }
   }
 }
