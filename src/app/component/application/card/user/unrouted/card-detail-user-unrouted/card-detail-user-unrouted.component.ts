@@ -26,7 +26,7 @@ declare let bootstrap: any;
     styleUrls: ['./card-detail-user-unrouted.component.css'],
 })
 export class CardDetailUserUnroutedComponent implements OnInit {
-    _id: number = null;
+    _id: number = 1;
     get id(): number {
         return this._id;
     }
@@ -48,7 +48,6 @@ export class CardDetailUserUnroutedComponent implements OnInit {
     oCarddeck2Form: ICarddeck2Form = null;
     oCarddeck2Send: ICarddeck2Send = null;
     oForm: FormGroup<ICarddeck2Form>;
-    ç;
     // modal
     mimodal: string = 'miModal';
     myModal: any;
@@ -98,13 +97,12 @@ export class CardDetailUserUnroutedComponent implements OnInit {
     }
 
     getOne() {
-        if (this.id) {
-            this.oCardService.getOne(this.id).subscribe({
-                next: (data: ICard) => {
-                    this.oCard = data;
-                },
-            });
-        }
+        console.log(this.id)
+        this.oCardService.getOne(this.id).subscribe({
+            next: (data: ICard) => {
+                this.oCard = data;
+            },
+        });
     }
 
     getPage() {

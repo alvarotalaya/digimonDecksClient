@@ -49,7 +49,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     modalTitle: string = '';
     modalContent: string = '';
     //
-    idCard: number = null;
+    idCard: number = 1;
     strUsertype: string = '';
     id: number = 0;
     //
