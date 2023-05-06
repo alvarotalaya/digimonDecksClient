@@ -1,100 +1,132 @@
-<div class="container mt-1">
-  <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="strEmail">
-    <div class="row">
-      <div class="col-sm-1">
-        <label for="inputDeck" class="form-label">Deck: </label>
-      </div>
-        <div class="col-sm-2">
-        <select id="inputDeck" formControlName="iddeck">
-          <option *ngFor="let deck of responseFromServer.content" 
-            value={{deck.id}}>{{deck.name}}</option>
-        </select>
-      </div>
-      <div class="col-sm-1"> 
-        <label for="inputCopies" class="form-label">Copies: </label>
-      </div>
-        <div class="col-sm-2"> 
-        <input type="text" class="form-control"
-          [ngClass]="{'is-valid' : oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['required'] &&
-          oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['minlength'] 
-          && oForm.controls.copies.dirty && !oForm.controls.copies.errors?.['maxlength'],
-          'is-invalid' :  oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['minlength'] 
-          ||  oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['maxlength'] ||  
-          oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['required']}"
-          id="inputCopies" formControlName="copies">
-          <div id="inputCopiesFeedback" class="invalid-feedback"
-            *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['minlength']">
-            La longitud mínima es de 5 caracteres.
-          </div>
-          <div id="inputCopiesFeedback" class="invalid-feedback"
-            *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['maxlength']">
-            La longitud máxima es de 10 caracteres.
-          </div>
-          <div id="inputCopiesFeedback" class="invalid-feedback"
-            *ngIf="oForm.controls.copies.dirty &&  oForm.controls.copies.errors?.['required']">
-            El campo es obligatorio.
-          </div>
-        </div>
-        <div class="col-md-2">
-          <button type="submit" class="btn btn-primary">Guardar</button>
+<div class="container">
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="toggleFormulario()">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    <br>
+    <div *ngIf="mostrarFormulario" class="formulario-container">
+        <form
+            novalidate
+            [formGroup]="oForm"
+            (ngSubmit)="onSubmit()"
+            *ngIf="strEmail"
+            class="d-flex align-items-end"
+        >
+            <div class="form-group">
+                <label for="inputDeck" class="mr-1">Deck: </label>
+                    <select id="inputDeck" formControlName="iddeck">
+                        <option
+                            *ngFor="let deck of responseFromServer.content"
+                            value="{{ deck.id }}"
+                        >
+                            {{ deck.name }}
+                        </option>
+                    </select>
+            </div>
+            <div class="form-group ml-1">
+                <label for="inputCopies" class="ml-1">Copies: </label>
+                    <select formControlName="copies" id="inputCopies">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-fixed-size">Guardar</button>
+        </form>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="{{ oCard.image }}" alt="{{ oCard.name }}" />
+            </div>
+            <div class="col">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td class="table50" *ngIf="oCard.playcost != null">
+                                {{ oCard.playcost }}
+                            </td>
+                            <td class="table50 left" *ngIf="oCard?.dp != null">
+                                {{ oCard.dp }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                colspan="2"
+                                *ngIf="oCard?.evolutioncost != null"
+                            >
+                                {{ oCard.evolutioncost }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">{{ oCard.name }}</td>
+                        </tr>
+                        <tr>
+                            <td class="table50" *ngIf="oCard?.digitype != null">
+                                {{ oCard.digitype }}
+                            </td>
+                            <td
+                                class="table50 left"
+                                *ngIf="oCard?.attribute != null"
+                            >
+                                {{ oCard.attribute }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" *ngIf="oCard?.maineffect != null">
+                                {{ oCard.maineffect }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" *ngIf="oCard?.sourceeffect != null">
+                                {{ oCard.sourceeffect }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">{{ oCard.cardnumber }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-  </form>
 </div>
 
-<div class="container mt-4">
-  <div class="row">
-    <div class="col">
-      <img src={{oCard.image}} alt={{oCard.name}}>
+<div
+    class="modal fade"
+    [id]="mimodal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    {{ modalTitle }}
+                </h5>
+                <button
+                    copies="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                {{ modalContent }}
+            </div>
+            <div class="modal-footer">
+                <button
+                    copies="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                >
+                    Cerrar
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="col">
-      <table class="table table-bordered">
-        <tbody>
-          <tr>
-            <td class="table50" *ngIf="oCard.playcost!=null">{{oCard.playcost}}</td>
-            <td class="table50 left" *ngIf="oCard?.dp!=null">{{oCard.dp}}</td>
-          </tr>
-          <tr>
-            <td colspan="2" *ngIf="oCard?.evolutioncost!=null">{{oCard.evolutioncost}}</td>
-          </tr>
-          <tr>
-            <td colspan="2">{{oCard.name}}</td>
-          </tr>
-          <tr>
-            <td class="table50" *ngIf="oCard?.digitype!=null">{{oCard.digitype}}</td>
-            <td class="table50 left" *ngIf="oCard?.attribute!=null">{{oCard.attribute}}</td>
-          </tr>
-          <tr>
-            <td colspan="2" *ngIf="oCard?.maineffect!=null">{{oCard.maineffect}}</td>
-          </tr>
-          <tr>
-            <td colspan="2" *ngIf="oCard?.sourceeffect!=null">{{oCard.sourceeffect}}</td>
-          </tr>
-          <tr>
-            <td colspan="2">{{oCard.cardnumber}}</td>
-          </tr>
-        </tbody>
-    </table>
-    </div>
-  </div>
-
-</div>
-
-<div class="modal fade" [id]="mimodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-          <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
-              <button copies="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-              
-              {{modalContent}}
-              
-          </div>
-          <div class="modal-footer">
-              <button copies="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-      </div>
-  </div>
 </div>

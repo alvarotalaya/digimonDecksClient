@@ -218,6 +218,10 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         this.level5 = 0;
         this.level6 = 0;
         this.level7 = 0;
+        this.digimon = 0;
+        this.digitama = 0;
+        this.tamer = 0;
+        this.option = 0;
         for (let i = 0; i <= this.responseFromServer.totalElements - 1; i++) {
             switch (this.responseFromServer.content[i].card.level) {
                 case 2: {
@@ -394,7 +398,14 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
             series: [
                 {
                     type: 'column',
-                    data: [this.level4, 12, 12, 8, 5, 1],
+                    data: [
+                        this.level2,
+                        this.level3,
+                        this.level4,
+                        this.level5,
+                        this.level6,
+                        this.level7,
+                    ],
                     dataLabels: [
                         {
                             enabled: true,
@@ -459,7 +470,12 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
             series: [
                 {
                     type: 'column',
-                    data: [4, 38, 5, 7],
+                    data: [
+                        this.digitama,
+                        this.digimon,
+                        this.tamer,
+                        this.option,
+                    ],
                     dataLabels: [
                         {
                             enabled: true,

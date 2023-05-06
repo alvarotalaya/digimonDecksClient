@@ -18,3 +18,36 @@ table {
 .left{
 	text-align: left;
 }
+
+.modal-content{
+    background-color: #111827;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-right: 10px; /* Ajusta el valor según tus necesidades */
+  }
+  
+  .form-group:last-child {
+    margin-right: 0;
+  }
+  
+  .form-group label {
+    display: inline-block;
+    margin-right: 5px; /* Ajusta el valor según tus necesidades */
+  }
+
+  .btn-fixed-size {
+    width: 100px; /* Ajusta el ancho deseado */
+    height: 40px; /* Ajusta la altura deseada */
+  }
+
+  .formulario-container {
+    max-width: 500px; /* Ajusta el ancho máximo deseado */
+    margin: 0 auto; /* Centra horizontalmente el formulario */
+  }
