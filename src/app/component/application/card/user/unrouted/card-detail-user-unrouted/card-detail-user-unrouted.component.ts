@@ -59,9 +59,17 @@ export class CardDetailUserUnroutedComponent implements OnInit {
     private oFormBuilder: FormBuilder,
     private oRouter: Router,
     private oSessionService: SessionService
+    
   ) {
     this.strEmail = oSessionService.getPlayer();
-    this.oSessionService.getUserId().subscribe((n: number) => this.id_playerFilter = n);
+    this.oSessionService.getUserId().subscribe({
+      next: (n: number) => {
+        this.id_playerFilter = n
+      },
+      error: (err: HttpErrorResponse) => {
+          console.log(err);
+      },
+  });
   }
 
   ngOnInit(): void {
