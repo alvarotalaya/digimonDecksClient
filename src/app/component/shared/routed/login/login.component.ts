@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginAsUser() {
-    this.oFormularioLogin.controls.email.setValue("884155@test.com");
+    this.oFormularioLogin.controls.email.setValue("651646@test.com");
     this.oFormularioLogin.controls.password.setValue("DIGIMON_DECKS");
   }
 
