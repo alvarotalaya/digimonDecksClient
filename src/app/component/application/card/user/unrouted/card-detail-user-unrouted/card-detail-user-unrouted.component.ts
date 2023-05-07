@@ -26,7 +26,7 @@ declare let bootstrap: any;
     styleUrls: ['./card-detail-user-unrouted.component.css'],
 })
 export class CardDetailUserUnroutedComponent implements OnInit {
-    _id: number = 1;
+    _id: number = 3567;
     get id(): number {
         return this._id;
     }
@@ -81,6 +81,7 @@ export class CardDetailUserUnroutedComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.getOne();
         this.getPage();
         this.oForm = <FormGroup>this.oFormBuilder.group({
             id: [, []],
