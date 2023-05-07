@@ -15,8 +15,8 @@ table {
 	width: 50%;
 }
 
-.left{
-	text-align: left;
+.table-justify{
+  text-align: justify;
 }
 
 .modal-content{
@@ -48,6 +48,6 @@ table {
   }
 
   .formulario-container {
-    max-width: 500px; /* Ajusta el ancho máximo deseado */
+    max-width: 550px; /* Ajusta el ancho máximo deseado */
     margin: 0 auto; /* Centra horizontalmente el formulario */
   }

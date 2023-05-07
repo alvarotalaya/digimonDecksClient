@@ -12,3 +12,16 @@ img:hover{
 .modal-content{
     background-color: #111827;
 }
+
+.white-color{
+	background-color: white;
+}
+
+ul{
+    color: black;
+    background-color: black;
+}
+
+a{
+    color: white;
+}

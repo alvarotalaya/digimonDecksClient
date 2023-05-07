@@ -6,6 +6,10 @@ nav{
   background-color: #111827;
 }
 
+.nav-link.active {
+  color: #1994D3;
+}
+
 img{
   width: 12%;
   margin-right: 5px;

@@ -33,7 +33,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     strTermFilter: string = '';
     id_cardFilter: number = 0;
     id_deckFilter: number = 0;
-    numberOfElements: number = 50;
+    numberOfElements: number = 100;
     page: number = 0;
     sortField: string = '';
     sortDirection: string = '';
@@ -49,7 +49,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     modalTitle: string = '';
     modalContent: string = '';
     //
-    idCard: number = 3567;
+    idCard: number = 1;
     strUsertype: string = '';
     id: number = 0;
     //

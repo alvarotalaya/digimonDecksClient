@@ -34,7 +34,7 @@
           (eePage)="setPage($event)"></app-pagination-unrouted>
       </div>
       <div class="col-md text-end">
-        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+        <h5 class="text-muted">Total result {{responseFromServer.totalElements}}</h5>
       </div>
         <div class="col-md">
           <img *ngFor="let card of responseFromServer.content" src={{card.image}} 
@@ -42,16 +42,19 @@
         </div>
     </div>
   </div>
+  <div class="col-md">
+    <br>
+    <br>
+      <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
+      (eePage)="setPage($event)"></app-pagination-unrouted>
+  </div>
 </div>
 
 <div class="modal fade" id="carddetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
       <div class="modal-body">
+        <button type="button" class="btn-close white-color" data-bs-dismiss="modal" aria-label="Close"></button>
 
         <app-card-detail-user-unrouted [id]="idCard" (closeEvent)="closeCardModal()"></app-card-detail-user-unrouted>
 

@@ -26,7 +26,7 @@ declare let bootstrap: any;
     styleUrls: ['./card-detail-user-unrouted.component.css'],
 })
 export class CardDetailUserUnroutedComponent implements OnInit {
-    _id: number = 3567;
+    _id: number = 1;
     get id(): number {
         return this._id;
     }

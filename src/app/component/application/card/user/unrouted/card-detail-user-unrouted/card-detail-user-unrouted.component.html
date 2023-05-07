@@ -48,10 +48,18 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
+                            <td colspan="2" class="text-center">
+                                {{ oCard.type }}
+                            </td>
+                        </tr>
+                        <tr>
                             <td class="table50" *ngIf="oCard.playcost != null">
                                 {{ oCard.playcost }}
                             </td>
-                            <td class="table50 left" *ngIf="oCard?.dp != null">
+                            <td
+                                class="table50 text-end"
+                                *ngIf="oCard?.dp != null"
+                            >
                                 {{ oCard.dp }}
                             </td>
                         </tr>
@@ -64,31 +72,46 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">{{ oCard.name }}</td>
+                            <td colspan="2" class="text-center">
+                                {{ oCard.name }}
+                            </td>
                         </tr>
                         <tr>
-                            <td class="table50" *ngIf="oCard?.digitype != null">
-                                {{ oCard.digitype }}
-                            </td>
                             <td
-                                class="table50 left"
+                                class="table50"
                                 *ngIf="oCard?.attribute != null"
                             >
                                 {{ oCard.attribute }}
                             </td>
+                            <td
+                                class="table50 text-end"
+                                *ngIf="oCard?.digitype != null"
+                            >
+                                {{ oCard.digitype }}
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="2" *ngIf="oCard?.maineffect != null">
+                            <td
+                                colspan="2"
+                                class="table-justify"
+                                *ngIf="oCard?.maineffect != null"
+                            >
                                 {{ oCard.maineffect }}
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" *ngIf="oCard?.sourceeffect != null">
+                            <td
+                                colspan="2"
+                                class="table-justify"
+                                *ngIf="oCard?.sourceeffect != null"
+                            >
                                 {{ oCard.sourceeffect }}
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2">{{ oCard.cardnumber }}</td>
+                            <td colspan="2" class="text-end">
+                                {{ oCard.cardnumber }}
+                            </td>
                         </tr>
                     </tbody>
                 </table>

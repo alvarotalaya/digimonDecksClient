@@ -9,7 +9,7 @@ export class DropdownRegisterPageComponent implements OnInit {
 
   @Input() PageSize!: number;
 
-  Rpp:number = 5
+  Rpp:number = 20
   @Output() eeRpp = new EventEmitter<number>();
   constructor() { }
 

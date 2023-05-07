@@ -32,7 +32,7 @@ export class CardPlistUserRoutedComponent implements OnInit {
   modalTitle: string = "";
   modalContent: string = "";
 
-  idCard: number = 3567;
+  idCard: number = 1;
   bLoading:boolean=false;
   strResult: string;
   strUsertype: string = "";
