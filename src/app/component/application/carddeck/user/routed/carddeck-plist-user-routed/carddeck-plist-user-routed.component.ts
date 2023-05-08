@@ -183,49 +183,60 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
             copiesSend--;
         }
 
-        if (copiesSend <= 0) {
-            this.oCarddeckService.removeOne(idCarddeck).subscribe({
-                next: (data: number) => {
-                    this.getPage();
-                },
-                error: (err) => {
-                    this.responseFromServer.content.forEach(
-                        (element: ICarddeck) => {
-                            if (element.id == idCarddeck) {
-                                element.copies = oldNumber;
-                            }
-                        }
-                    );
-                },
-            });
-        } else {
-            this.oCarddeck2Send = {
-                id: idCarddeck,
-                copies: copiesSend,
-                card: { id: idCard },
-                deck: { id: idDeck },
-            };
+        if (copiesSend > 4) {
             this.responseFromServer.content.forEach((element: ICarddeck) => {
                 if (element.id == idCarddeck) {
-                    element.copies = copiesSend;
+                    element.copies = oldNumber;
                 }
             });
-            this.oCarddeckService.updateOne(this.oCarddeck2Send).subscribe({
-                next: (data: number) => {
-                    //console.log("update one",data);
-                    this.grafico();
-                },
-                error: (err) => {
-                    this.responseFromServer.content.forEach(
-                        (element: ICarddeck) => {
-                            if (element.id == idCarddeck) {
-                                element.copies = oldNumber;
+        } else {
+            if (copiesSend <= 0) {
+                this.oCarddeckService.removeOne(idCarddeck).subscribe({
+                    next: (data: number) => {
+                        this.getPage();
+                    },
+                    error: (err) => {
+                        this.responseFromServer.content.forEach(
+                            (element: ICarddeck) => {
+                                if (element.id == idCarddeck) {
+                                    element.copies = oldNumber;
+                                }
                             }
+                        );
+                    },
+                });
+            } else {
+                this.oCarddeck2Send = {
+                    id: idCarddeck,
+                    copies: copiesSend,
+                    card: { id: idCard },
+                    deck: { id: idDeck },
+                };
+                this.responseFromServer.content.forEach(
+                    (element: ICarddeck) => {
+                        if (element.id == idCarddeck) {
+                            element.copies = copiesSend;
                         }
-                    );
-                },
-            });
-            //this.getPage();
+                    }
+                );
+                this.oCarddeckService.updateOne(this.oCarddeck2Send).subscribe({
+                    next: (data: number) => {
+                        //console.log("update one",data);
+                        this.grafico();
+                        console.log('sended');
+                    },
+                    error: (err) => {
+                        this.responseFromServer.content.forEach(
+                            (element: ICarddeck) => {
+                                if (element.id == idCarddeck) {
+                                    element.copies = oldNumber;
+                                }
+                            }
+                        );
+                    },
+                });
+                //this.getPage();
+            }
         }
     }
 
@@ -293,7 +304,6 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
                 }
             }
         }
-        console.log('stats finished');
     }
 
     textPdf() {

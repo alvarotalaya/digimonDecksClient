@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="d-flex justify-content-end">
+    <div class="d-flex justify-content-end" *ngIf="strEmail">
         <button class="btn btn-primary" (click)="toggleFormulario()">
             <i class="fas fa-plus"></i>
         </button>
@@ -48,68 +48,146 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td colspan="2" class="text-center">
+                            <td colspan="3" class="text-center">
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                      Type
+                                    </div>
+                                </div>
                                 {{ oCard.type }}
                             </td>
                         </tr>
                         <tr>
-                            <td class="table50" *ngIf="oCard.playcost != null">
+                            <td *ngIf="oCard.playcost != null">
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                      Play cost
+                                    </div>
+                                </div>
                                 {{ oCard.playcost }}
                             </td>
-                            <td
-                                class="table50 text-end"
-                                *ngIf="oCard?.dp != null"
-                            >
+                            <td class="text-end" *ngIf="oCard?.dp != null">
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                      DP
+                                    </div>
+                                </div>
                                 {{ oCard.dp }}
                             </td>
                         </tr>
                         <tr>
                             <td
-                                colspan="2"
+                                colspan="3"
                                 *ngIf="oCard?.evolutioncost != null"
                             >
+                            <div class="rectangulo">
+                                <div class="triangulo triangulo-izquierdo"></div>
+                                <div class="triangulo triangulo-derecho"></div>
+                                <div class="texto">
+                                  Evolution Cost
+                                </div>
+                            </div>
                                 {{ oCard.evolutioncost }}
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="text-center">
+                            <td colspan="3" class="text-center">
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                      Name
+                                    </div>
+                                </div>
                                 {{ oCard.name }}
                             </td>
                         </tr>
                         <tr>
+                            <td *ngIf="oCard?.level != null" class="table33">
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                      Lv
+                                    </div>
+                                </div>
+                                {{ oCard.level }}
+                            </td>
+
                             <td
-                                class="table50"
                                 *ngIf="oCard?.attribute != null"
+                                class="text-center"
                             >
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                      Attribute
+                                    </div>
+                                </div>
                                 {{ oCard.attribute }}
                             </td>
                             <td
-                                class="table50 text-end"
+                                class="text-end"
                                 *ngIf="oCard?.digitype != null"
                             >
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                    Type
+                                    </div>
+                            </div>
                                 {{ oCard.digitype }}
                             </td>
                         </tr>
                         <tr>
                             <td
-                                colspan="2"
+                                colspan="3"
                                 class="table-justify"
                                 *ngIf="oCard?.maineffect != null"
                             >
+                            <div class="rectangulo">
+                                <div class="triangulo triangulo-izquierdo"></div>
+                                <div class="triangulo triangulo-derecho"></div>
+                                <div class="texto">
+                                  Main effect
+                                </div>
+                            </div>
                                 {{ oCard.maineffect }}
                             </td>
                         </tr>
                         <tr>
                             <td
-                                colspan="2"
+                                colspan="3"
                                 class="table-justify"
                                 *ngIf="oCard?.sourceeffect != null"
                             >
+                            <div class="rectangulo">
+                                <div class="triangulo triangulo-izquierdo"></div>
+                                <div class="triangulo triangulo-derecho"></div>
+                                <div class="texto">
+                                  Source effect
+                                </div>
+                            </div>
                                 {{ oCard.sourceeffect }}
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" class="text-end">
+                            <td colspan="3" class="text-end">
+                                <div class="rectangulo">
+                                    <div class="triangulo triangulo-izquierdo"></div>
+                                    <div class="triangulo triangulo-derecho"></div>
+                                    <div class="texto">
+                                      Card Number
+                                    </div>
+                                </div>
                                 {{ oCard.cardnumber }}
                             </td>
                         </tr>

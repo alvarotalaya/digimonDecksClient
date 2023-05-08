@@ -16,12 +16,11 @@
             <li><a class="dropdown-item" (click)="setOrder('name')">Name</a></li>
             <li><a class="dropdown-item" (click)="setOrder('type')">Type</a></li>
             <li><a class="dropdown-item" (click)="setOrder('color')">Color</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('stage')">Stage</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('attribute')">Attribute</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('level')">Level</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('type,level')">Level</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('type, level')">Level</a></li>
             <li><a class="dropdown-item" (click)="setOrder('playcost')">Play Cost</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('evolutioncost')">Evolution Cost</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('dp')">DP</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('type,evolutioncost')">Evolution Cost</a></li>
+            <li><a class="dropdown-item" (click)="setOrder('type,dp')">DP</a></li>
           </ul>
         </button>
         <app-search-unrouted [placeHolder]="'Card Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>

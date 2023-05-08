@@ -99,11 +99,7 @@ export class CardPlistUserRoutedComponent implements OnInit {
 
   setOrder(order: string): void {
     this.sortField = order;
-    if (this.sortDirection == "asc") {
-      this.sortDirection = "desc";
-    } else {
-      this.sortDirection = "asc";
-    }
+    this.sortDirection = "asc";
     this.getPage();
   }
 
