@@ -6,6 +6,7 @@ import { CardService } from 'src/app/service/card.service';
 import { SessionService } from 'src/app/service/session.service';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { IPage } from 'src/app/model/generic-types-interface';
+import { Options } from '@angular-slider/ngx-slider';
 declare let bootstrap: any;
 
 @Component({
@@ -36,6 +37,16 @@ export class CardPlistUserRoutedComponent implements OnInit {
   bLoading:boolean=false;
   strResult: string;
   strUsertype: string = "";
+
+  value: number = 28;
+    options: Options = {
+        floor: 14,
+        ceil: 42,
+        showTicks: false,
+        hideLimitLabels: true,
+        hidePointerLabels: true
+    };
+
 
   constructor(
     private oCardService: CardService,

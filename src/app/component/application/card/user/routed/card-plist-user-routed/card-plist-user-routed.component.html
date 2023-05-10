@@ -1,63 +1,166 @@
 <div class="container mt-5">
-  <div class="row">
-    <div class="col">
-      <h1 class="text-center mb-5">Card's list</h1> 
-      <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
-        <button class=" btn nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Direction</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="setDirection('asc')">Asc</a></li>
-            <li><a class="dropdown-item" (click)="setDirection('desc')">Des</a></li>
-          </ul>
-        </button>
-        <button class=" btn nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Order by</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" (click)="setOrder('name')">Name</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('type')">Type</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('color')">Color</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('type,level')">Level</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('type, level')">Level</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('playcost')">Play Cost</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('type,evolutioncost')">Evolution Cost</a></li>
-            <li><a class="dropdown-item" (click)="setOrder('type,dp')">DP</a></li>
-          </ul>
-        </button>
-        <app-search-unrouted [placeHolder]="'Card Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
-        <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
-          (eeRpp)="this.setRpp($event)">
-        </app-dropdown-register-page>
-      </div>
-      <div class="col-md">
-        <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
-          (eePage)="setPage($event)"></app-pagination-unrouted>
-      </div>
-      <div class="col-md text-end">
-        <h5 class="text-muted">Total result {{responseFromServer.totalElements}}</h5>
-      </div>
-        <div class="col-md">
-          <img *ngFor="let card of responseFromServer.content" src={{card.image}} 
-            alt={{card.name}} (click)="openModalCard(card.id)">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mb-5">Card's list</h1>
+            <div
+                class="col-md text-end d-flex justify-content-center align-items-center mb-3"
+            >
+                <button class="btn nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        href="#"
+                        >Direction</a
+                    >
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                (click)="setDirection('asc')"
+                                >Asc</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                (click)="setDirection('desc')"
+                                >Des</a
+                            >
+                        </li>
+                    </ul>
+                </button>
+                <button class="btn nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        href="#"
+                        >Order by</a
+                    >
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" (click)="setOrder('name')"
+                                >Name</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="setOrder('type')"
+                                >Type</a
+                            >
+                        </li>
+                        <li>
+                            <a class="dropdown-item" (click)="setOrder('color')"
+                                >Color</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                (click)="setOrder('type,level')"
+                                >Level</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                (click)="setOrder('type, level')"
+                                >Level</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                (click)="setOrder('playcost')"
+                                >Play Cost</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                (click)="setOrder('type,evolutioncost')"
+                                >Evolution Cost</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="dropdown-item"
+                                (click)="setOrder('type,dp')"
+                                >DP</a
+                            >
+                        </li>
+                    </ul>
+                </button>
+                <app-search-unrouted
+                    [placeHolder]="'Card Search'"
+                    (onSearch)="setFilter($event)"
+                ></app-search-unrouted>
+                <app-dropdown-register-page
+                    class="mx-2"
+                    [PageSize]="responseFromServer.numberOfElements"
+                    (eeRpp)="this.setRpp($event)"
+                >
+                </app-dropdown-register-page>
+            </div>
+            <div class="col-md">
+                <app-pagination-unrouted
+                    [nPage]="responseFromServer.number + 1"
+                    [nTotalPages]="responseFromServer.totalPages"
+                    (eePage)="setPage($event)"
+                ></app-pagination-unrouted>
+            </div>
+            <div class="col-md text-end">
+                <h5 class="text-muted">
+                    Total result {{ responseFromServer.totalElements }}
+                </h5>
+            </div>
+            <div class="sliderDiv">
+                <i class="fa-sharp fa-solid fa-magnifying-glass-minus"></i>
+                <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
+                <i class="fa-sharp fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+            <div class="col-md">
+                <img
+                    *ngFor="let card of responseFromServer.content"
+                    [ngStyle]="{ 'width.vh': value}"
+                    src="{{ card.image }}"
+                    alt="{{ card.name }}"
+                    (click)="openModalCard(card.id)"
+                />
+            </div>
         </div>
     </div>
-  </div>
-  <div class="col-md">
-    <br>
-    <br>
-      <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
-      (eePage)="setPage($event)"></app-pagination-unrouted>
-  </div>
+    <div class="col-md">
+        <br />
+        <br />
+        <app-pagination-unrouted
+            [nPage]="responseFromServer.number + 1"
+            [nTotalPages]="responseFromServer.totalPages"
+            (eePage)="setPage($event)"
+        ></app-pagination-unrouted>
+    </div>
 </div>
 
-<div class="modal fade" id="carddetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="btn-close white-color" data-bs-dismiss="modal" aria-label="Close"></button>
+<div
+    class="modal fade"
+    id="carddetail"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button
+                    type="button"
+                    class="btn-close white-color"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
 
-        <app-card-detail-user-unrouted [id]="idCard" (closeEvent)="closeCardModal()"></app-card-detail-user-unrouted>
-
-      </div>
+                <app-card-detail-user-unrouted
+                    [id]="idCard"
+                    (closeEvent)="closeCardModal()"
+                ></app-card-detail-user-unrouted>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

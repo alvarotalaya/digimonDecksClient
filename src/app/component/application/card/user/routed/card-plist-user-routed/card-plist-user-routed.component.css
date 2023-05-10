@@ -25,3 +25,10 @@ ul{
 a{
     color: white;
 }
+
+.sliderDiv{
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+    display: flex;
+}

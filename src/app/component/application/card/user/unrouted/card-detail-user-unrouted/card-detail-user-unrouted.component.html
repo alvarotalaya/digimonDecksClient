@@ -48,37 +48,28 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td colspan="3" class="text-center">
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                      Type
-                                    </div>
+                            <td colspan="3">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Type</div>
+
+                                    {{ oCard.type }}
                                 </div>
-                                {{ oCard.type }}
                             </td>
                         </tr>
                         <tr>
                             <td *ngIf="oCard.playcost != null">
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                      Play cost
-                                    </div>
+                                <div class="tableContainer">
+                                    <div class="hexagono">Play Cost</div>
+                                    
+                                    {{ oCard.playcost }}
                                 </div>
-                                {{ oCard.playcost }}
                             </td>
-                            <td class="text-end" *ngIf="oCard?.dp != null">
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                      DP
-                                    </div>
+                            <td *ngIf="oCard?.dp != null">
+                                <div class="tableContainer">
+                                    <div class="hexagono">DP</div>
+
+                                    {{ oCard.dp }}
                                 </div>
-                                {{ oCard.dp }}
                             </td>
                         </tr>
                         <tr>
@@ -86,109 +77,71 @@
                                 colspan="3"
                                 *ngIf="oCard?.evolutioncost != null"
                             >
-                            <div class="rectangulo">
-                                <div class="triangulo triangulo-izquierdo"></div>
-                                <div class="triangulo triangulo-derecho"></div>
-                                <div class="texto">
-                                  Evolution Cost
+                                <div class="tableContainer">
+                                    <div class="hexagono">Evo. Cost</div>
+
+                                    {{ oCard.evolutioncost }}
                                 </div>
-                            </div>
-                                {{ oCard.evolutioncost }}
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="text-center">
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                      Name
-                                    </div>
+                            <td colspan="3">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Name</div>
+
+                                    {{ oCard.name }}
                                 </div>
-                                {{ oCard.name }}
                             </td>
                         </tr>
                         <tr>
                             <td *ngIf="oCard?.level != null" class="table33">
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                      Lv
-                                    </div>
+                                <div class="tableContainer">
+                                    <div class="hexagono">Lv.</div>
+
+                                    {{ oCard.level }}
                                 </div>
-                                {{ oCard.level }}
                             </td>
 
-                            <td
-                                *ngIf="oCard?.attribute != null"
-                                class="text-center"
-                            >
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                      Attribute
-                                    </div>
+                            <td *ngIf="oCard?.attribute != null">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Attribute</div>
+
+                                    {{ oCard.attribute }}
                                 </div>
-                                {{ oCard.attribute }}
                             </td>
-                            <td
-                                class="text-end"
-                                *ngIf="oCard?.digitype != null"
-                            >
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                    Type
-                                    </div>
-                            </div>
-                                {{ oCard.digitype }}
+                            <td *ngIf="oCard?.digitype != null">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Digitype</div>
+
+                                    {{ oCard.digitype }}
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td
-                                colspan="3"
-                                class="table-justify"
-                                *ngIf="oCard?.maineffect != null"
-                            >
-                            <div class="rectangulo">
-                                <div class="triangulo triangulo-izquierdo"></div>
-                                <div class="triangulo triangulo-derecho"></div>
-                                <div class="texto">
-                                  Main effect
+                            <td colspan="3" *ngIf="oCard?.maineffect != null">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Main</div>
+
+                                    {{ oCard.maineffect }}
                                 </div>
-                            </div>
-                                {{ oCard.maineffect }}
                             </td>
                         </tr>
                         <tr>
-                            <td
-                                colspan="3"
-                                class="table-justify"
-                                *ngIf="oCard?.sourceeffect != null"
-                            >
-                            <div class="rectangulo">
-                                <div class="triangulo triangulo-izquierdo"></div>
-                                <div class="triangulo triangulo-derecho"></div>
-                                <div class="texto">
-                                  Source effect
+                            <td colspan="3" *ngIf="oCard?.sourceeffect != null">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Source</div>
+
+                                    {{ oCard.sourceeffect }}
                                 </div>
-                            </div>
-                                {{ oCard.sourceeffect }}
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" class="text-end">
-                                <div class="rectangulo">
-                                    <div class="triangulo triangulo-izquierdo"></div>
-                                    <div class="triangulo triangulo-derecho"></div>
-                                    <div class="texto">
-                                      Card Number
-                                    </div>
+                            <td colspan="3">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Card</div>
+
+                                    {{ oCard.cardnumber }}
                                 </div>
-                                {{ oCard.cardnumber }}
                             </td>
                         </tr>
                     </tbody>

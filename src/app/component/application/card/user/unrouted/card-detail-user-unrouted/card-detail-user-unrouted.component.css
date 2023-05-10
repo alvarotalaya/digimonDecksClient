@@ -60,57 +60,16 @@ table {
     margin: 0 auto; /* Centra horizontalmente el formulario */
   }
 
-  .rectangulo {
-    width: 50px;
-    height: 20px;
-    background-color: #f2f2f2;
-    position: relative;
-    left: 10px;
-    background-color: #81270D;
-    margin: 0 auto;
-  }
-
-  .triangulo {
-    width: 0;
-    height: 0;
-    position: absolute;
-  }
-
-  .triangulo-izquierdo {
-    left: -10px;
-  }
-
-  .triangulo-izquierdo::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-right: 10px solid;
-    color: #81270D
-  }
-
-  .triangulo-derecho {
-    right: -10px;
-  }
-
-  .triangulo-derecho::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid;
-    color: #81270D
-  }
-
-  .texto {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .hexagono{
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    width: 80px;
+    height: 30px;
+    background-image: linear-gradient(to bottom, #81270D, #B86C22);
     text-align: center;
-    font-size: 10px;
+    margin-right: 10px;
+  }
+
+  .tableContainer{
+    display: flex;
+    align-items: center;
   }

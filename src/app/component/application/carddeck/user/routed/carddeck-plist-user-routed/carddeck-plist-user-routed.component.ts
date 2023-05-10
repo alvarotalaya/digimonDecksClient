@@ -17,7 +17,7 @@ declare let bootstrap: any;
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 (<any>pdfMake).vfs = pdfFonts.pdfMake.vfs;
-
+import { Options } from '@angular-slider/ngx-slider';
 import { Chart } from 'angular-highcharts';
 
 @Component({
@@ -77,6 +77,15 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     listHand: string[] = [];
     listSecurity: string[] = [];
     numberRandom: number;
+
+    value: number = 30;
+    options: Options = {
+        floor: 15,
+        ceil: 45,
+        showTicks: false,
+        hideLimitLabels: true,
+        hidePointerLabels: true
+    };
 
     constructor(
         private oActivatedRoute: ActivatedRoute,
