@@ -85,8 +85,14 @@ p{
 }
 
 .sliderDiv{
-	width: 80%;
+	width: 40%;
 	margin: 0 auto;
 	margin-bottom: 10px;
 	display: flex;
+}
+
+.sliderDiv i{
+    margin: 10px;
+    position: relative;
+    top: 3.5vh;
 }

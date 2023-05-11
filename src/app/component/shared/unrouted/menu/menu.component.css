@@ -13,7 +13,7 @@ nav{
 img{
   width: 12%;
   margin-right: 5px;
-
+  cursor: pointer;
 }
 
 i{
