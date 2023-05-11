@@ -16,7 +16,9 @@
                 </div>
             </div>
             <div class="sliderDiv">
-                <i class="fa-sharp fa-solid fa-magnifying-glass-minus fa-lg"></i>
+                <i
+                    class="fa-sharp fa-solid fa-magnifying-glass-minus fa-lg"
+                ></i>
                 <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
                 <i class="fa-sharp fa-solid fa-magnifying-glass-plus fa-lg"></i>
             </div>
@@ -90,7 +92,7 @@
                             alt="{{ carddeck.card.name }}"
                             class="hover"
                             (click)="openModalCard(carddeck.card.id)"
-                            [ngStyle]="{ 'width.vh': value}"
+                            [ngStyle]="{ 'width.vh': value }"
                         />
                     </div>
                 </div>
@@ -126,7 +128,7 @@
 
 <div
     class="modal fade"
-    id="mimodal"
+    id="roll"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -134,9 +136,29 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-body">
-                {{modalContent}}
+                <button
+                    type="button"
+                    class="btn-close white-color"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+                <div class="row">
+                    <p>Security</p>
+                    <div class="col" *ngFor="let security of listSecurity">
+                        <img src="{{ security }}" alt="" class="rollImg" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p>Hand</p>
+                    <div class="col" *ngFor="let hand of listHand">
+                        <img src="{{ hand }}" alt="" class="rollImg" />
+                    </div>
+                </div>
+                <button class="btn-right btn btn-primary" (click)="roll()">
+                    Roll Again
+                </button>
             </div>
         </div>
     </div>
 </div>
-

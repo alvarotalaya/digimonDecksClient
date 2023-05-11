@@ -24,3 +24,7 @@ table {
 .table tbody tr:hover td {
 	color: #fff;
 }
+
+.modal-content{
+    background-color: #111827;
+}

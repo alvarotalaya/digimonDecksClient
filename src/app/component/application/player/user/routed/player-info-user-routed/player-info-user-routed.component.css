@@ -29,3 +29,17 @@ table {
 .white-color{
 	background-color: white;
 }
+
+.editUser{
+	width: 50%;
+}
+
+.borderLight {
+	border: 2px solid #DADCE0; /* Cambia el valor "3px" para ajustar el tamaño del punteado */
+	border-radius: 10px; /* Cambia el valor "10px" para ajustar el radio de los bordes redondeados */
+	margin-bottom: 20px;
+}
+
+.containerPadding{
+	padding: 12px;
+}

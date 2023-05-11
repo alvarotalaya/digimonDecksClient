@@ -1,6 +1,6 @@
-<div class="container mt-5" *ngIf="buttonNew == 0">
+<div class="container" *ngIf="buttonNew == 0">
     <div class="row">
-        <div class="d-flex justify-content-center">
+        <div class="d-flex">
             <button class="btn btn-primary" (click)="buttonShow()">
                 Create a deck
             </button>
@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="container mt-5" *ngIf="buttonNew == 1">
+<div class="container mt-3" *ngIf="buttonNew == 1">
     <div class="row">
         <div class="col">
             <h1 class="text-center mb-5">New Deck</h1>

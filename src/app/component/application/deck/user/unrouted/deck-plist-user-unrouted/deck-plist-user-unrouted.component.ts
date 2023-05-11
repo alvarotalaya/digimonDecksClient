@@ -29,7 +29,7 @@ export class DeckPlistUserUnroutedComponent implements OnInit {
   //
   strTermFilter: string = "";
   id_playerFilter: number = 0;
-  numberOfElements: number = 5;
+  numberOfElements: number = 50;
   page: number = 0;
   sortField: string = "";
   sortDirection: string = "";

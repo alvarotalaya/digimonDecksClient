@@ -1,42 +1,48 @@
 <div class="container">
-    <div class="d-flex justify-content-end" *ngIf="strEmail">
-        <button class="btn btn-primary" (click)="toggleFormulario()">
-            Add
-        </button>
-    </div>
-    <br />
-    <div *ngIf="mostrarFormulario" class="formulario-container">
-        <form
-            novalidate
-            [formGroup]="oForm"
-            (ngSubmit)="onSubmit()"
-            *ngIf="strEmail"
-            class="d-flex align-items-end"
-        >
-            <div class="form-group">
-                <label for="inputDeck" class="mr-1">Deck: </label>
-                <select id="inputDeck" formControlName="iddeck">
-                    <option
-                        *ngFor="let deck of responseFromServer.content"
-                        value="{{ deck.id }}"
-                    >
-                        {{ deck.name }}
-                    </option>
-                </select>
-            </div>
-            <div class="form-group ml-1">
-                <label for="inputCopies" class="ml-1">Copies: </label>
-                <select formControlName="copies" id="inputCopies">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary btn-fixed-size">
-                Save
+    <div
+        class="d-flex justify-content-end"
+        *ngIf="strEmail"
+        class="formulario-container"
+    >
+        <div *ngIf="mostrarFormulario" class="formCenter">
+            <form
+                novalidate
+                [formGroup]="oForm"
+                (ngSubmit)="onSubmit()"
+                *ngIf="strEmail"
+                class="d-flex align-items-end"
+            >
+                <div class="form-group">
+                    <label for="inputDeck" class="mr-1">Deck: </label>
+                    <select id="inputDeck" formControlName="iddeck">
+                        <option
+                            *ngFor="let deck of responseFromServer.content"
+                            value="{{ deck.id }}"
+                        >
+                            {{ deck.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group ml-1">
+                    <label for="inputCopies" class="ml-1">Copies: </label>
+                    <select formControlName="copies" id="inputCopies">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-fixed-size">
+                    Save
+                </button>
+            </form>
+        </div>
+        <div class="formAdd">
+            <button class="btn btn-primary" (click)="toggleFormulario()">
+                Add
             </button>
-        </form>
+        </div>
+        <br />
     </div>
     <br />
     <div class="container">
@@ -48,7 +54,7 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td colspan="3">
+                            <td colspan="2">
                                 <div class="tableContainer">
                                     <div class="hexagono">Type</div>
 
@@ -60,7 +66,7 @@
                             <td *ngIf="oCard.playcost != null">
                                 <div class="tableContainer">
                                     <div class="hexagono">Play Cost</div>
-                                    
+
                                     {{ oCard.playcost }}
                                 </div>
                             </td>
@@ -74,7 +80,7 @@
                         </tr>
                         <tr>
                             <td
-                                colspan="3"
+                                colspan="2"
                                 *ngIf="oCard?.evolutioncost != null"
                             >
                                 <div class="tableContainer">
@@ -85,7 +91,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
+                            <td *ngIf="oCard?.level != null" class="table2">
+                                <div class="tableContainer">
+                                    <div class="hexagono">Lv.</div>
+
+                                    {{ oCard.level }}
+                                </div>
+                            </td>
+                            <td>
                                 <div class="tableContainer">
                                     <div class="hexagono">Name</div>
 
@@ -94,14 +107,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td *ngIf="oCard?.level != null" class="table33">
-                                <div class="tableContainer">
-                                    <div class="hexagono">Lv.</div>
-
-                                    {{ oCard.level }}
-                                </div>
-                            </td>
-
                             <td *ngIf="oCard?.attribute != null">
                                 <div class="tableContainer">
                                     <div class="hexagono">Attribute</div>
@@ -118,7 +123,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" *ngIf="oCard?.maineffect != null">
+                            <td colspan="2" *ngIf="oCard?.maineffect != null">
                                 <div class="tableContainer">
                                     <div class="hexagono">Main</div>
 
@@ -127,7 +132,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3" *ngIf="oCard?.sourceeffect != null">
+                            <td colspan="2" *ngIf="oCard?.sourceeffect != null">
                                 <div class="tableContainer">
                                     <div class="hexagono">Source</div>
 
@@ -136,7 +141,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3">
+                            <td colspan="2">
                                 <div class="tableContainer">
                                     <div class="hexagono">Card</div>
 

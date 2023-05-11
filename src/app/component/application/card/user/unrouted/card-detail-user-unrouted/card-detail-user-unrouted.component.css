@@ -1,5 +1,6 @@
 img{
     border-radius: 16px;
+    max-width: 50vh;
 }
 
 label{
@@ -9,6 +10,8 @@ label{
 table {
     color: #fff;
     border-collapse: collapse;
+    max-width: 40%;
+    font-size: 12px;
 }
 
 .table100{
@@ -31,35 +34,6 @@ table {
     background-color: #111827;
 }
 
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .form-group {
-    flex: 1;
-    margin-right: 10px; /* Ajusta el valor según tus necesidades */
-  }
-  
-  .form-group:last-child {
-    margin-right: 0;
-  }
-  
-  .form-group label {
-    display: inline-block;
-    margin-right: 5px; /* Ajusta el valor según tus necesidades */
-  }
-
-  .btn-fixed-size {
-    width: 100px; /* Ajusta el ancho deseado */
-    height: 40px; /* Ajusta la altura deseada */
-  }
-
-  .formulario-container {
-    max-width: 550px; /* Ajusta el ancho máximo deseado */
-    margin: 0 auto; /* Centra horizontalmente el formulario */
-  }
-
   .hexagono{
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     width: 80px;
@@ -72,4 +46,38 @@ table {
   .tableContainer{
     display: flex;
     align-items: center;
+  }
+
+  .formulario-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 18px;
+  }
+
+  .formCenter{
+    margin: 0 auto;
+  }
+  
+  .form-row {
+    flex: 1;
+    display: flex;
+  }
+  
+  .form-group {
+    margin-right: 10px;
+  }
+  
+  .form-group:last-child {
+    margin-right: 0;
+  }
+  
+  .form-group label {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .btn-fixed-size {
+    width: 100px;
+    height: 40px;
   }
