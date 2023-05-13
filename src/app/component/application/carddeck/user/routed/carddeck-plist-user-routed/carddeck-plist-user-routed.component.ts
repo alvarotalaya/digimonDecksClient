@@ -68,6 +68,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     tamer: number = 0;
     option: number = 0;
     listCards: string = '';
+    totalCards: number = 0;
 
     columnChart1;
     columnChart2;
@@ -84,7 +85,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         ceil: 45,
         showTicks: false,
         hideLimitLabels: true,
-        hidePointerLabels: true
+        hidePointerLabels: true,
     };
 
     constructor(
@@ -260,6 +261,7 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         this.digitama = 0;
         this.tamer = 0;
         this.option = 0;
+        this.totalCards = 0;
         for (let i = 0; i <= this.responseFromServer.totalElements - 1; i++) {
             switch (this.responseFromServer.content[i].card.level) {
                 case 2: {
@@ -312,6 +314,15 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
                     break;
                 }
             }
+
+            this.totalCards =
+                this.level3 +
+                this.level4 +
+                this.level5 +
+                this.level6 +
+                this.level7 +
+                this.option +
+                this.tamer;
         }
     }
 

@@ -96,3 +96,26 @@ p{
     position: relative;
     top: 3.5vh;
 }
+
+.square {
+	width: 80px; /* Ajusta el ancho según tus necesidades */
+	height: 50px; /* Ajusta la altura según tus necesidades */
+	background-color: #0B0F19; /* Cambia el color de fondo a uno oscuro de tu elección */
+	color: #fff; /* Cambia el color del texto a uno claro para que sea legible */
+	text-align: center;
+	line-height: 50px; /* Ajusta la altura de línea según el tamaño del cuadro */
+	font-size: 14px; /* Ajusta el tamaño de la fuente según tus necesidades */
+	margin-bottom: 10px; /* Espacio entre los cuadros */
+	border: 1px solid #fff; /* Agrega un borde de 2px sólido de color blanco */
+	font-weight: bold;
+  }
+
+.red-background {
+	background-color: red; /* Cambia el color de fondo a rojo */
+}
+
+#center{
+	direction: flex;
+	align-items: center;
+  	justify-content: center;
+}

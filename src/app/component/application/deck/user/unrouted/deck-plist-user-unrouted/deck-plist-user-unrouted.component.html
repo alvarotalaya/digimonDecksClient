@@ -1,65 +1,135 @@
-<div class="container mt-3">
-  <div class="row">
-    <div class="col">
-      <h1 class="text-center mb-5">Decks's list</h1>  
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th (click)="setOrder('name')">Name
-              <fa-icon *ngIf="sortField=='name'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
-              <fa-icon *ngIf="sortField=='name'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
-            </th>
-            <th (click)="setOrder('description')">Description
-              <fa-icon *ngIf="sortField=='description'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
-              <fa-icon *ngIf="sortField=='description'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
-            </th>
-            <th (click)="setOrder('lastupdate')">Last Update
-              <fa-icon *ngIf="sortField=='lastupdate'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
-              <fa-icon *ngIf="sortField=='lastupdate'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
-            </th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let deck of responseFromServer.content">
-            <td>{{deck.name}}</td>
-            <td>{{deck.description}}</td>
-            <td>{{deck.lastupdate}}</td>
-            <td>
-              <div class="btn-group" role="group" aria-label="Herramientas">
-                <button class="btn btn-sm btn-primary" [routerLink]="['/user/carddeck/plist', deck.id]">
-                  <fa-icon [icon]="faEye"></fa-icon>
-                </button>
-                <button class="btn btn-sm btn-danger" (click)="openModalRemove(deck.id)">
-                  <fa-icon [icon]="faTrash"></fa-icon>
-                </button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<div>
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center mb-5">Decks's list</h1>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th (click)="setOrder('name')">
+                            Name
+                            <fa-icon
+                                *ngIf="
+                                    sortField == 'name' &&
+                                    sortDirection == 'asc'
+                                "
+                                [icon]="faArrowUp"
+                            ></fa-icon>
+                            <fa-icon
+                                *ngIf="
+                                    sortField == 'name' &&
+                                    sortDirection == 'desc'
+                                "
+                                [icon]="faArrowDown"
+                            ></fa-icon>
+                        </th>
+                        <th (click)="setOrder('description')">
+                            Description
+                            <fa-icon
+                                *ngIf="
+                                    sortField == 'description' &&
+                                    sortDirection == 'asc'
+                                "
+                                [icon]="faArrowUp"
+                            ></fa-icon>
+                            <fa-icon
+                                *ngIf="
+                                    sortField == 'description' &&
+                                    sortDirection == 'desc'
+                                "
+                                [icon]="faArrowDown"
+                            ></fa-icon>
+                        </th>
+                        <th (click)="setOrder('lastupdate')">
+                            Last Update
+                            <fa-icon
+                                *ngIf="
+                                    sortField == 'lastupdate' &&
+                                    sortDirection == 'asc'
+                                "
+                                [icon]="faArrowUp"
+                            ></fa-icon>
+                            <fa-icon
+                                *ngIf="
+                                    sortField == 'lastupdate' &&
+                                    sortDirection == 'desc'
+                                "
+                                [icon]="faArrowDown"
+                            ></fa-icon>
+                        </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let deck of responseFromServer.content">
+                        <td>{{ deck.name }}</td>
+                        <td>{{ deck.description }}</td>
+                        <td>{{ deck.lastupdate }}</td>
+                        <td>
+                            <div
+                                class="btn-group"
+                                role="group"
+                                aria-label="Herramientas"
+                            >
+                                <button
+                                    class="btn btn-sm btn-primary"
+                                    [routerLink]="[
+                                        '/user/carddeck/plist',
+                                        deck.id
+                                    ]"
+                                >
+                                    <fa-icon [icon]="faEye"></fa-icon>
+                                </button>
+                                <button
+                                    class="btn btn-sm btn-danger"
+                                    (click)="openModalRemove(deck.id)"
+                                >
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
 
-<div class="modal fade" id="removeDeck" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center">
-          <div class="col-md-5 control-group text-center">
-              <div class="alert alert-danger my-3" role="alert">
-                  <h3>Are you sure to remove this deck?</h3>
-                  <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center my-4">
-                      <a class="btn btn-danger mx-2" (click)="removeOne()">
-                          SI</a>
-                      <a class="btn btn-success mx-2" (click)="closeRemove()">
-                          NO </a>
-                  </div>
-              </div>
-          </div>
+<div
+    class="modal fade"
+    id="removeDeck"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div
+                    class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center"
+                >
+                    <div class="col-md-5 control-group text-center">
+                        <div class="alert alert-danger my-3" role="alert">
+                            <h3>Are you sure to remove this deck?</h3>
+                            <div
+                                class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center my-4"
+                            >
+                                <a
+                                    class="btn btn-danger mx-2"
+                                    (click)="removeOne()"
+                                >
+                                    SI</a
+                                >
+                                <a
+                                    class="btn btn-success mx-2"
+                                    (click)="closeRemove()"
+                                >
+                                    NO
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

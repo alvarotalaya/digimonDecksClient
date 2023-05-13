@@ -6,6 +6,14 @@
             </h1>
             <div class="chartContainer" *ngIf="edit != 0">
                 <!--<app-carddeck-stats-user-unrouted></app-carddeck-stats-user-unrouted>-->
+                <div class="row totals" id="center">
+                    <div [ngClass]="{'square': true, 'red-background': level2 > 5}">
+                        {{this.level2}} / 5
+                    </div>
+                    <div [ngClass]="{'square': true, 'red-background': totalCards > 50}">
+                        {{this.totalCards}} / 50
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col">
                         <div class="chart" [chart]="columnChart1"></div>

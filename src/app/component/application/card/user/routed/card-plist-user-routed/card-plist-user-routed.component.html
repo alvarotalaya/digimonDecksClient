@@ -43,12 +43,9 @@
                             >
                         </li>
                         <li>
-                            <a class="dropdown-item" (click)="setOrder('type')"
-                                >Type</a
-                            >
-                        </li>
-                        <li>
-                            <a class="dropdown-item" (click)="setOrder('color')"
+                            <a
+                                class="dropdown-item"
+                                (click)="setOrder('cardnumber,color')"
                                 >Color</a
                             >
                         </li>
@@ -113,14 +110,16 @@
                 </h5>
             </div>
             <div class="sliderDiv">
-                <i class="fa-sharp fa-solid fa-magnifying-glass-minus fa-lg"></i>
+                <i
+                    class="fa-sharp fa-solid fa-magnifying-glass-minus fa-lg"
+                ></i>
                 <ngx-slider [(value)]="value" [options]="options"></ngx-slider>
                 <i class="fa-sharp fa-solid fa-magnifying-glass-plus fa-lg"></i>
             </div>
             <div class="col-md">
                 <img
                     *ngFor="let card of responseFromServer.content"
-                    [ngStyle]="{ 'width.vh': value}"
+                    [ngStyle]="{ 'width.vh': value }"
                     src="{{ card.image }}"
                     alt="{{ card.name }}"
                     (click)="openModalCard(card.id)"
