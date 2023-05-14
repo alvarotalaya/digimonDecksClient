@@ -81,3 +81,11 @@ table {
     width: 100px;
     height: 40px;
   }
+
+  .borderNoneLeft{
+    border-left: none;
+  }
+
+  .borderNoneRight{
+    border-right: none;
+  }
