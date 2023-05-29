@@ -16,6 +16,7 @@ import { AjaxService } from './service/ajax.service.service';
 import { PaginationComponent } from './component/shared/unrouted/pagination/pagination.component';
 import { SearchUnroutedComponent } from './component/shared/unrouted/search-unrouted/search-unrouted.component';
 import { DropdownRegisterPageComponent } from './component/shared/unrouted/dropdown-register-page/dropdown-register-page.component';
+import { DropdownRegisterPageCardsComponent } from './component/shared/unrouted/dropdown-register-page-cards/dropdown-register-page-cards.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PaginationUnroutedComponent } from './component/shared/unrouted/pagination-unrouted/pagination-unrouted.component';
 import { PaginationService } from './service/pagination.service';
@@ -72,6 +73,7 @@ import { DeckNewUserUnroutedComponent } from './component/application/deck/user/
     PaginationComponent,
     SearchUnroutedComponent,
     DropdownRegisterPageComponent,
+    DropdownRegisterPageCardsComponent,
     PaginationUnroutedComponent,
     PopupComponent,
     GenerateComponent,

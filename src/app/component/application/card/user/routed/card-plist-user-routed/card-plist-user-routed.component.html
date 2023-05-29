@@ -90,12 +90,12 @@
                     [placeHolder]="'Card Search'"
                     (onSearch)="setFilter($event)"
                 ></app-search-unrouted>
-                <app-dropdown-register-page
+                <app-dropdown-register-page-cards
                     class="mx-2"
                     [PageSize]="responseFromServer.numberOfElements"
                     (eeRpp)="this.setRpp($event)"
                 >
-                </app-dropdown-register-page>
+                </app-dropdown-register-page-cards>
             </div>
             <div class="col-md">
                 <app-pagination-unrouted

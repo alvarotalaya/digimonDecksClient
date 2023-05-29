@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-dropdown-register-page',
-  templateUrl: './dropdown-register-page.component.html',
-  styleUrls: ['./dropdown-register-page.component.css']
+  selector: 'app-dropdown-register-page-cards',
+  templateUrl: './dropdown-register-page-cards.component.html',
+  styleUrls: ['./dropdown-register-page-cards.component.css']
 })
-export class DropdownRegisterPageComponent implements OnInit {
+export class DropdownRegisterPageCardsComponent implements OnInit {
 
   @Input() PageSize!: number;
 
-  Rpp:number = 5
+  Rpp:number = 20
   @Output() eeRpp = new EventEmitter<number>();
   constructor() { }
 
