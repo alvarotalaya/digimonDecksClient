@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">usertype's list</h1>      
+      <h1 class="text-center mb-5">usertype list</h1>      
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
         <app-search-unrouted [placeHolder]="'usertype Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
@@ -13,7 +13,7 @@
           (eePage)="setPage($event)"></app-pagination-unrouted>
       </div>
       <div class="col-md text-end">
-        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+        <h5 class="text-muted">Total records in the query {{responseFromServer.totalElements}}</h5>
       </div>
       <table class="table table-bordered table-hover">
         <thead>
@@ -26,7 +26,7 @@
               <fa-icon *ngIf="sortField=='type'&&sortDirection=='asc'" [icon]="faArrowUp"></fa-icon>
               <fa-icon *ngIf="sortField=='type'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
-            <th>Acciones</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

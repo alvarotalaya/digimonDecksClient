@@ -109,7 +109,7 @@ export class MetadataService {
       case strIcon == "selection": return "fas fa-bullseye";
       //ptes
       case strIcon == "tools": return "fas fa-tools";
-      case strIcon == "acciones": return "fas fa-tools";
+      case strIcon == "Actions": return "fas fa-tools";
       case strIcon == "porcentaje": return "fas fa-percent"; //percent
       case strIcon == "activado": return "fas fa-flag-checkered";
       //
@@ -158,7 +158,7 @@ export class MetadataService {
       case str == "save cart item": return "Guardar la línea de carrito";
       case str == "item cart filter": return "Filtro de línea de carrito";
       case str == "cart items": return "líneas de carrito";
-      case str == "actions": return "Acciones";
+      case str == "actions": return "Actions";
       case str == "products in cart": return "Productos en el carrito";
       case str == "total in cart": return "Total en el carrito";
       case str == "vat included": return "IVA incluido";
@@ -286,7 +286,7 @@ export class MetadataService {
       case str == "discount": return "Descuento";
       case str == "product type": return "Tipo de producto";
       case str == "stock": return "Existencias";
-      case str == "actions": return "Acciones";
+      case str == "actions": return "Actions";
 
       case str == "": return "";
 
@@ -463,7 +463,7 @@ export class MetadataService {
       // sistema      
       case str == "id": return "ID";
       case str == "action": return "Acción";
-      case str == "actions": return "Acciones";
+      case str == "actions": return "Actions";
       case str == "order": return "Orden";
       case str == "ascending": return "Ascendente";
       case str == "descending": return "Descendente";
@@ -471,7 +471,7 @@ export class MetadataService {
       case str == "profile": return "Perfil";
       case str == "userprofile": return "Detalles del usuario en sesión";
       case str == "random": return "Generación aleatoria de registros";
-      case str == "actions": return "Acciones";
+      case str == "actions": return "Actions";
       case str == "return": return "Volver";
       case str == "home": return "Ir a la página principal";
       case str == "github": return "Github";

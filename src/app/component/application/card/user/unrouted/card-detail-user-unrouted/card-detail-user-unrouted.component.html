@@ -54,16 +54,17 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td colspan="2">
+                            <td class="borderNoneRight">
                                 <div class="tableContainer">
                                     <div class="hexagono">Type</div>
 
                                     {{ oCard.type }}
                                 </div>
                             </td>
+                            <td class="borderNoneLeft"></td>
                         </tr>
                         <tr>
-                            <td *ngIf="oCard.playcost != null">
+                            <td *ngIf="oCard.playcost != null" [attr.colspan]="oCard.dp != null ? 1 : 2">
                                 <div class="tableContainer">
                                     <div class="hexagono">Play Cost</div>
 
@@ -98,7 +99,7 @@
                                     {{ oCard.level }}
                                 </div>
                             </td>
-                            <td>
+                            <td [attr.colspan]="oCard.level != null ? 1 : 2">
                                 <div class="tableContainer">
                                     <div class="hexagono">Name</div>
 
@@ -107,7 +108,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td *ngIf="oCard?.attribute != null">
+                            <td *ngIf="oCard?.attribute != null" >
                                 <div class="tableContainer">
                                     <div class="hexagono">Attribute</div>
 

@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ICarddeck, ICarddeck2Send } from 'src/app/model/carddeck-interface';
 import { SessionService } from 'src/app/service/session.service';
 import { CarddeckService } from 'src/app/service/carddeck.service';
-import { StatsService } from 'src/app/service/stats.service';
 import {
     faEye,
     faUserPen,
@@ -79,10 +78,10 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     listSecurity: string[] = [];
     numberRandom: number;
 
-    value: number = 30;
+    value: number = 31;
     options: Options = {
-        floor: 15,
-        ceil: 45,
+        floor: 16,
+        ceil: 46,
         showTicks: false,
         hideLimitLabels: true,
         hidePointerLabels: true,
@@ -93,7 +92,6 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
         private oCarddeckService: CarddeckService,
         private oRouter: Router,
         private oSessionService: SessionService,
-        private oStatsService: StatsService
     ) {
         this.id = oActivatedRoute.snapshot.params['id'];
         this.id_deckFilter = this.id;

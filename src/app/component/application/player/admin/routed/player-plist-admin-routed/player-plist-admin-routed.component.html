@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Player's list</h1>  
+      <h1 class="text-center mb-5">Player list</h1>  
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
-        <a [routerLink]="['/admin/player/new']" class="btn btn-primary mx-3">Alta de player</a>
+        <a [routerLink]="['/admin/player/new']" class="btn btn-primary mx-3">New player</a>
         <app-search-unrouted [placeHolder]="'Player Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
           (eeRpp)="this.setRpp($event)">
@@ -19,7 +19,7 @@
           <i class="bi bi-x-circle"></i> Reset usertype {{id_usertypeFilter}} filter</button>
       </div>
       <div class="col-md text-end">
-        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+        <h5 class="text-muted">Total records in the query {{responseFromServer.totalElements}}</h5>
       </div>
       <table class="table table-bordered table-hover">
         <thead>
@@ -41,7 +41,7 @@
               <fa-icon *ngIf="sortField=='usertype'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
             <th>Decks</th>
-            <th>Acciones</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

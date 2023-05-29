@@ -1,13 +1,13 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Card's list</h1>  
+      <h1 class="text-center mb-5">Card list</h1>  
       <div class="col-md">
         <app-pagination-unrouted [nPage]="responseFromServer.number + 1" [nTotalPages]="responseFromServer.totalPages"
           (eePage)="setPage($event)"></app-pagination-unrouted>
       </div>
       <div class="col-md text-end">
-        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+        <h5 class="text-muted">Total records in the query {{responseFromServer.totalElements}}</h5>
       </div>
       <table class="table table-bordered table-hover">
         <thead>

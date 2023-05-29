@@ -1,9 +1,9 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Card's list</h1> 
+      <h1 class="text-center mb-5">Card list</h1> 
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3 ">
-        <a [routerLink]="['/admin/card/new']" class="btn btn-primary mx-3">Alta de card</a>
+        <a [routerLink]="['/admin/card/new']" class="btn btn-primary mx-3">New card</a>
         <app-search-unrouted [placeHolder]="'card Search'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="responseFromServer.numberOfElements"
           (eeRpp)="this.setRpp($event)">
@@ -14,7 +14,7 @@
           (eePage)="setPage($event)"></app-pagination-unrouted>
       </div>
       <div class="col-md text-end">
-        <h5 class="text-muted">Total de registros en la consulta {{responseFromServer.totalElements}}</h5>
+        <h5 class="text-muted">Total records in the query {{responseFromServer.totalElements}}</h5>
       </div>
       <table class="table table-bordered table-hover">
         <thead>
@@ -68,7 +68,7 @@
               <fa-icon *ngIf="sortField=='cardnumber'&&sortDirection=='desc'" [icon]="faArrowDown"></fa-icon>
             </th>
             <th>Carddecks</th>
-            <th>Acciones</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>

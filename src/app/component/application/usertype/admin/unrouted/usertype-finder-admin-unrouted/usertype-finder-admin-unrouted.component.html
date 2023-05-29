@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col">
-      <h1 class="text-center mb-5">Usertype's list</h1>
+      <h1 class="text-center mb-5">Usertype list</h1>
       <div class="col-md text-end d-flex justify-content-center align-items-center mb-3">
         <app-search-unrouted [placeHolder]="'Buscar usertype'" (onSearch)="setFilter( $event )"></app-search-unrouted>
         <app-dropdown-register-page class="mx-2" [PageSize]="this.getPageRegister()" (eeRpp)="this.setRpp($event)">
