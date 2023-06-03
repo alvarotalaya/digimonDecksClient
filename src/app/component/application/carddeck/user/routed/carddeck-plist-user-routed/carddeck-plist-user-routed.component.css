@@ -117,3 +117,17 @@ p{
 	align-items: center;
   	justify-content: center;
 }
+
+button{
+	background-color: #002b5e;
+	color: white;
+}
+
+button:hover{
+	background-color: lightblue;
+	color: black;
+}
+
+.white-color{
+	background-color: white;
+}

@@ -89,3 +89,13 @@ table {
   .borderNoneRight{
     border-right: none;
   }
+
+  button{
+    background-color: #002b5e;
+    color: white;
+  }
+  
+  button:hover{
+    background-color: lightblue;
+    color: black;
+  }

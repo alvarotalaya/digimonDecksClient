@@ -14,7 +14,7 @@
                 </tbody>
             </table>
 
-            <button class="btn btn-primary" (click)="changeEdit()">
+            <button class="btn" (click)="changeEdit()">
                 Edit User
             </button>
         </div>
@@ -96,7 +96,7 @@
 
                 <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="btn"
                     [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)"
                 >
                     Guardar

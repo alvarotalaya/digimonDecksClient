@@ -1,6 +1,6 @@
 <div *ngIf="buttonNew == 0">
     <div class="d-flex">
-        <button class="btn btn-primary" (click)="buttonShow()">
+        <button class="btn" (click)="buttonShow()">
             Create a deck
         </button>
     </div>
@@ -89,7 +89,7 @@
 
                 <button
                     type="submit"
-                    class="btn btn-primary"
+                    class="btn"
                     [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)"
                 >
                     Guardar
