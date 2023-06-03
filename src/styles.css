@@ -7,5 +7,5 @@ body{
     background: linear-gradient(to bottom, #090C14, #111827 15%) !important;
     min-height: 100vh;
     color: white !important;
-    font-family: "Dejavu Sans" !important;
+    font-family:'Roboto', sans-serif !important;
 }
