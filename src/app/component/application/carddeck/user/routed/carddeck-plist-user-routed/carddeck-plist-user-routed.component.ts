@@ -78,10 +78,10 @@ export class CarddeckPlistUserRoutedComponent implements OnInit {
     listSecurity: string[] = [];
     numberRandom: number;
 
-    value: number = 31;
+    value: number = 32;
     options: Options = {
-        floor: 16,
-        ceil: 46,
+        floor: 17,
+        ceil: 47,
         showTicks: false,
         hideLimitLabels: true,
         hidePointerLabels: true,
