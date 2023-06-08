@@ -38,10 +38,10 @@ export class CardPlistUserRoutedComponent implements OnInit {
   strResult: string;
   strUsertype: string = "";
 
-  value: number = 32;
+  value: number = 31;
     options: Options = {
-        floor: 17,
-        ceil: 47,
+        floor: 16,
+        ceil: 46,
         showTicks: false,
         hideLimitLabels: true,
         hidePointerLabels: true

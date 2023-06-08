@@ -64,9 +64,13 @@ p{
 	border: 1px solid white;
 }
 
-.modal-content{
+.modal-carddeck{
     background-color: #111827;
 	font-size: 4vh;
+}
+
+.modal-content{
+	background-color: #111827;
 }
 
 .rollImg{
