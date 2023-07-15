@@ -113,5 +113,10 @@ export class CardEditAdminRoutedComponent implements OnInit {
     this.myModal.show()
   }
 
+  nextCard(){
+    this.id++
+    this.getOne();
+  }
+
 }
 

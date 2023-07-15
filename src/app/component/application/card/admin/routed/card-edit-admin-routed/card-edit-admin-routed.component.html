@@ -2,7 +2,14 @@
   <div class="row">
     <div class="col">
       <h1 class="text-center mb-5">Card edit</h1>
+      
+      <div class="divButton">
+        <button class="btn btn-primary"  (click)="nextCard()">Next card</button>
+      </div>
 
+      <div class="divFoto">
+        <img src={{oCard.image}} alt="">
+      </div>
       <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
 
         <div class="mb-3 row">
@@ -332,7 +339,6 @@
           [disabled]="!oForm.dirty || (oForm.invalid && oForm.dirty)">Guardar</button>
 
       </form>
-
     </div>
   </div>
 </div>

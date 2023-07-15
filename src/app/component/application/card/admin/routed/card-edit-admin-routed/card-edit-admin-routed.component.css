@@ -2,3 +2,11 @@
     background-color: #111827;
 }
 
+.divFoto{
+    float: left
+}
+
+.divButton{
+    float: right;
+    
+}
