@@ -108,7 +108,7 @@ export class CardEditAdminRoutedComponent implements OnInit {
     })
     var myModalEl = document.getElementById(this.mimodal);
     myModalEl.addEventListener('hidden.bs.modal', (event): void => {
-      this.oRouter.navigate(['/admin/card/view', data])
+      //this.oRouter.navigate(['/admin/card/view', data])
     })
     this.myModal.show()
   }
